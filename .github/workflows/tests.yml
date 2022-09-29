@@ -1,0 +1,20 @@
+name: Tests
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Test
+    steps:
+    - name: Checkout src
+      uses: actions/checkout@v3
+    - name: Build
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+        cache: 'yarn'
+    - run: yarn ci_install
+    - run: yarn eslint .
+    - run: yarn tsc
+    - run: yarn test 

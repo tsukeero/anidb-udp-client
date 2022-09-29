@@ -1,4 +1,4 @@
-# anidb-udp-client &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/tsukeero/anidb-udp-client/blob/main/LICENSE)
+# anidb-udp-client &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/tsukeero/anidb-udp-client/blob/main/LICENSE) [![Tests](https://github.com/tsukeero/anidb-udp-client/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/tsukeero/anidb-udp-client/actions/workflows/tests.yml)
 
 `anidb-udp-client` is a library for Node.js that facilitates the use of [Anidb's](https://anidb.net/) [UDP API](https://wiki.anidb.net/UDP_API_Definition). It handles the UDP connection, encoding/decoding requests and responses, rate limiting and caching (can be disabled) and provides typescript type definitions for all methods.
 If you plan to use the library for your project I strongly suggest to add your project to: https://anidb.net/software/add and use  your own name for `clientid`
