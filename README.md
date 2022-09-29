@@ -4,7 +4,7 @@
 If you plan to use the library for your project I strongly suggest to add your project to: https://anidb.net/software/add and use  your own name for `clientid`
 
 ## Docs
-...
+https://tsukeero.github.io/anidb-udp-client/
 
 ## Installation
 
