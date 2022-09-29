@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parseData 1`] = `
+{
+  "boolean_field": true,
+  "custom_field": {
+    "my_value": "test",
+  },
+  "number_field": 123,
+  "string_field": "test",
+}
+`;

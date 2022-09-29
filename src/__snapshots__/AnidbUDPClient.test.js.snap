@@ -1,0 +1,806 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`anime 1`] = `
+{
+  "aid": 20,
+  "air_date": 1017705600,
+  "ann_id": 888,
+  "is_18_restricted": false,
+  "kanji_name": "東京アンダーグラウンド",
+  "rating": 431,
+  "romanji_name": "Tokyo Underground",
+  "specials_count": 0,
+  "type": "TV Series",
+  "url": "http://pierrot.jp/title/tug/",
+}
+`;
+
+exports[`animeDesc 1`] = `"By 2307 AD, fossil fuels had already long become virtually exhausted. Humankind spent several decades on wars around the little that remained of such fuels and on constructing a large-scale system to draw in solar power from orbit, with an orbital ring, power microwaving technology, and three orbital elevators. In order to construct such a gigantic, resource-intensive system, however, most relevant countries had consolidated into three major power blocks: the [url=http://anidb.net/ch8593]World Economic Union[/url], centered around the United States of America; the [url=http://anidb.net/ch8594]Advanced European Union[/url], centered around the European Union; and the [url=http://anidb.net/ch8592]Human Reform League[/url], centered around Russia, India and China. As only these power blocs and their allies had participated in the construction of the solar power system, only they were entitled to its benefits; with fossil fuels nearing extinction, countries with economies based on them, such as those from the Middle East, became progressively poorer.<br /><br />Meanwhile, these three superpowers continued to intervene militarily where they see fit, terrorism was still rampant, and peace was a faraway dream for many people. Even in the 24th century, humankind was far from unified. And even though humans insisted in not learning about the horrors of war and did not make a point of pursuing peace, they still intended to venture away from the Earth, with colonies having been built and nanomachines already allowing for decent life conditions even during prolonged periods in space.<br /><br />In this still disgracefully conflict-ridden world, a private paramilitary organization unveils its existence, announcing its intention to bring forth the eradication of war and conflict through force of arms. This organization, called [url=http://anidb.net/ch2214]Celestial Being[/url], possesses its own mobile suits, the [i]Gundams[/i], which are much more powerful than those in the hands of any military in the world, and proceeds to using them to intervene in conflicts in order to stop them by force. Their actions quickly divide public opinion, and governments and other groups begin to act by taking their existence into consideration, but will they manage to bring peace to the world? Beyond the question of how the world will reply immediately, what is going to happen in the future as a result of their actions?<br /><br />[i]— written by Hinoe[/i]"`;
+
+exports[`calendar 1`] = `
+[
+  {
+    "aid": 12276,
+    "dateflags": [],
+    "startdate": 1500076800,
+  },
+  {
+    "aid": 12646,
+    "dateflags": [],
+    "startdate": 1500076800,
+  },
+  {
+    "aid": 12889,
+    "dateflags": [],
+    "startdate": 1500076800,
+  },
+  {
+    "aid": 13277,
+    "dateflags": [],
+    "startdate": 1500249600,
+  },
+  {
+    "aid": 13227,
+    "dateflags": [],
+    "startdate": 1500249600,
+  },
+  {
+    "aid": 12618,
+    "dateflags": [],
+    "startdate": 1500595200,
+  },
+  {
+    "aid": 12899,
+    "dateflags": [],
+    "startdate": 1500681600,
+  },
+  {
+    "aid": 11745,
+    "dateflags": [],
+    "startdate": 1500681600,
+  },
+  {
+    "aid": 13289,
+    "dateflags": [],
+    "startdate": 1500854400,
+  },
+  {
+    "aid": 13146,
+    "dateflags": [],
+    "startdate": 1501200000,
+  },
+  {
+    "aid": 13155,
+    "dateflags": [],
+    "startdate": 1501372800,
+  },
+  {
+    "aid": 13326,
+    "dateflags": [],
+    "startdate": 1501372800,
+  },
+  {
+    "aid": 13145,
+    "dateflags": [],
+    "startdate": 1501459200,
+  },
+  {
+    "aid": 13005,
+    "dateflags": [],
+    "startdate": 1501718400,
+  },
+  {
+    "aid": 13243,
+    "dateflags": [],
+    "startdate": 1501804800,
+  },
+  {
+    "aid": 13167,
+    "dateflags": [],
+    "startdate": 1501804800,
+  },
+  {
+    "aid": 12442,
+    "dateflags": [],
+    "startdate": 1501804800,
+  },
+  {
+    "aid": 13327,
+    "dateflags": [],
+    "startdate": 1502323200,
+  },
+  {
+    "aid": 13377,
+    "dateflags": [],
+    "startdate": 1502496000,
+  },
+  {
+    "aid": 12605,
+    "dateflags": [],
+    "startdate": 1503014400,
+  },
+  {
+    "aid": 12658,
+    "dateflags": [],
+    "startdate": 1503446400,
+  },
+  {
+    "aid": 13379,
+    "dateflags": [],
+    "startdate": 1503619200,
+  },
+  {
+    "aid": 13162,
+    "dateflags": [],
+    "startdate": 1503619200,
+  },
+  {
+    "aid": 12727,
+    "dateflags": [],
+    "startdate": 1503619200,
+  },
+  {
+    "aid": 12093,
+    "dateflags": [],
+    "startdate": 1503619200,
+  },
+  {
+    "aid": 13157,
+    "dateflags": [],
+    "startdate": 1503619200,
+  },
+  {
+    "aid": 12728,
+    "dateflags": [],
+    "startdate": 1503619200,
+  },
+  {
+    "aid": 13170,
+    "dateflags": [],
+    "startdate": 1503619200,
+  },
+  {
+    "aid": 12420,
+    "dateflags": [],
+    "startdate": 1503705600,
+  },
+  {
+    "aid": 12993,
+    "dateflags": [],
+    "startdate": 1503705600,
+  },
+  {
+    "aid": 13378,
+    "dateflags": [],
+    "startdate": 1504224000,
+  },
+  {
+    "aid": 13391,
+    "dateflags": [],
+    "startdate": 1504483200,
+  },
+  {
+    "aid": 13393,
+    "dateflags": [],
+    "startdate": 1504569600,
+  },
+  {
+    "aid": 12683,
+    "dateflags": [],
+    "startdate": 1504828800,
+  },
+  {
+    "aid": 13357,
+    "dateflags": [],
+    "startdate": 1504828800,
+  },
+  {
+    "aid": 13060,
+    "dateflags": [],
+    "startdate": 1505260800,
+  },
+  {
+    "aid": 12982,
+    "dateflags": [],
+    "startdate": 1505433600,
+  },
+  {
+    "aid": 13279,
+    "dateflags": [],
+    "startdate": 1506038400,
+  },
+  {
+    "aid": 13251,
+    "dateflags": [],
+    "startdate": 1506643200,
+  },
+  {
+    "aid": 12962,
+    "dateflags": [],
+    "startdate": 1506729600,
+  },
+  {
+    "aid": 12956,
+    "dateflags": [],
+    "startdate": 1506988800,
+  },
+  {
+    "aid": 13274,
+    "dateflags": [],
+    "startdate": 1506988800,
+  },
+  {
+    "aid": 12578,
+    "dateflags": [],
+    "startdate": 1507075200,
+  },
+  {
+    "aid": 13154,
+    "dateflags": [],
+    "startdate": 1507075200,
+  },
+  {
+    "aid": 12988,
+    "dateflags": [
+      "end_unkown_month",
+    ],
+    "startdate": 1505520000,
+  },
+  {
+    "aid": 9788,
+    "dateflags": [
+      "ended",
+    ],
+    "startdate": 1500681600,
+  },
+  {
+    "aid": 13317,
+    "dateflags": [
+      "ended",
+    ],
+    "startdate": 1500854400,
+  },
+  {
+    "aid": 13332,
+    "dateflags": [
+      "ended",
+    ],
+    "startdate": 1501804800,
+  },
+  {
+    "aid": 13242,
+    "dateflags": [
+      "ended",
+    ],
+    "startdate": 1501804800,
+  },
+  {
+    "aid": 13033,
+    "dateflags": [
+      "ended",
+    ],
+    "startdate": 1502496000,
+  },
+]
+`;
+
+exports[`character 1`] = `
+{
+  "anime_blocks": [
+    {
+      "aid": 4097,
+      "appearance": 2,
+      "creatorid": 1900,
+      "is_main_seiyuu": true,
+    },
+    {
+      "aid": 69,
+      "appearance": 2,
+      "creatorid": 1900,
+      "is_main_seiyuu": true,
+    },
+    {
+      "aid": 11529,
+      "appearance": 2,
+      "creatorid": 1900,
+      "is_main_seiyuu": true,
+    },
+    {
+      "aid": 8010,
+      "appearance": 3,
+      "creatorid": 1900,
+      "is_main_seiyuu": true,
+    },
+    {
+      "aid": 1254,
+      "appearance": 3,
+      "creatorid": 1900,
+      "is_main_seiyuu": true,
+    },
+    {
+      "aid": 6537,
+      "appearance": 2,
+      "creatorid": 1900,
+      "is_main_seiyuu": true,
+    },
+    {
+      "aid": 2036,
+      "appearance": 3,
+      "creatorid": 1900,
+      "is_main_seiyuu": true,
+    },
+    {
+      "aid": 2644,
+      "appearance": 3,
+      "creatorid": 1900,
+      "is_main_seiyuu": true,
+    },
+    {
+      "aid": 6199,
+      "appearance": 3,
+      "creatorid": 1900,
+      "is_main_seiyuu": true,
+    },
+    {
+      "aid": 8940,
+      "appearance": 2,
+      "creatorid": 1900,
+      "is_main_seiyuu": true,
+    },
+    {
+      "aid": 8142,
+      "appearance": 1,
+      "creatorid": 1900,
+      "is_main_seiyuu": true,
+    },
+    {
+      "aid": 7251,
+      "appearance": 1,
+      "creatorid": 0,
+      "is_main_seiyuu": false,
+    },
+    {
+      "aid": 5691,
+      "appearance": 3,
+      "creatorid": 1900,
+      "is_main_seiyuu": true,
+    },
+    {
+      "aid": 4851,
+      "appearance": 3,
+      "creatorid": 1900,
+      "is_main_seiyuu": true,
+    },
+    {
+      "aid": 7538,
+      "appearance": 1,
+      "creatorid": 0,
+      "is_main_seiyuu": false,
+    },
+  ],
+  "character_name_kanji": "ニコ・ロビン",
+  "character_name_transc": "Nico Robin",
+  "charid": 488,
+  "episode_list": [],
+  "gender": "F",
+  "last_update_date": "1326978649",
+  "pic": "80187.jpg",
+  "type": 1,
+}
+`;
+
+exports[`creator 1`] = `
+{
+  "creator_name_kanji": "GAINAX",
+  "creator_name_transcription": "Gainax",
+  "creatorid": 718,
+  "last_update_date": 1485464792,
+  "pic_name": "10092.png",
+  "type": "company",
+  "url_english": "",
+  "url_japanese": "http://www.gainax.co.jp/",
+  "wiki_url_english": "Gainax",
+  "wiki_url_japanese": "Gainax",
+}
+`;
+
+exports[`episode 1`] = `
+{
+  "aid": 1,
+  "aired": 1295059229,
+  "eid": 2,
+  "eng": "Kin of the Stars",
+  "epno": "02",
+  "kanji": "??????",
+  "length": 24,
+  "rating": 750,
+  "romaji": "Hoshi-tachi no Kenzoku",
+  "type": "S",
+  "votes": 2,
+}
+`;
+
+exports[`episode_by_anime 1`] = `
+{
+  "aid": 20,
+  "aired": 1017705600,
+  "eid": 77,
+  "eng": "Surface - The Fateful Encounter",
+  "epno": "01",
+  "kanji": "地上 運命の出逢い",
+  "length": 25,
+  "rating": 753,
+  "romaji": "Chijou - Unmei no Deai",
+  "type": "",
+  "votes": 7,
+}
+`;
+
+exports[`file 1`] = `
+{
+  "audio_bitrates": "104",
+  "audio_codecs": "Vorbis (Ogg Vorbis)",
+  "category_list": [
+    "Contemporary Fantasy",
+    "Game",
+    "Fantasy World",
+    "Parallel Universe",
+    "Super Power",
+    "Present",
+    "Plot Continuity",
+    "Mahou Shoujo",
+    "Fantasy",
+    "Magic",
+    "Seinen",
+    "Sci-Fi",
+    "Human Enhancement",
+    "Action",
+    "Erotic Game",
+    "Cyborgs",
+    "Military",
+    "Shipboard",
+    "Other Planet",
+    "Humanoid Alien",
+    "Mecha",
+    "Calling Your Attacks",
+    "Dragon",
+    "Henshin",
+    "Shower Scene",
+    "Inline Skating",
+    "Magic Circles",
+    "Nudity",
+    "Juujin",
+  ],
+  "fid": "312498",
+  "mylist_filestate": 0,
+  "mylist_state": 0,
+  "mylist_viewdate": 0,
+  "mylist_viewed": 0,
+  "other_episodes": "",
+  "related_aid_list": [
+    10795,
+    3440,
+  ],
+  "related_aid_type": [
+    1,
+    2,
+  ],
+  "short_name_list": [
+    "mglnss",
+    "NanohaSS",
+    "StrikerS",
+    "nanoha3",
+    "nanoha strikers",
+    "mslnss",
+    "mslns",
+  ],
+  "state": "1",
+  "synonym_list": [
+    "Magical Girl Lyrical Nanoha StrikerS",
+    "Garota Mágica Lírica Nanoha StrikerS",
+    "魔法少女奈叶SS",
+  ],
+  "type": "TV Series",
+  "video_color_depth": "",
+}
+`;
+
+exports[`file_by_episode 1`] = `
+{
+  "audio_bitrates": "82'81",
+  "audio_codecs": "AAC'AAC",
+  "category_list": [
+    "Earth",
+    "Asia",
+    "Present",
+    "Alternative Present",
+    "New",
+    "Mecha",
+    "Plot Continuity",
+    "Military",
+    "Action",
+    "Japan",
+    "Twisted",
+    "Sci-Fi",
+    "Tokyo",
+    "Piloted Robot",
+    "Stereotypes",
+    "War",
+    "Super Power",
+    "Violence",
+    "Terrorist",
+    "Drugs",
+    "Romance",
+    "Tragedy",
+    "School Life",
+    "High School",
+    "Thriller",
+    "General Lack of Common Sense",
+    "Politics",
+    "Dark-skinned Girl",
+    "Racism",
+    "Chess",
+    "School Dormitory",
+    "Student Council",
+    "Revenge",
+    "Human Enhancement",
+    "Slapstick",
+    "Kyoto",
+    "Comedy",
+    "Shower Scene",
+    "Clubs",
+    "School Festival",
+    "Shoujo Ai",
+    "Nudity",
+    "Cyborgs",
+    "Bishounen",
+    "Maid",
+  ],
+  "fid": "539446",
+  "mylist_filestate": 0,
+  "mylist_state": 0,
+  "mylist_viewdate": 0,
+  "mylist_viewed": 0,
+  "other_episodes": "",
+  "related_aid_list": [
+    5373,
+    8914,
+    7508,
+    7126,
+    12567,
+  ],
+  "related_aid_type": [
+    1,
+    21,
+    51,
+    61,
+    61,
+  ],
+  "short_name_list": [
+    "cg1",
+    "geass",
+    "CodeGeass",
+    "geass1",
+    "cghnl",
+    "cg r1",
+  ],
+  "state": "1",
+  "synonym_list": [
+    "Code Geass ~ Lelouch de la rébellion",
+    "Code Geass: Lelouch de la Rebelión",
+    "Код Гиасс: Восстание Лелуша",
+    "Код Гиас: Восставший Лелуш",
+    "Código Geass R1",
+    "Code Geass: Lelouch da Rebelião",
+    "Código Geass: Lelouch da Rebelião",
+    "Code Geass: Lelouch de la Rebel·lió",
+    "קוד ג\`יאס",
+    "Kodas Geass: Leloušio sukilimas",
+    "Code Geass: Lelouch\`un Başkaldırısı",
+    "Code Geass: Cuộc khởi nghĩa của Lelouch",
+    "Код Геас: Бунтът на Люлюш",
+    "Code Geass 1",
+    "code geass",
+    "Code Geass R1",
+    "Код Ґіас: Повстання Лелуша (R1)",
+    "叛逆的鲁鲁修",
+  ],
+  "type": "TV Series",
+  "video_color_depth": "",
+}
+`;
+
+exports[`file_by_hash 1`] = `
+{
+  "audio_bitrates": "83",
+  "audio_codecs": "AAC",
+  "category_list": [
+    "Alternative Present",
+    "Present",
+    "Mecha",
+    "Action",
+    "Seinen",
+    "Bishounen",
+    "Sci-Fi",
+    "Adventure",
+    "Angst",
+  ],
+  "fid": "1831304",
+  "mylist_filestate": 0,
+  "mylist_state": 0,
+  "mylist_viewdate": 0,
+  "mylist_viewed": 0,
+  "other_episodes": "",
+  "related_aid_list": [
+    4521,
+  ],
+  "related_aid_type": [
+    52,
+  ],
+  "short_name_list": [],
+  "state": "1",
+  "synonym_list": [
+    "Code Geass: Akito of the Ruined Nation",
+    "Code Geass: Akito the Exiled",
+    "Code Geass Gaiden",
+    "Код Ґіасс: Акіто з країни-руїни",
+    "Код Ґіасс: Вигнанець Акіто",
+  ],
+  "type": "Movie",
+  "video_color_depth": "",
+}
+`;
+
+exports[`group 1`] = `
+{
+  "acount": 52,
+  "dateflags": [
+    "start_unknown_day",
+  ],
+  "disbandeddate": 0,
+  "fcount": 831,
+  "foundeddate": 1228089600,
+  "gid": 7091,
+  "grouprelations": [
+    {
+      "othergroupid": 7255,
+      "relationtype": "participant_in",
+    },
+    {
+      "othergroupid": 3097,
+      "relationtype": "merged_from",
+    },
+    {
+      "othergroupid": 748,
+      "relationtype": "merged_from",
+    },
+    {
+      "othergroupid": 8106,
+      "relationtype": "participant_in",
+    },
+    {
+      "othergroupid": 8159,
+      "relationtype": "parent_of",
+    },
+    {
+      "othergroupid": 8402,
+      "relationtype": "participant_in",
+    },
+    {
+      "othergroupid": 8696,
+      "relationtype": "participant_in",
+    },
+    {
+      "othergroupid": 5200,
+      "relationtype": "parent_of",
+    },
+    {
+      "othergroupid": 9022,
+      "relationtype": "participant_in",
+    },
+    {
+      "othergroupid": 10438,
+      "relationtype": "participant_in",
+    },
+    {
+      "othergroupid": 5590,
+      "relationtype": "formerly",
+    },
+  ],
+  "irc_channel": "#frostii",
+  "irc_server": "irc.rizon.net",
+  "lastactivitydate": 1498505949,
+  "lastreleasedate": 1498435200,
+  "name": "Frostii",
+  "picname": "15844.jpg",
+  "rating": 823,
+  "short": "Frostii",
+  "url": "http://frostii.net",
+  "votes": 1519,
+}
+`;
+
+exports[`groupstatus 1`] = `
+[
+  {
+    "completition_state": "complete",
+    "episode_range": "1-26",
+    "gid": 11111,
+    "group_name": "Hi10 Anime",
+    "last_episode_number": 26,
+    "rating": 0,
+    "votes": 0,
+  },
+  {
+    "completition_state": "complete",
+    "episode_range": "1-26",
+    "gid": 13044,
+    "group_name": "10bit-Anime",
+    "last_episode_number": 26,
+    "rating": 0,
+    "votes": 0,
+  },
+  {
+    "completition_state": "complete",
+    "episode_range": "1-26",
+    "gid": 240,
+    "group_name": "Anime-MX",
+    "last_episode_number": 26,
+    "rating": 813,
+    "votes": 4,
+  },
+  {
+    "completition_state": "complete",
+    "episode_range": "1-26",
+    "gid": 631,
+    "group_name": "Vision-Anime",
+    "last_episode_number": 26,
+    "rating": 818,
+    "votes": 19,
+  },
+  {
+    "completition_state": "complete",
+    "episode_range": "1-26",
+    "gid": 6,
+    "group_name": "Anime-Empire",
+    "last_episode_number": 26,
+    "rating": 534,
+    "votes": 22,
+  },
+  {
+    "completition_state": "complete",
+    "episode_range": "1-26",
+    "gid": 1598,
+    "group_name": "Exiled-Destiny",
+    "last_episode_number": 26,
+    "rating": 891,
+    "votes": 6,
+  },
+  {
+    "completition_state": "complete",
+    "episode_range": "1-26",
+    "gid": 925,
+    "group_name": "Baka-Anime",
+    "last_episode_number": 26,
+    "rating": 488,
+    "votes": 6,
+  },
+]
+`;
+
+exports[`mylist_by_id 1`] = `
+{
+  "aid": 4196,
+  "date": 1257862225,
+  "eid": 52060,
+  "fid": 241783,
+  "filestate": "streamed",
+  "gid": 0,
+  "lid": 77217942,
+  "other": "",
+  "source": "",
+  "state": "unknown",
+  "storage": "",
+  "viewdate": 1257862225,
+}
+`;

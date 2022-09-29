@@ -1,0 +1,52 @@
+# ignore packages/caches
+node_modules/
+testing/
+hot/
+dist/
+release/
+temp/
+tmp/
+.vagrant
+.yarn
+.cache
+response_samples/
+docs/
+
+# test reports
+coverage/
+test-report.xml
+lint-report.xml
+
+# numerous always-ignore extensions
+*~
+*.diff
+*.patch
+*.err
+*.orig
+*.log
+*.bak
+*.rej
+*.swo
+*.swp
+*.vi
+*.zip
+*.tar
+*.tgz
+*.gz
+*.sass-cache
+
+# os or editor files and folders
+.vscode/
+Thumbs.db
+.DS_Store
+.project
+.settings
+.tmproj
+*.iml
+*.log
+*.tmproj
+*.idea
+*.sln
+
+# ansible
+*.retry

@@ -1,0 +1,16 @@
+{
+    "extends": "@tsconfig/node16/tsconfig.json",
+    "compilerOptions": {
+      "outDir": "./dist",
+      "declaration": true,
+      "allowJs": true,
+      "useDefineForClassFields": true,
+      "esModuleInterop": true
+    },
+    "include": [
+        "./src/index.ts"
+      ],
+    "ts-node": {
+      "files": true
+    }
+  }

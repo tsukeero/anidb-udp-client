@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`new MaskedParser() new MaskedParser(array[]) 1`] = `
+[
+  "field_1",
+  "field_2",
+  "field_3",
+  "field_4",
+  "field_7",
+  "field_8",
+  "field_9",
+]
+`;
+
+exports[`new MaskedParser() new MaskedParser(string) 1`] = `
+[
+  "field_1",
+  "field_2",
+  "field_3",
+  "field_4",
+  "field_7",
+  "field_8",
+  "field_9",
+]
+`;
