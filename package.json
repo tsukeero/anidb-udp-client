@@ -5,11 +5,12 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "ci_install": "yarn install --immutable --immutable-cache --check-cache",
     "test": "jest --coverage",
     "verify": "yarn eslint . && yarn tsc && yarn test",
     "depcheck": "depcheck .",
     "build": "tsc --outDir ./dist",
-    "docs": "typedoc src/index.ts --out ./docs"
+    "docs": "typedoc src/index.ts --excludeExternals --out ./docs"
   },
   "jest": {
     "watchman": false,
