@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/tsukeero/anidb-udp-client/compare/v1.0.2...v1.0.3) (2022-09-30)
+
+
+### Bug Fixes
+
+* npm publish 3nd attempt ([656c113](https://github.com/tsukeero/anidb-udp-client/commit/656c113bfa9227424c83cb13b2b22b1da77d605b))
+
 ## [1.0.2](https://github.com/tsukeero/anidb-udp-client/compare/v1.0.1...v1.0.2) (2022-09-30)
 
 
