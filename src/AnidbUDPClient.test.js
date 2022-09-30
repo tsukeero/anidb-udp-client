@@ -42,7 +42,7 @@ describe('constructor', () => {
 
     const a = new AnidbUDPClient()
 
-    expect(a.clientId).toBe('anidb-udp-client')
+    expect(a.clientId).toBe('anidbudpclientjs')
     expect(a.session).toBe(null)
 
     expect(a.incomming_port).toBe(undefined)
