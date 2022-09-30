@@ -101,7 +101,7 @@ export class AnidbUDPClient extends EventEmitter {
     }
   ) {
     super()
-    this.clientId = clientId || 'anidb-udp-client'
+    this.clientId = clientId || 'anidbudpclientjs'
     this.session = null
     const {
       cache,

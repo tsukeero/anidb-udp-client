@@ -4,6 +4,9 @@
   "description": "anidb-udp-client is a library for Node.js that facilitates the use of Anidb's UDP API",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "repository": "https://github.com/tsukeero/anidb-udp-client",
+  "homepage": "https://tsukeero.github.io/anidb-udp-client/",
+  "keywords": ["anime", "anidb"],
   "scripts": {
     "ci_install": "yarn install --immutable --immutable-cache --check-cache",
     "test": "jest --coverage",
