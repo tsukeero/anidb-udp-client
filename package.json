@@ -21,6 +21,9 @@
     "prepack": "pinst --disable",
     "postpack": "pinst --enable"
   },
+  "engines": {
+    "node": ">=16.7.0 < 19"
+  },
   "files": [
     "dist"
   ],

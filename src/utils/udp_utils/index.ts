@@ -1,40 +1,22 @@
 import dgram from 'dgram'
-import log from '../utils/log'
+import log from '../../utils/log'
 import qs from 'querystring'
 const ANIDB_API = 'api.anidb.net'
 const ANIDB_PORT = 9000
 import nodeUtil from 'util'
 import fs from 'fs'
-import makeid from '../utils/makeid'
-import zlib from 'node:zlib'
+import makeid from './makeid'
 // for dev purposes
 const { SAVE_RESPONSES } = process.env
-
-import type { AnidbUDPClient } from '../AnidbUDPClient'
+import { encrypt, decrypt } from './encryption'
+import type { AnidbUDPClient } from '../../AnidbUDPClient'
+export { createKey } from './encryption'
+import { decompress } from './compression'
 const TIMEOUT = 30000
-
-
-// TODO:improve maybe?
-const decompress = (buffer: Buffer) => new Promise((resolve, reject) => {
-  const buffer_builder: Buffer[] = []
-  const decompress_stream = zlib.createUnzip()
-    .on('data', (chunk: Buffer) => {
-      buffer_builder.push(chunk)
-    }).on('close', () => {
-      resolve(Buffer.concat(buffer_builder))
-    }).on('error', (err: any) => {
-      if (err.errno !== -5) // EOF: expected
-        reject(err)
-    })
-
-  decompress_stream.write(buffer.subarray(2))
-  decompress_stream.end()
-})
-
 
 function saveResponse (code: string | number, response: string) {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const filePath = require('path').resolve(__dirname, '../../response_samples', String(code) )
+  const filePath = require('path').resolve(__dirname, '../../../response_samples', String(code) )
   fs.writeFileSync(filePath, response)
 }
 
@@ -44,8 +26,6 @@ export type ParsedResponse = {
   data: string;
 };
 export function parseResponse (resp: string): ParsedResponse {
-  // /const parse_regex = /(^[0-9]{3})\s(.+)(?:\n(.+)\n)?/m
-  // better regex = (^[0-9]{3})\s(.+)(?:\n((?:.|\n)+)\n)?
   const parse_regex = /(^[0-9]{3})\s(.+)(?:\n((?:.|\n)+))?/m
   const matched = (new String(resp) || '').match(parse_regex)
 
@@ -70,8 +50,9 @@ export function encodeRequest (command: string, params: qs.ParsedUrlQueryInput):
     return `${ key }=${ escapedValue }`
 
   }).join('&')
-  return command + ' ' + paramsString// qs.stringify(params)
+  return command + ' ' + paramsString
 }
+
 export async function initUDPClient (port: undefined | number) {
   const client = dgram.createSocket('udp4')
 
@@ -93,6 +74,7 @@ export function UDPRequest (_this: AnidbUDPClient, command: string, request: Req
   const {
     client,
     session,
+    encryption_key,
   } = _this // should be just client?
 
   // prep params
@@ -130,16 +112,33 @@ export function UDPRequest (_this: AnidbUDPClient, command: string, request: Req
     // TODO: handle global responses!
     async function handleResponse (response: any) {
       try {
-        const respBuffer = Buffer.from(response)
-        let respString
-        if (respBuffer[0] === 0 && respBuffer[1] === 0) {
-          respString = await decompress(respBuffer)
-        } else {
-          respString = String(respBuffer)
-        }
-        // ignore things that are not correctly tagged
-        const str_response = String(respString)
+        let respDecodedBuffer = Buffer.from(response) // = respBuffer
 
+        if (encryption_key) {
+          try {
+            respDecodedBuffer = decrypt(respDecodedBuffer, encryption_key)
+          } catch (e: any) {
+            // most likely something went wrong on the anidb side, so encryption is now disabled
+            _this.encryption_key = null
+            log.debug(`Decription failed raw response was: ${ respDecodedBuffer }`)
+            // throw error, will result in a fatal error disconnecting from anidb (logout etc)
+            throw new Error(`Message decrypt failed: ${ e.message }`)
+          }
+        }
+
+
+        if (respDecodedBuffer[0] === 0 && respDecodedBuffer[1] === 0) {
+          // eslint-disable-next-line @typescript-eslint/no-var-requires
+          const filePath = require('path').resolve(__dirname, '../../compressedResult')
+          console.log(filePath)
+          fs.writeFileSync(filePath, respDecodedBuffer.toString('base64'))
+
+          respDecodedBuffer = await decompress(respDecodedBuffer)
+        }
+
+        const str_response = String(respDecodedBuffer)
+
+        // ignore things that are not correctly tagged
         if (!str_response.startsWith(tag)) {
           return
         }
@@ -154,9 +153,6 @@ export function UDPRequest (_this: AnidbUDPClient, command: string, request: Req
         _client.removeListener('message', handleResponse)
 
         return cleanResolve(parsed_response)
-        /* }  else {
-            throw new AnidbError(parsed_response.code)
-        } */
       } catch (e) {
         clearTimeout(timeoutHandler)
         _client.removeListener('message', handleResponse)
@@ -184,8 +180,11 @@ export function UDPRequest (_this: AnidbUDPClient, command: string, request: Req
     _client.on('message', handleResponse)
 
     log.debug(`Sending out request "${ String(send_buffer) }"`)
-
-    _client.send(send_buffer, 0, send_buffer.length, ANIDB_PORT, ANIDB_API)
+    let raw_send_buffer = send_buffer
+    if (encryption_key) {
+      raw_send_buffer = encrypt(send_buffer, encryption_key)
+    }
+    _client.send(raw_send_buffer, 0, raw_send_buffer.length, ANIDB_PORT, ANIDB_API)
   }).catch((e: Error) => {
     log.debug('LASTREP', JSON.stringify(lastResp))
     throw e
