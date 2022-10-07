@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/tsukeero/anidb-udp-client/compare/v1.0.4...v1.1.0) (2022-10-07)
+
+
+### Features
+
+* add support for encryption using Anidb UDP Api key ([24dea5f](https://github.com/tsukeero/anidb-udp-client/commit/24dea5f3cfa6a40d6daee6152a9dd720c92d9ef6))
+
 ## [1.0.4](https://github.com/tsukeero/anidb-udp-client/compare/v1.0.3...v1.0.4) (2022-09-30)
 
 
