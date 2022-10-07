@@ -31,6 +31,7 @@ type NullablePromise<T> = Promise<T | null | undefined>
 import { EncodingType, ENCODINGS } from './common/constants'
 import reverseObj from './utils/reverseObj'
 import { EventEmitter } from 'events'
+import { createKey } from './utils/udp_utils/encryption'
 // const udpRequester = fakeUDPRequest
 const udpRequester = UDPRequest
 
@@ -62,6 +63,8 @@ export class AnidbUDPClient extends EventEmitter {
   client: DgramSocket| null | undefined
   /** @ignore */
   session: string | null | undefined
+  /** @ignore */
+  encryption_key: Buffer | null | undefined
 
   /**
    * valid events to listen to
@@ -149,6 +152,8 @@ export class AnidbUDPClient extends EventEmitter {
     user?: string,
     /** anidb password */
     password?: string,
+    /** UDP API Key (defined in the users profile), pass to enable encryption, must be set and match the one in the user account */
+    udp_api_key?: string,
     /** set the encoding (only applies if user and password was passed) */
     encoding?: EncodingType
   ) {
@@ -166,7 +171,11 @@ export class AnidbUDPClient extends EventEmitter {
       throw new AnidbError(RESPONSE_CODE.FAILED_TO_INITIALIZE, e.message)
     }
 
-    // just save login
+    if (udp_api_key && user) {
+      const { response } = await this._callApi('ENCRYPT',{ user, type: 1 })
+      const [ salt ] = response
+      this.encryption_key = createKey(udp_api_key, salt )
+    }
     if (user && password) {
       return this.login(user, password, encoding)
     }

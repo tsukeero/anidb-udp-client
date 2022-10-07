@@ -1,0 +1,9 @@
+import { decompress } from '../compression'
+const SAMPLE_COMPRESSED_DATA = Buffer.from('AAB4nEWUy27lKBCG9/0U7LKpSAZ8wct0J4seTXePND29JzbHRoPBDZxEls7Dz19Ootl8LqAo/rrIr/3xTxRKN+Lh+9dvT5862chbZ1p517aNupO96tubvNMwm+b2JdgY7Xz78ufD9+8Pjx9r8fPX3Ycpb1KOsmtVC//BNONNK2Okvm3Wx+qijZMT1S6FrnF2dqbg6mqDmFZ3odUvqyjTmlKg2QUff19drLSsqVSaEt+vwsfZT7amXGg+ot38RNXmxVVhr7N3iE91dZsrlLJffETw15T/peJq9XEhF3AYa6HqN0d7sLiwZ1f4pYufqk98JSS8AZOebK7r2+PbnrLNh7jYWG05qAS7l+onxD41iylcnwv9YXcb6cWncIopIb2K19VF4auYEoSJmhD/xaEE2f2++urmtzVD7CkcCx7eQ2L/CNFwwWvVZZfqsSOz3eVLyhsXkxaLNF58uUJ1RIBAD8Vb2m22Ibgz+TCTjQtq+KGcZcwH5fQWYrXZbXTJqN5cVr/TbH04RPAX95HaaaOuAuVA6bJdOADioKQiXQTWSKekjGQoOxvuz3f/r+NmA3LLCb1P0UOLndEfXIams3C4tdkzyVm8uFxwSdgXCLHPwfE42AMnsr8fxXNOdp7gTPkaIwdZ7EI+hOhKobLb6VR1rdzYmTUibyR0caeK8+ZzOsTmXC1i8TmgBPt+COTPI7I6ZHn/ajNnhyRDuma0YkZqGGI7VYjeUCF6+4hXX1e8JraECmUq/jmwgMNHcaDwtLmQ5mw3iypE+FfEL+dg3EMrorKEj+2fP8TnJ/Htx6+nRwH76a+vf/94fKLqpjVi8IOwZXdT/RhvOrOpOfFcvOt/l/XWPzhfA3qA0Xof77cJxcRzP+bruXfTDUnZKZLtIEk1rQb6kVSnO1J90zJOq2cMDJz2smFIhmLgWq/YWRlA82nLVscHHK8f4Dd0OBgGHAymYyDoMPLeKBlwNk3DQCijT8DZtGy1iGI4nul4r+Nlrxh8ym8Yw6dmYMBl1JJ0A0G6aRvSqlGkh7EjPQ4dtUppYOyp1WxpDeDnBxjGaKgd1Ejd0BsAIvF71ACeBDrAtNSNQC+Rai87CQyaevxWGWy1PWOkoUHmgzHdTXZaoz7NON6k7lAUqQcoZpqTI1phUAlmC+KvSm3TInCLIPKkOnnutCcN7/esWfKtYexRWubAHE97ZHvoTvY96U7iWYnOAT3jXBoGNEjFg6EkQzHYDx0GOgY7K3ZW7IxWsXYeI/OeQXNSnlSf/gPedg==','base64')
+
+describe('compression', () => {
+  test('decompress',async () => {
+    const decompressed = await decompress(SAMPLE_COMPRESSED_DATA)
+    expect(decompressed.toString('utf-8')).toMatchSnapshot()
+  })
+})
