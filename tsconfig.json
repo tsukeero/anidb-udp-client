@@ -3,6 +3,7 @@
     "compilerOptions": {
       "outDir": "./dist",
       "declaration": true,
+      "target": "es2021",
       "allowJs": true,
       "useDefineForClassFields": true,
       "esModuleInterop": true

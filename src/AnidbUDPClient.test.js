@@ -1,6 +1,29 @@
 import { AnidbUDPClient } from './AnidbUDPClient'
-import * as AnidbCacheModule from './utils/AnidbCache'
+import { AnidbCache } from './utils/AnidbCache'
 import * as LoggerModule from './utils/log'
+
+jest.mock('./utils/AnidbCache', () => {
+  return {
+    AnidbCache: jest.fn().mockImplementation((..._a) => {
+      return new Object({
+        get: async (_a,_b,options) => {
+          if (options.onMiss) {
+            const miss_result = await options.onMiss(null)
+            if (miss_result.value) {
+              return miss_result.value
+            } else {
+              return miss_result
+            }
+          } else {
+            return null
+          }
+        },
+        set: () => Promise.resolve(),
+      })
+    }),
+  }
+})
+
 
 async function simpleCachedCall (command, fn, response_code, args, params, mocked_response, cache) {
   const a = new AnidbUDPClient('test', { cache: cache || false })
@@ -22,20 +45,10 @@ async function simpleCachedCall (command, fn, response_code, args, params, mocke
 }
 
 describe('constructor', () => {
-  let AnidbCacheConstructor
-  beforeAll(() => {
-    AnidbCacheConstructor = jest.spyOn(AnidbCacheModule, 'AnidbCache').mockReturnValue()
-  })
-
 
   afterEach(() => {
-    jest.resetModules()
-    jest.resetAllMocks()
+    jest.clearAllMocks()
   })
-  afterAll(() => {
-    jest.restoreAllMocks()
-  })
-
 
   it('new AnidbUDPClient()', () => {
 
@@ -48,8 +61,8 @@ describe('constructor', () => {
     expect(a.incomming_port).toBe(undefined)
     expect(a.pingInterval).toBe(300000)
 
-    expect(AnidbCacheConstructor).toHaveBeenCalledWith(undefined)
-    expect(AnidbCacheConstructor).toHaveBeenCalledTimes(1)
+    expect(AnidbCache).toHaveBeenCalledWith(undefined)
+    expect(AnidbCache).toHaveBeenCalledTimes(1)
   })
 
   it('new AnidbUDPClient(client_id)', () => {

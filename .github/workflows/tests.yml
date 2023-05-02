@@ -20,7 +20,7 @@ jobs:
     - run: yarn ci_install
     - run: yarn eslint .
     - run: yarn tsc
-    - run: yarn test 
+    - run: yarn test
     - name: Upload coverage reports to Codecov
       if: matrix.node-version == '16.x'
       run: |
