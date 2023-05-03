@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.2.0](https://github.com/tsukeero/anidb-udp-client/compare/v1.1.0...v1.2.0) (2023-05-03)
+
+
+### Features
+
+* add support for encryption using Anidb UDP Api key ([738936c](https://github.com/tsukeero/anidb-udp-client/commit/738936ca654086cb8471641afe9b31fe4baffb0f))
+* let there be lib ([5acb623](https://github.com/tsukeero/anidb-udp-client/commit/5acb623f47d77c487ccabec9bcde4093c3c7ff6d))
+
+
+### Bug Fixes
+
+* fixed default client id ([016b189](https://github.com/tsukeero/anidb-udp-client/commit/016b1896aad664694fd60fc86c253f8af0f21fca))
+* npm publish ([8081550](https://github.com/tsukeero/anidb-udp-client/commit/80815504020533e993a14888927e22e62c2e8944))
+* npm publish 2nd attempt ([4fe402e](https://github.com/tsukeero/anidb-udp-client/commit/4fe402ebca2aed77bfc51514b7f17815ce39dda4))
+* npm publish 3nd attempt ([656c113](https://github.com/tsukeero/anidb-udp-client/commit/656c113bfa9227424c83cb13b2b22b1da77d605b))
+* readme and changelog fixes ([23b1999](https://github.com/tsukeero/anidb-udp-client/commit/23b1999fecc0e109a66b978b46a6d26ed8384f03))
+
 ## [1.1.0](https://github.com/tsukeero/anidb-udp-client/compare/v1.0.4...v1.1.0) (2022-10-07)
 
 
