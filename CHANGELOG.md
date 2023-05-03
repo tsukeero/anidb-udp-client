@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/tsukeero/anidb-udp-client/compare/v1.1.0...v1.1.1) (2023-05-03)
+
+
+### Bug Fixes
+
+* readme and changelog fixes ([23b1999](https://github.com/tsukeero/anidb-udp-client/commit/23b1999fecc0e109a66b978b46a6d26ed8384f03))
+
 ## [1.1.0](https://github.com/tsukeero/anidb-udp-client/compare/v1.0.4...v1.1.0) (2022-10-07)
 
 
