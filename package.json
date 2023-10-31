@@ -22,7 +22,7 @@
     "postpack": "pinst --enable"
   },
   "engines": {
-    "node": ">=16.7.0 < 19"
+    "node": ">=16.7.0 < 21"
   },
   "files": [
     "dist"
@@ -71,5 +71,6 @@
     "typedoc": "^0.23.14",
     "typedoc-plugin-versions": "^0.2.1",
     "typescript": "^4.8.3"
-  }
+  },
+  "packageManager": "yarn@4.0.1"
 }
