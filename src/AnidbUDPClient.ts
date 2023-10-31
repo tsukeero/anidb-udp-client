@@ -145,7 +145,7 @@ export class AnidbUDPClient extends EventEmitter {
    * await anidb.connect("my-user","my-password")
    * await anidb.disconnect()
    * ```
-   * @category Connection Commands
+   * @group Connection Commands
    */
   async connect (
     /** anidb user */
@@ -289,7 +289,7 @@ export class AnidbUDPClient extends EventEmitter {
 
   /**
  *  To manually ping (the lib takes care of pinging every once in a while by it's own)
- * @category Connection Commands
+ * @group Connection Commands
  */
   ping () {
     return this._callApi(
@@ -303,7 +303,7 @@ export class AnidbUDPClient extends EventEmitter {
 
   /**
    * log into Anidb
-   * @category Connection Commands
+   * @group Connection Commands
    */
   async login (
     user: string,
@@ -375,7 +375,7 @@ export class AnidbUDPClient extends EventEmitter {
   }
   /**
  * Disconnect and logout
- * @category Connection Commands
+ * @group Connection Commands
  */
   async disconnect (source?: any, error?: Error) {
     try {
@@ -408,7 +408,7 @@ export class AnidbUDPClient extends EventEmitter {
    * Logs the user out. Only very few commands can be used when logged out, and this library will stop tying to keep the session alive when logged out.
    *
    * @param priority
-   * @category Connection Commands
+   * @group Connection Commands
    */
   async logout (priority?: number) {
     const response = await this._callApi(
@@ -426,7 +426,7 @@ export class AnidbUDPClient extends EventEmitter {
 
   /**
    * Change the encoding for future responses (reset on disconnect). Prefrably use the `enc` param of {@link AnidbUDPClient.login} instead.
-   * @category Connection Commands
+   * @group Connection Commands
    * @deprecated Specify encoding with {@link AnidbUDPClient.login} or {@link AnidbUDPClient.connect} command
    */
   encoding = async (
@@ -459,7 +459,7 @@ export class AnidbUDPClient extends EventEmitter {
    *
    * @param anime Anime title (any synonim) or anime id (aid)
    * @param fields List of fields to to return.
-   * @category Data Commands
+   * @group Data Commands
    */
   anime<T extends keyof AnimeResult> (
     anime: number | string,
@@ -501,7 +501,7 @@ export class AnidbUDPClient extends EventEmitter {
 
   /**
    * get anime description by aid
-   * @category Data Commands
+   * @group Data Commands
    */
   animeDesc (aid: number): NullablePromise<string> {
 
@@ -543,7 +543,7 @@ export class AnidbUDPClient extends EventEmitter {
 
   /**
   * get calendar list
-  * @category Data Commands
+  * @group Data Commands
   */
   async calendar (): Promise<
     Array<{
@@ -567,7 +567,7 @@ export class AnidbUDPClient extends EventEmitter {
 
   /**
    * get character by character id
-   * @category Data Commands
+   * @group Data Commands
    */
   character (
     charid: number
@@ -609,7 +609,7 @@ export class AnidbUDPClient extends EventEmitter {
 
   /**
  * get creator by creator id
-* @category Data Commands
+* @group Data Commands
  */
   creator (
     creatorid: number
@@ -671,7 +671,7 @@ export class AnidbUDPClient extends EventEmitter {
 
   /**
  * get episode by episode id
- * @category Data Commands
+ * @group Data Commands
  */
   episode (
     eid: number
@@ -696,7 +696,7 @@ export class AnidbUDPClient extends EventEmitter {
    * get episode by anime and episode number
    * @param anime anime title or anime id (aid)
    * @param epno episode number
-   * @category Data Commands
+   * @group Data Commands
    */
   episode_by_anime (
     anime: string | number,
@@ -733,7 +733,7 @@ export class AnidbUDPClient extends EventEmitter {
   /**
    * Retrieve Group Data
    * @param group group id or name
-   * @category Data Commands
+   * @group Data Commands
    */
   group (
     group: number | string
@@ -792,7 +792,7 @@ export class AnidbUDPClient extends EventEmitter {
    * Returns a list of group names and ranges of episodes released by the group for a given anime.
    * @param aid anime id
    * @param state
-   * @category Data Commands
+   * @group Data Commands
    */
   async groupstatus (
     aid: number,
@@ -848,7 +848,7 @@ export class AnidbUDPClient extends EventEmitter {
  * Retrieve File Data by file id
  * @param fid
  * @param fields list of fields to return
- * @category Data Commands
+ * @group Data Commands
  */
   file<T extends keyof FileResult> (
     fid: number,
@@ -880,7 +880,7 @@ export class AnidbUDPClient extends EventEmitter {
    * @param ed2k file ed2k hash
    * @param size size of file in bytes
    * @param fields list of fields to return
-   * @category Data Commands
+   * @group Data Commands
    */
   file_by_hash<T extends keyof FileResult> (
     ed2k: string,
@@ -924,7 +924,7 @@ export class AnidbUDPClient extends EventEmitter {
    * @param fields fields to return
    *
    * @throws {@link AnidbError} with code {@link RESPONSE_CODE}.MULTIPLE_FILES_FOUND if more than one file is found. List of file ids will be in `error.payload`
-   * @category Data Commands
+   * @group Data Commands
    */
   file_by_episode<T extends keyof FileResult> (
     anime: number | string,
@@ -983,7 +983,7 @@ export class AnidbUDPClient extends EventEmitter {
    * Either age is specified or time not both.
    * @param opts.age age in days
    * @param opts.time unix time
-   * @category Data Commands
+   * @group Data Commands
    *
    */
   async updated (
@@ -1042,7 +1042,7 @@ export class AnidbUDPClient extends EventEmitter {
    *
    * @param lid Retrieve MyList Data
    * @returns
-   * @category My List Commands
+   * @group My List Commands
    */
   async mylist_by_id (
     lid: number,
@@ -1054,7 +1054,7 @@ export class AnidbUDPClient extends EventEmitter {
   /**
    * Retrieve MyList entry by file id
    * @param fid file id
-   * @category My List Commands
+   * @group My List Commands
    */
   async mylist_by_file_id (
     fid: number,
@@ -1067,7 +1067,7 @@ export class AnidbUDPClient extends EventEmitter {
    * Retrieve MyList entry by file ed2khash and size
    * @param ed2k hash
    * @param size in bytes
-   * @category My List Commands
+   * @group My List Commands
    */
   async mylist_by_file_hash (
     ed2k: string,
@@ -1082,7 +1082,7 @@ export class AnidbUDPClient extends EventEmitter {
    * @param anime anime name or id
    * @param group group name or id
    * @param epno episode number
-   * @category My List Commands
+   * @group My List Commands
    */
   async mylist_by_anime (
     anime: number | string,
@@ -1141,7 +1141,7 @@ export class AnidbUDPClient extends EventEmitter {
    * Add MyList entry by file. Either by file id, ed2k+size, mylist id. Can be used to update and exiting entry by passing `options.edit=true`
    * @param fileinfo file to add to mylist, pass `{ fid }` (file id) or `{ ed2k, size }` (ed2k hash and size in bytes) or `{ lid }` (mylist id) to edit
    * @param options My list entry options
-   * @category My List Commands
+   * @group My List Commands
    * @throws {@link AnidbError} with code {@link RESPONSE_CODE}.FILE_ALREADY_IN_MYLIST if not `edit=true`. Mylist entry (same result as {@link AnidbUDPClient.mylist_by_file_id | mylist_by_file_id result}) will be in `error.payload`
    */
   async mylist_add_by_file (
@@ -1227,7 +1227,7 @@ export class AnidbUDPClient extends EventEmitter {
    * @param animeinfo.epno Episode number, epno=0 means all episodes (default), negative numbers means upto. (-12 -> upto 12)
    * @param options My list entry options
    *
-   * @category My List Commands
+   * @group My List Commands
    * @throws {@link AnidbError} see codes at  {@link https://wiki.anidb.net/UDP_API_Definition#MYLISTADD:_Add_file_to_MyList | Add_file_to_MyList }
    */
   async mylist_add_by_anime (
@@ -1293,7 +1293,7 @@ export class AnidbUDPClient extends EventEmitter {
   /**
    * Removes MyList entry by file. Either by file id, ed2k+size, mylist id.
    * @param fileinfo file to add to mylist, pass `{ fid }` (file id) or `{ ed2k, size }` (ed2k hash and size in bytes) or `{ lid }` (mylist id) to edit
-   * @category My List Commands
+   * @group My List Commands
    * @throws {@link AnidbError} with code {@link RESPONSE_CODE}.FILE_ALREADY_IN_MYLIST if not `edit=true`. Mylist entry (same result as {@link AnidbUDPClient.mylist_by_file_id | mylist_by_file_id result}) will be in `error.payload`
    * @throws {@link AnidbError} see codes at {@link https://wiki.anidb.net/UDP_API_Definition#MYLISTADD:_Add_file_to_MyList | Add_file_to_MyList }
    */
@@ -1324,7 +1324,7 @@ export class AnidbUDPClient extends EventEmitter {
    * @param animeinfo.group group name or id. Optional
    * @param animeinfo.epno Episode number (negative numbers and 0 do not work), and epno is required
    *
-   * @category My List Commands
+   * @group My List Commands
    * @throws {@link AnidbError} see codes at {@link https://wiki.anidb.net/UDP_API_Definition#MYLISTADD:_Add_file_to_MyList | Add_file_to_MyList}
    */
   async mylist_del_by_anime (
@@ -1351,7 +1351,7 @@ export class AnidbUDPClient extends EventEmitter {
 
   /**
    *  Retrieve MyList stats
-   * @category My List Commands
+   * @group My List Commands
    */
   async mylist_stats () {
     const parser = new SimpleParser({
@@ -1384,7 +1384,7 @@ export class AnidbUDPClient extends EventEmitter {
    * Vote for specified anime/episode/group
    * @throws {@link AnidbError} with code {@link RESPONSE_CODE}.NO_SUCH_VOTE, PERMVOTE_NOT_ALLOWED, ALREADY_PERMVOTED with payload same as the normal response
    * @throws {@link AnidbError} see codes at {@link https://wiki.anidb.net/UDP_API_Definition#VOTE:_Vote_for_specified_anime/episode/group | Vote_for_specified_anime/episode/group}
-   * @category My List Commands
+   * @group My List Commands
    */
   async vote (
     /** type of vote: anime vote, anime temporary vote, vote for a group, vote for episode */
@@ -1461,7 +1461,7 @@ export class AnidbUDPClient extends EventEmitter {
 
   /**
    * Get a random anime
-   * @category Misc commands
+   * @group Misc commands
    */
   async random (
     type: 'db' | 'watched' | 'unwatched' | 'mylist'
@@ -1514,7 +1514,7 @@ export class AnidbUDPClient extends EventEmitter {
    * Queues a MyList Export by the AniDB Servers. As with a manual export request, exports are only done during periods when server load is low. As a result, exports may take up to 24 hours.
    * The client submitting the request will receive an AniDB message when the export is ready to be collected.
    * Only one export can be in the queue at a time.
-   * @category Misc commands
+   * @group Misc commands
    */
   async request_mylist_export (
     template: typeof EXPORT_TEMPLATES[number]
@@ -1529,7 +1529,7 @@ export class AnidbUDPClient extends EventEmitter {
 
   /**
    * Will cancel any pending export request, queued either through UDP or the web server.
-   * @category Misc commands
+   * @group Misc commands
    */
   async cancel_mylist_export () {
     await this._callApi('MYLISTEXPORT', { cancel: 1 }, [ RESPONSE_CODE.EXPORT_CANCELLED ])
@@ -1539,7 +1539,7 @@ export class AnidbUDPClient extends EventEmitter {
 
   /**
    * Retrieve Server Uptime
-   * @category Misc commands
+   * @group Misc commands
    */
   async uptime () {
     const { data } = await this._callApi('UPTIME',{}, [ RESPONSE_CODE.UPTIME ])
@@ -1548,7 +1548,7 @@ export class AnidbUDPClient extends EventEmitter {
 
   /**
    * Send Message
-   * @category Misc commands
+   * @group Misc commands
    */
   async send_message (
     username: string,
@@ -1573,7 +1573,7 @@ export class AnidbUDPClient extends EventEmitter {
 
   /**
    * Get user id
-   * @category Misc commands
+   * @group Misc commands
    */
   get_user_id ( username: string ): Promise<{ uid: number, username: string }>
   get_user_id ( uid: number ): Promise<{ uid: number, username: string }>

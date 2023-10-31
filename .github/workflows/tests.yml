@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x, 18.x, 20.x]
+        node-version: [18.x, 20.x]
     name: Test
     steps:
     - name: Checkout src
@@ -22,7 +22,7 @@ jobs:
     - run: yarn tsc
     - run: yarn test
     - name: Upload coverage reports to Codecov
-      if: matrix.node-version == '16.x'
+      if: matrix.node-version == '18.x'
       run: |
             curl -Os https://uploader.codecov.io/latest/linux/codecov
                 chmod +x codecov
