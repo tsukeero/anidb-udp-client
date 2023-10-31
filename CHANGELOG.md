@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/tsukeero/anidb-udp-client/compare/v1.1.1...v2.0.0) (2023-10-31)
+
+
+### ⚠ BREAKING CHANGES
+
+* minimum node 18, update dependencies, remove multiversion docs
+
+### Miscellaneous Chores
+
+* minimum node 18, update dependencies, remove multiversion docs ([d034f1a](https://github.com/tsukeero/anidb-udp-client/commit/d034f1adb739babd58b7bc47f60960e93afbe7ad))
+
 ## [1.1.1](https://github.com/tsukeero/anidb-udp-client/compare/v1.1.0...v1.1.1) (2023-05-03)
 
 
