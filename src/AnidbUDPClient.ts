@@ -60,7 +60,7 @@ export class AnidbUDPClient extends EventEmitter {
   #pingTimer: NodeJS.Timeout | undefined
   // just hidden from docs
   /** @ignore */
-  client: DgramSocket| null | undefined
+  client: DgramSocket | null | undefined
   /** @ignore */
   session: string | null | undefined
   /** @ignore */
@@ -521,7 +521,6 @@ export class AnidbUDPClient extends EventEmitter {
             part: 0,
           })
           const part_1 = parser.parseData(data)
-          let other_parts = []
           const other_parts_promises = []
 
           for (let part = 1; part < part_1.max_parts; part++) {
@@ -533,7 +532,7 @@ export class AnidbUDPClient extends EventEmitter {
             )
           }
 
-          other_parts = await Promise.all(other_parts_promises)
+          const other_parts = await Promise.all(other_parts_promises)
           const description = [ part_1, ...other_parts ].map((d) => d.desc).join('')
           return description
         },
@@ -551,7 +550,7 @@ export class AnidbUDPClient extends EventEmitter {
       startdate: number;
       dateflags: Array<string>;
     }>
-    > {
+  > {
     const command = 'CALENDAR'
     const { data } = await this._callApi(command, {})
     return ListField(
@@ -1128,7 +1127,7 @@ export class AnidbUDPClient extends EventEmitter {
       const staticFields = MapFieldStatic(staticFieldsDefinition)(splited.slice(0, staticFieldsNr).join('|'))
 
       const groupsPart = splited.slice(staticFieldsNr)
-      const groups: Array<{group: string, episodes: string}> = []
+      const groups: Array<{ group: string, episodes: string }> = []
       for (let i = 0; i < groupsPart.length; i += 2) {
         groups.push({ group: groupsPart[i], episodes: groupsPart[i + 1] })
       }
@@ -1159,7 +1158,7 @@ export class AnidbUDPClient extends EventEmitter {
       /** other remarks/notes (`<br/>` can be used to split into multiple lines) */
       other?: string
     }
-  ): Promise<{code: 'MYLIST_ENTRY_ADDED', lid: number } | {code: 'MYLIST_ENTRY_EDITED', nr_edited: number} | undefined> {
+  ): Promise<{ code: 'MYLIST_ENTRY_ADDED', lid: number } | { code: 'MYLIST_ENTRY_EDITED', nr_edited: number } | undefined> {
     const command = 'MYLISTADD'
 
     // validate input
@@ -1234,18 +1233,18 @@ export class AnidbUDPClient extends EventEmitter {
 
     animeinfo: { anime: string | number, group?: string | number, epno?: number },
     options?: {
-        /** `true` to edit a MyList entry instead of creating a new one. When editing, optional values that are not supplied retain their original value. That is, they are not replaced with default or empty values. Only values supplied are updated. */
-        edit?: boolean,
-        state?: typeof MylistStates[keyof typeof MylistStates],
-        viewed?: boolean,
-        viewdate?: number,
-        /** (i.e. ed2k, dc, ftp, irc, ...) */
-        source?: string,
-        /** label of  the storage */
-        storage?: string
-        /** other remarks/notes (`<br/>` can be used to split into multiple lines) */
-        other?: string
-      }
+      /** `true` to edit a MyList entry instead of creating a new one. When editing, optional values that are not supplied retain their original value. That is, they are not replaced with default or empty values. Only values supplied are updated. */
+      edit?: boolean,
+      state?: typeof MylistStates[keyof typeof MylistStates],
+      viewed?: boolean,
+      viewdate?: number,
+      /** (i.e. ed2k, dc, ftp, irc, ...) */
+      source?: string,
+      /** label of  the storage */
+      storage?: string
+      /** other remarks/notes (`<br/>` can be used to split into multiple lines) */
+      other?: string
+    }
   ) {
     // validate first
     if (!animeinfo || !animeinfo.anime || (animeinfo.epno && !Number.isInteger(animeinfo.epno))) {

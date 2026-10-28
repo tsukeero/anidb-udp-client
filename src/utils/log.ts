@@ -4,7 +4,7 @@ const noop = () => {}
 
 const { NODE_ENV, DEBUG } = process.env
 
-const withLevel = (level: string, logFn: (...args: any)=>void) => (...args: any) => logFn(level, ...args)
+const withLevel = (level: string, logFn: (...args: any) => void) => (...args: any) => logFn(level, ...args)
 
 
 export type AnidbLoggerType = {

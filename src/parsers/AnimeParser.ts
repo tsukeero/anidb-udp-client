@@ -132,7 +132,7 @@ const fmaskDef = {
 
 export type AnimeResult = {
   [Property in keyof typeof fmaskDef]: ReturnType<typeof fmaskDef[Property][2]>
-} & { aid: number}
+} & { aid: number }
 
 // export const DEFAULT_ANIME_FIELDS = [ 'aid', 'year', 'type', 'romanji_name', 'kanji_name', 'english_name', 'other_name_list', 'episodes', 'highest_ep_number', 'special_ep_count', 'rating', 'vote_count', 'temp_rating', 'temp_vote_count', 'average_review_rating', 'review_count' ] as const
 

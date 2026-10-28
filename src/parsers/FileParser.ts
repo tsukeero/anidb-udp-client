@@ -178,7 +178,7 @@ const amaskDef = {
 
 export type FileResult = {
   [Property in keyof typeof amaskDef]: ReturnType<typeof amaskDef[Property][2]>
-} & { fid: number}
+} & { fid: number }
 
 export default class FileParser extends MaskedParser<keyof FileResult> {
   static readonly mask_definition = amaskDef

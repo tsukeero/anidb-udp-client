@@ -1,7 +1,7 @@
 import { MapField } from './field_types/'
 import type { AnidbCacheImplType } from '../utils/AnidbCache'
 
-export type MaskDefinition<T> = Record<T & string, readonly [number, number, (...args: Array<any>) => any]>;
+export type MaskDefinition<T> = Record<T & string, readonly [number, number, (...args: Array<any>) => any]>
 
 export default class MaskUtil<T extends string> {
   fields: any[]

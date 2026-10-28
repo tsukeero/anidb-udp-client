@@ -47,21 +47,21 @@ export class AnidbCache {
     id: string | number,
     options: {
       validator?: (cached_obj: CachedReturn<T>) => boolean
-      onMiss: (get_result: T | Partial<T> | null | undefined) => Promise<{ id: string| number, aliases?: string[], value: T} | T | null | undefined>
+      onMiss: (get_result: T | Partial<T> | null | undefined) => Promise<{ id: string | number, aliases?: string[], value: T } | T | null | undefined>
     }): Promise<T>
   public get<T extends CachableValue> (
-      command: string,
-      id: string | number,
-      options?: {
-        validator?: (cached_obj: CachedReturn<T>) => boolean
-      }): Promise<T | undefined | null>
+    command: string,
+    id: string | number,
+    options?: {
+      validator?: (cached_obj: CachedReturn<T>) => boolean
+    }): Promise<T | undefined | null>
 
   public async get<T extends CachableValue> (
     command: string,
     id: string | number,
     options?: {
       validator?: (cached_obj: CachedReturn<T>) => boolean
-      onMiss?: (get_result: T | Partial<T> | null | undefined) => Promise<{ id: string| number, aliases?: string[], value: T} | T | null | undefined>
+      onMiss?: (get_result: T | Partial<T> | null | undefined) => Promise<{ id: string | number, aliases?: string[], value: T } | T | null | undefined>
     }): Promise<T | undefined | null> {
     const {
       cache,

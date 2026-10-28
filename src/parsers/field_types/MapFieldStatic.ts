@@ -8,7 +8,7 @@
  * @param separator - separator, default is `|`
  * @returns
  */
-export default function MapFieldStatic<V extends { [x: string]: (...args: Array<any>)=>any } > (definition: V, separator?: string): (...args: Array<any>) => { [Property in keyof V]: ReturnType<V[Property]> } {
+export default function MapFieldStatic<V extends { [x: string]: (...args: Array<any>) => any } > (definition: V, separator?: string): (...args: Array<any>) => { [Property in keyof V]: ReturnType<V[Property]> } {
   return value => {
     const fields = String(value).split(separator || '|')
     const entries = Object.entries(definition)
