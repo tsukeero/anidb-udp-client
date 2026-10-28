@@ -2,6 +2,6 @@
 . "$(dirname -- "$0")/_/husky.sh"
 . "$(dirname "$0")/common.sh"
 
-exec >/dev/tty 2>&1
+if (: >/dev/tty) 2>/dev/null; then exec >/dev/tty 2>&1; fi
 
 yarn lint-staged
