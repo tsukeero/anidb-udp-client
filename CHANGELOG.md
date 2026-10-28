@@ -7,7 +7,6 @@
 
 * node 18 and 20 are no longer supported, minimum is node 22
 * file()/file_by_hash()/file_by_episode() field 'other_name' is renamed to 'other_name_list' and now returns string[]
-* minimum node 18, update dependencies, remove multiversion docs
 
 ### Bug Fixes
 
@@ -18,8 +17,8 @@
 
 ### Miscellaneous Chores
 
-* minimum node 18, update dependencies, remove multiversion docs ([d034f1a](https://github.com/tsukeero/anidb-udp-client/commit/d034f1adb739babd58b7bc47f60960e93afbe7ad))
-* require node &gt;= 22 ([#25](https://github.com/tsukeero/anidb-udp-client/issues/25)) ([54ecc66](https://github.com/tsukeero/anidb-udp-client/commit/54ecc66f393dd1e2ce8f4a60da05ea92ffec8265))
+* update dependencies, remove multiversion docs ([d034f1a](https://github.com/tsukeero/anidb-udp-client/commit/d034f1adb739babd58b7bc47f60960e93afbe7ad))
+* require node >= 22 ([#25](https://github.com/tsukeero/anidb-udp-client/issues/25)) ([54ecc66](https://github.com/tsukeero/anidb-udp-client/commit/54ecc66f393dd1e2ce8f4a60da05ea92ffec8265))
 
 ## [1.1.1](https://github.com/tsukeero/anidb-udp-client/compare/v1.1.0...v1.1.1) (2023-05-03)
 
