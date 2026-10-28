@@ -1,14 +1,7 @@
 {
-    // TODO: extend @tsconfig/node22 once typescript >= 5.7 (it uses es2024 libs)
+    "extends": "@tsconfig/node22/tsconfig.json",
     "compilerOptions": {
-      "lib": ["es2023"],
-      "module": "node16",
-      "target": "es2022",
-      "types": ["node"],
-      "strict": true,
-      "skipLibCheck": true,
-      "forceConsistentCasingInFileNames": true,
-      "moduleResolution": "node16",
+      "rootDir": "./src",
       "outDir": "./dist",
       "declaration": true,
       "allowJs": true,
