@@ -1,29 +1,47 @@
 name: Tests
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        node-version: [18.x, 20.x]
-    name: Test
+        node-version: [ 22.x, 24.x, 26.x ]
+    name: Test (node ${{ matrix.node-version }})
     steps:
     - name: Checkout src
-      uses: actions/checkout@v3
-    - name: Build with node ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
+      uses: actions/checkout@v7
+      with:
+        persist-credentials: false
+    - name: Setup node ${{ matrix.node-version }}
+      uses: actions/setup-node@v7
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'yarn'
-    - run: yarn ci_install
+    # corepack is no longer bundled with node >= 25
+    - name: Enable corepack
+      run: |
+        npm install --global corepack@latest
+        corepack enable
+    # not `yarn ci_install`: yarn 4 can't run package scripts before the first install
+    - run: yarn install --immutable --check-cache
     - run: yarn eslint .
     - run: yarn tsc
     - run: yarn test
     - name: Upload coverage reports to Codecov
-      if: matrix.node-version == '18.x'
-      run: |
-            curl -Os https://uploader.codecov.io/latest/linux/codecov
-                chmod +x codecov
-                ./codecov -t ${CODECOV_TOKEN}
+      if: matrix.node-version == '24.x'
+      uses: codecov/codecov-action@v7
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        fail_ci_if_error: false
