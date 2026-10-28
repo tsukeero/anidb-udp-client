@@ -24,10 +24,10 @@ export type ParsedResponse = {
   code: number;
   response: Array<string>;
   data: string;
-};
+}
 export function parseResponse (resp: string): ParsedResponse {
   const parse_regex = /(^[0-9]{3})\s(.+)(?:\n((?:.|\n)+))?/m
-  const matched = (new String(resp) || '').match(parse_regex)
+  const matched = String(resp).match(parse_regex)
 
   if (!matched) {
     log.debug('failed to parse: ', new String(resp))
@@ -69,7 +69,7 @@ export async function initUDPClient (port: undefined | number) {
 }
 
 // TODO: client on error = handle disconnect etc
-type RequestObj = Record<string|number, string | number>
+type RequestObj = Record<string | number, string | number>
 export function UDPRequest (_this: AnidbUDPClient, command: string, request: RequestObj | undefined | null): Promise<ParsedResponse> {
   const {
     client,
@@ -122,7 +122,7 @@ export function UDPRequest (_this: AnidbUDPClient, command: string, request: Req
             _this.encryption_key = null
             log.debug(`Decription failed raw response was: ${ respDecodedBuffer }`)
             // throw error, will result in a fatal error disconnecting from anidb (logout etc)
-            throw new Error(`Message decrypt failed: ${ e.message }`)
+            throw new Error(`Message decrypt failed: ${ e.message }`, { cause: e })
           }
         }
 

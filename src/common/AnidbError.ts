@@ -5,14 +5,14 @@ export class AnidbError extends Error {
   code: typeof RESPONSES[keyof typeof RESPONSES]
   label: keyof typeof RESPONSES
   /** Parsed anidb response (some errors carry payloads, usually specified on the method docs) */
-  payload: Record<string|number, any> | undefined
+  payload: Record<string | number, any> | undefined
 
   /**
    *
    * @param code response code {@link RESPONSE_CODE}
    * @param message additional message
    */
-  constructor (code?: typeof RESPONSES[keyof typeof RESPONSES], message?: string, payload?: Record<string|number, any>) {
+  constructor (code?: typeof RESPONSES[keyof typeof RESPONSES], message?: string, payload?: Record<string | number, any>) {
     super()
     const fixedCode = (code && Object.values(RESPONSE_CODE).includes(code)) ? code : RESPONSES.UNKNOWN_API_ERROR as typeof RESPONSES[keyof typeof RESPONSES]
     // const fixedCode = code || RESPONSES.UNKNOWN_API_ERROR

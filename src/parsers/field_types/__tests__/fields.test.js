@@ -41,7 +41,7 @@ describe('MapField', () => {
     function badInput () {
       MapField(map_def)('a|1')
     }
-    expect(badInput).toThrowError(new Error(`Definition and input item length missmatch input: 2 definition: ${ map_def.size }`))
+    expect(badInput).toThrow(new Error(`Definition and input item length missmatch input: 2 definition: ${ map_def.size }`))
   })
 
   test('Custom separator', () => {
