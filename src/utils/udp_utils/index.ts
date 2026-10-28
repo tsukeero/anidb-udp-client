@@ -5,6 +5,7 @@ const ANIDB_API = 'api.anidb.net'
 const ANIDB_PORT = 9000
 import nodeUtil from 'util'
 import fs from 'fs'
+import path from 'path'
 import makeid from './makeid'
 // for dev purposes
 const { SAVE_RESPONSES } = process.env
@@ -15,8 +16,7 @@ import { decompress } from './compression'
 const TIMEOUT = 30000
 
 function saveResponse (code: string | number, response: string) {
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const filePath = require('path').resolve(__dirname, '../../../response_samples', String(code) )
+  const filePath = path.resolve(__dirname, '../../../response_samples', String(code) )
   fs.writeFileSync(filePath, response)
 }
 
@@ -175,7 +175,7 @@ export function UDPRequest (_this: AnidbUDPClient, command: string, request: Req
     _client.on('message', handleResponse)
 
     log.debug(`Sending out request "${ String(send_buffer) }"`)
-    let raw_send_buffer = send_buffer
+    let raw_send_buffer: Buffer = send_buffer
     if (encryption_key) {
       raw_send_buffer = encrypt(send_buffer, encryption_key)
     }
