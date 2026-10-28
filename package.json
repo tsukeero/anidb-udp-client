@@ -70,5 +70,5 @@
     "typedoc": "^0.28.20",
     "typescript": "^6.0.3"
   },
-  "packageManager": "yarn@4.0.1"
+  "packageManager": "yarn@4.18.1"
 }
