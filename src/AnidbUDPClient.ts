@@ -92,7 +92,7 @@ export class AnidbUDPClient extends EventEmitter {
        *  if set to `false` cache won't be used
        *  if instance of {@link AnidbCacheImplType}  it will use that instead *
        */
-      cache?: AnidbCacheImplType;
+      cache?: AnidbCacheImplType | false;
       /** the port to listen to for response (leave `undefined` if you are not sure) */
       incomming_port?: number;
       /** Logger: default is using console.log, if `false` logging will be disabled, or pass a function */
