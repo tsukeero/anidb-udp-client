@@ -137,7 +137,7 @@ const amaskDef = {
   romanji_name: [ 6, 128, String ],
   kanji_name: [ 6, 64, String ],
   english_name: [ 6, 32, String ],
-  other_name_list: [ 6, 16, ListField(String, undefined, true)  ],
+  other_name_list: [ 6, 16, ListField(String, undefined, true) ],
   short_name_list: [ 6, 8, ListField(String, undefined, true) ],
   // parse
   synonym_list: [ 6, 4, ListField(String, undefined, true) ],

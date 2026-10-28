@@ -12,9 +12,22 @@ test('parseData', () => {
   })
 })
 
+test('parseData other_name_list', () => {
+
+  const parser = new FileParser([ 'aid', 'english_name', 'other_name_list' ])
+
+  expect(parser.parseData('3601313|18675|MF Ghost 2|MFゴースト (2024)\'MF Ghost (2024)\'极速车魂 第二季')).toEqual({
+    'aid': 18675,
+    'fid': '3601313',
+    'english_name': 'MF Ghost 2',
+    'other_name_list': [ 'MFゴースト (2024)', 'MF Ghost (2024)', '极速车魂 第二季' ],
+  })
+  expect(parser.parseData('3601313|18675|MF Ghost 2|').other_name_list).toEqual([])
+})
+
 test('getAmask and getFmask', () => {
 
-  const parser = new FileParser([ 'aid', 'other_episodes', 'eid', 'other_name' ])
+  const parser = new FileParser([ 'aid', 'other_episodes', 'eid', 'other_name_list' ])
   expect(parser.getAmask()).toBe('00100000')
   expect(parser.getFmask()).toBe('6400000000')
 })
