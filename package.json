@@ -11,15 +11,14 @@
     "anidb"
   ],
   "scripts": {
-    "ci_install": "yarn install --immutable --immutable-cache --check-cache",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
     "test": "jest --coverage",
-    "verify": "yarn eslint . && yarn tsc && yarn test",
+    "verify": "npm run lint && npm run typecheck && npm test",
     "depcheck": "depcheck . --ignores=@commitlint/cli,@commitlint/config-conventional",
     "build": "tsc --outDir ./dist",
     "docs": "typedoc src/index.ts --excludeExternals --out ./docs",
-    "postinstall": "husky",
-    "prepack": "pinst --disable",
-    "postpack": "pinst --enable"
+    "prepare": "husky"
   },
   "engines": {
     "node": ">=22"
@@ -66,10 +65,13 @@
     "husky": "^9.1.7",
     "jest": "^30.5.2",
     "lint-staged": "^17.6.0",
-    "pinst": "^3.0.0",
     "typedoc": "^0.28.20",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.72.1"
   },
-  "packageManager": "yarn@4.18.1"
+  "allowScripts": {
+    "@parcel/watcher": false,
+    "@swc/core": false,
+    "unrs-resolver": false
+  }
 }
