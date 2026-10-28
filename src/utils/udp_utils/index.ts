@@ -100,12 +100,20 @@ export function UDPRequest (_this: AnidbUDPClient, command: string, request: Req
     const _client = client
 
     const timeoutHandler = setTimeout(() => {
-      _client.removeListener('message', handleResponse)
+      cleanup()
       reject(new Error('Timeout'))
     }, TIMEOUT)
 
-    const cleanResolve = (response: ParsedResponse) => {
+    // the socket is shared by all requests, so every listener added below must be removed once this request settles
+    function cleanup () {
       clearTimeout(timeoutHandler)
+      _client.removeListener('message', handleResponse)
+      _client.removeListener('error', handleError)
+      _client.removeListener('close', handleError)
+    }
+
+    const cleanResolve = (response: ParsedResponse) => {
+      cleanup()
       resolve(response)
     }
 
@@ -145,22 +153,17 @@ export function UDPRequest (_this: AnidbUDPClient, command: string, request: Req
         lastResp = parsed_response
 
         // if (expected_responses.includes(parsed_response.code)) {
-        _client.removeListener('message', handleResponse)
-
         return cleanResolve(parsed_response)
       } catch (e) {
-        clearTimeout(timeoutHandler)
-        _client.removeListener('message', handleResponse)
+        cleanup()
 
         return reject(e as Error)
       }
     }
 
     function handleError (err: Error) {
-      _client.removeListener('message', handleResponse)
-      clearTimeout(timeoutHandler)
+      cleanup()
 
-      // remove all listeners
       // disconnect and shite...
       reject(err)
     }
