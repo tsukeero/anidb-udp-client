@@ -128,10 +128,6 @@ export function UDPRequest (_this: AnidbUDPClient, command: string, request: Req
 
 
         if (respDecodedBuffer[0] === 0 && respDecodedBuffer[1] === 0) {
-          // eslint-disable-next-line @typescript-eslint/no-var-requires
-          const filePath = require('path').resolve(__dirname, '../../compressedResult')
-          fs.writeFileSync(filePath, respDecodedBuffer.toString('base64'))
-
           respDecodedBuffer = await decompress(respDecodedBuffer)
         }
 
