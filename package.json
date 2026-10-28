@@ -4,7 +4,10 @@
   "description": "anidb-udp-client is a library for Node.js that facilitates the use of Anidb's UDP API",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "repository": "https://github.com/tsukeero/anidb-udp-client",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsukeero/anidb-udp-client.git"
+  },
   "homepage": "https://tsukeero.github.io/anidb-udp-client/",
   "keywords": [
     "anime",
