@@ -49,3 +49,5 @@ Thumbs.db
 
 # ansible
 *.retry
+.env
+.env.local
