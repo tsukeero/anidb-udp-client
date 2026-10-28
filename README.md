@@ -79,3 +79,18 @@ await cache.connect()
 
 const anidb_client = new AnidbUDPClient('my-anime-client', { cache } )
 ```
+
+## Upgrading from 1.x
+
+- Node.js 22 or newer is required.
+- `file()`, `file_by_hash()` and `file_by_episode()`: the `other_name` field is now `other_name_list` and returns `string[]` (same as `anime()`).
+
+## Development
+
+```sh
+npm ci
+npm run verify   # lint, typecheck, tests
+npm run build
+```
+
+The git hooks (lint-staged, commitlint) need Node.js 22.22.1 or newer. Commit messages follow [Conventional Commits](https://www.conventionalcommits.org/); releases are created by release-please.
