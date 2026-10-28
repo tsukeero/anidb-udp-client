@@ -10,8 +10,5 @@
     },
     "include": [
         "./src/index.ts"
-      ],
-    "ts-node": {
-      "files": true
-    }
+      ]
   }
