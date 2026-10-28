@@ -8,6 +8,8 @@ https://tsukeero.github.io/anidb-udp-client/
 
 ## Installation
 
+Requires Node.js 22 or newer.
+
 NPM: `npm install anidb-udp-client`
 
 Yarn: `yarn add anidb-udp-client`
@@ -21,7 +23,7 @@ import { AnidbUDPClient } from 'anidb-udp-client'
 
 const anidb_client =  new AnidbUDPClient('my-anime-client')
 
-await anidb_client.connect('anidb_username', 'anidb_passowrd')
+await anidb_client.connect('anidb_username', 'anidb_password')
 
 const anime = await anidb_client.anime(117, [ 'english_name', 'rating' ])
 
@@ -30,12 +32,17 @@ console.log(`${anime.english_name}: rating ${anime.rating}`)
 await anidb_client.disconnect()
 
 ```
-### Custom cache path path
+### Custom cache path
 ```js
 import { AnidbUDPClient, SimplePersistentCache} from 'anidb-udp-client'
 
 const cache = new SimplePersistentCache({save_path: '/tmp/'})
-const anidb_client = const myanidb = new AnidbUDPClient('my-anime-client', { cache } )
+const anidb_client = new AnidbUDPClient('my-anime-client', { cache } )
+```
+
+### Disable caching
+```js
+const anidb_client = new AnidbUDPClient('my-anime-client', { cache: false } )
 ```
 
 
@@ -72,3 +79,18 @@ await cache.connect()
 
 const anidb_client = new AnidbUDPClient('my-anime-client', { cache } )
 ```
+
+## Upgrading from 1.x
+
+- Node.js 22 or newer is required.
+- `file()`, `file_by_hash()` and `file_by_episode()`: the `other_name` field is now `other_name_list` and returns `string[]` (same as `anime()`).
+
+## Development
+
+```sh
+npm ci
+npm run verify   # lint, typecheck, tests
+npm run build
+```
+
+The git hooks (lint-staged, commitlint) need Node.js 22.22.1 or newer. Commit messages follow [Conventional Commits](https://www.conventionalcommits.org/); releases are created by release-please.
