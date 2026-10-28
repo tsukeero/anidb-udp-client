@@ -1,7 +1,7 @@
 import MaskedParser from './MaskedParser'
 import { ListField, NumBoolean } from './field_types/'
 
-// export type FileFieldName = 'aid' | 'eid' | 'gid' | 'mylist_id' | 'other_episodes' | 'is_deprecated' | 'state' | 'size' | 'ed2k' | 'md5' | 'sha1' | 'crc32' | 'video_color_depth' | 'quality' | 'source' | 'audio_codecs' | 'audio_bitrates' | 'video_codec' | 'video_bitrate' | 'video_resolution' | 'file_extension' | 'dub_language' | 'sub_language' | 'length_seconds' | 'description' | 'aired_date' | 'anidb_filename' | 'mylist_state' | 'mylist_filestate' | 'mylist_viewed' | 'mylist_viewdate' | 'mylist_storage' | 'mylist_source' | 'mylist_other' | 'anime_total_episodes' | 'highest_episode' | 'year' | 'type' | 'related_aid_list' | 'related_aid_type' | 'category_list' | 'romanji_name' | 'kanji_name' | 'english_name' | 'other_name' | 'short_name_list' | 'synonym_list' | 'epno' | 'ep_name' | 'ep_romanji_name' | 'ep_kanji_name' | 'ep_rating' | 'ep_vote_count' | 'group_name' | 'group_short_name' | 'aid_record_updated';
+// export type FileFieldName = 'aid' | 'eid' | 'gid' | 'mylist_id' | 'other_episodes' | 'is_deprecated' | 'state' | 'size' | 'ed2k' | 'md5' | 'sha1' | 'crc32' | 'video_color_depth' | 'quality' | 'source' | 'audio_codecs' | 'audio_bitrates' | 'video_codec' | 'video_bitrate' | 'video_resolution' | 'file_extension' | 'dub_language' | 'sub_language' | 'length_seconds' | 'description' | 'aired_date' | 'anidb_filename' | 'mylist_state' | 'mylist_filestate' | 'mylist_viewed' | 'mylist_viewdate' | 'mylist_storage' | 'mylist_source' | 'mylist_other' | 'anime_total_episodes' | 'highest_episode' | 'year' | 'type' | 'related_aid_list' | 'related_aid_type' | 'category_list' | 'romanji_name' | 'kanji_name' | 'english_name' | 'other_name_list' | 'short_name_list' | 'synonym_list' | 'epno' | 'ep_name' | 'ep_romanji_name' | 'ep_kanji_name' | 'ep_rating' | 'ep_vote_count' | 'group_name' | 'group_short_name' | 'aid_record_updated';
 const amaskDef = {
   /*
   7	128	unused
@@ -137,7 +137,7 @@ const amaskDef = {
   romanji_name: [ 6, 128, String ],
   kanji_name: [ 6, 64, String ],
   english_name: [ 6, 32, String ],
-  other_name: [ 6, 16, String ],
+  other_name_list: [ 6, 16, ListField(String, undefined, true) ],
   short_name_list: [ 6, 8, ListField(String, undefined, true) ],
   // parse
   synonym_list: [ 6, 4, ListField(String, undefined, true) ],
