@@ -14,7 +14,7 @@
     "ci_install": "yarn install --immutable --immutable-cache --check-cache",
     "test": "jest --coverage",
     "verify": "yarn eslint . && yarn tsc && yarn test",
-    "depcheck": "depcheck .",
+    "depcheck": "depcheck . --ignores=@commitlint/cli,@commitlint/config-conventional",
     "build": "tsc --outDir ./dist",
     "docs": "typedoc src/index.ts --excludeExternals --out ./docs",
     "postinstall": "husky",
