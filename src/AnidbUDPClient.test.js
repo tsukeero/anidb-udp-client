@@ -2,6 +2,13 @@ import { AnidbUDPClient } from './AnidbUDPClient'
 import { AnidbCache } from './utils/AnidbCache'
 import * as LoggerModule from './utils/log'
 
+jest.mock('./utils/log', () => ({
+  ...jest.requireActual('./utils/log'),
+  __esModule: true,
+  forceEnableDebugLog: jest.fn(),
+  setLog: jest.fn(),
+}))
+
 jest.mock('./utils/AnidbCache', () => {
   return {
     AnidbCache: jest.fn().mockImplementation((..._a) => {
@@ -76,20 +83,20 @@ describe('constructor', () => {
   })
 
   it('new AniAnidbUDPClientdb(null, {debug: true })', () => {
-    const forceEnableDebugLog = jest.spyOn(LoggerModule, 'forceEnableDebugLog').mockReturnValue()
+    const forceEnableDebugLog = LoggerModule.forceEnableDebugLog
     new AnidbUDPClient('client_id',{ debug: true })
     expect(forceEnableDebugLog).toHaveBeenCalledTimes(1)
   })
 
   it('new AnidbUDPClient(null, {logger: false})', () => {
-    const setLog = jest.spyOn(LoggerModule, 'setLog').mockReturnValue()
+    const setLog = LoggerModule.setLog
     new AnidbUDPClient(null, { logger: false })
     expect(setLog).toHaveBeenCalledWith()
   })
 
   it('new AnidbUDPClient(null, {logger: fn})', () => {
     const logger = jest.fn
-    const setLog = jest.spyOn(LoggerModule, 'setLog').mockReturnValue()
+    const setLog = LoggerModule.setLog
     new AnidbUDPClient(null, { logger })
     expect(setLog).toHaveBeenCalledWith(logger)
   })

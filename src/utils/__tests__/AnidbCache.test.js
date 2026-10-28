@@ -1,12 +1,18 @@
 import { AnidbCache } from '../AnidbCache'
 import NodeCache from 'node-cache'
 import * as SimplePersistentCacheModule from '../SimplePersistentCache'
+
+jest.mock('../SimplePersistentCache', () => ({
+  __esModule: true,
+  SimplePersistentCache: jest.fn(),
+}))
+
 describe('AnidbCache', () => {
   describe('getImplInstance', () => {
 
     let SimplePersistentCache
     beforeAll(() => {
-      SimplePersistentCache = jest.spyOn(SimplePersistentCacheModule, 'SimplePersistentCache').mockReturnValue()
+      SimplePersistentCache = SimplePersistentCacheModule.SimplePersistentCache
     })
 
     afterEach(() => {
