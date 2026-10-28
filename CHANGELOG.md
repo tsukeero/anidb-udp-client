@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/tsukeero/anidb-udp-client/compare/v2.0.0...v2.0.1) (2026-10-28)
+
+
+### Bug Fixes
+
+* remove per-request socket listeners ([#33](https://github.com/tsukeero/anidb-udp-client/issues/33)) ([0570bf9](https://github.com/tsukeero/anidb-udp-client/commit/0570bf9be951d9dbe07e303eb958dc1eb905c32e))
+
 ## [2.0.0](https://github.com/tsukeero/anidb-udp-client/compare/v1.1.1...v2.0.0) (2026-10-28)
 
 
