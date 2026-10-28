@@ -27,7 +27,7 @@ describe('new MaskedParser()', () => {
   it('bad field', () => {
     expect(
       () => new TestMaskedParser([ 'bad_field' ])
-    ).toThrowError(new Error('Bad field: bad_field'))
+    ).toThrow(new Error('Bad field: bad_field'))
   })
 
   it('new MaskedParser(string)', () => {

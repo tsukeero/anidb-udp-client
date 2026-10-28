@@ -41,5 +41,5 @@ test('parseData bad data', () => {
   function failToParse () {
     parser.parseData(badData)
   }
-  expect(failToParse).toThrowError(new Error('Bad data: ' + badData))
+  expect(failToParse).toThrow(new Error('Bad data: ' + badData))
 })

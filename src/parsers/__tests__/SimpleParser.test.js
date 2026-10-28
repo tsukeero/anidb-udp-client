@@ -24,5 +24,5 @@ test('parseData incoreect field number', () => {
   function failToParse () {
     parser.parseData('1|2')
   }
-  expect(failToParse).toThrowError(new Error(`Definition and input item length missmatch input: 2 definition: 3`))
+  expect(failToParse).toThrow(new Error(`Definition and input item length missmatch input: 2 definition: 3`))
 })

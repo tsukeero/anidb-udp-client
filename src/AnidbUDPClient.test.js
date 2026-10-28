@@ -46,7 +46,7 @@ async function simpleCachedCall (command, fn, response_code, args, params, mocke
   if (!Array.isArray(params)) {
     final_params = [ params ]
   }
-  expect(a._callApi).toBeCalledWith(command, ...final_params)
+  expect(a._callApi).toHaveBeenCalledWith(command, ...final_params)
   expect(result).toMatchSnapshot()
   return a
 }
@@ -199,9 +199,9 @@ test('animeDesc', async () => {
       data: '1|2|nd even though humans insisted in not learning about the horrors of war and did not make a point of pursuing peace, they still intended to venture away from the Earth, with colonies having been built and nanomachines already allowing for decent life conditions even during prolonged periods in space.<br /><br />In this still disgracefully conflict-ridden world, a private paramilitary organization unveils its existence, announcing its intention to bring forth the eradication of war and conflict through force of arms. This organization, called [url=http://anidb.net/ch2214]Celestial Being[/url], possesses its own mobile suits, the [i]Gundams[/i], which are much more powerful than those in the hands of any military in the world, and proceeds to using them to intervene in conflicts in order to stop them by force. Their actions quickly divide public opinion, and governments and other groups begin to act by taking their existence into consideration, but will they manage to bring peace to the world? Beyond the question of how the world will reply immediately, what is going to happen in the future as a result of their actions?<br /><br />[i]— written by Hinoe[/i]',
     }))
   const result = await a.animeDesc(5252)
-  expect(a._callApi).toBeCalledWith(command, { aid: 5252, part: 0 })
+  expect(a._callApi).toHaveBeenCalledWith(command, { aid: 5252, part: 0 })
 
-  expect(a._callApi).toBeCalledWith(command, { aid: 5252, part: 1 })
+  expect(a._callApi).toHaveBeenCalledWith(command, { aid: 5252, part: 1 })
   expect(result).toMatchSnapshot()
 })
 test('anime', async () => {
