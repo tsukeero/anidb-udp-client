@@ -1,85 +1,45 @@
-name: PUBLISH DOCS
+name: Publish docs
+
 on:
-    workflow_dispatch:
-    workflow_call:
-    # or set up your own custom triggers
-permissions:
-    contents: write # allows the 'Commit' step without tokens
+  workflow_dispatch:
+  workflow_call:
+
+permissions: {}
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
-    # get_history: # create an artifact from the existing documentation builds
-    #     runs-on: ubuntu-latest
-    #     steps:
-    #         - name: get the gh-pages repo
-    #           uses: actions/checkout@v3
-    #           with:
-    #               ref: gh-pages
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      HUSKY: 0
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 26.x
+          cache: npm
+      - run: npm ci
+      - run: npm run docs
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: docs
 
-    #         - name: tar the existing docs
-    #           run: |
-    #               mkdir -p ./docs
-    #               tar -cvf documentation.tar ./docs
-
-    #         - name: create a document artifact
-    #           uses: actions/upload-artifact@v3
-    #           with:
-    #               name: documentation
-    #               path: documentation.tar
-
-    build: # builds the distribution and then the documentation
-        # needs: get_history
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout src
-              uses: actions/checkout@v3
-
-            # - run: mkdir -p ./docs
-            # - name: Download the existing documents artifact
-            #   uses: actions/download-artifact@v3
-            #   with:
-            #       name: documentation
-            # - run: tar -xf documentation.tar ./docs -C ./docs
-
-            - name: Build
-              uses: actions/setup-node@v3
-              with:
-                  node-version: 16.x
-                  cache: 'yarn'
-            - run: yarn ci_install
-            - run: yarn build # set up 'build' script in your package.json
-
-            - name: Build documents
-              run: yarn docs #set up 'docs' build script in your package.json
-
-            - name: tar the new docs
-              run: tar -cvf newdocumentation.tar ./docs
-
-            - name: create a new document artifact
-              uses: actions/upload-artifact@v3
-              with:
-                  name: newdocumentation
-                  path: newdocumentation.tar
-
-    commit: # commit the old and new merged documents to gh-pages/docs
-        needs: build
-        runs-on: ubuntu-latest
-        steps:
-            - name: checkout the gh-pages repo
-              uses: actions/checkout@v3
-              with:
-                  ref: gh-pages
-
-            - run: mkdir -p ./docs
-            - name: Download the new documents artifact
-              uses: actions/download-artifact@v3
-              with:
-                  name: newdocumentation
-            - run: tar -xf newdocumentation.tar ./docs -C ./docs
-            - run: rm newdocumentation.tar
-            - name: commit
-              run: |
-                  git config --global user.email "username@users.noreply.github.com"
-                  git config --global user.name "Continuous Integration"
-                  git add .
-                  git commit -m "CI updated the documentation"
-                  git push
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v5
+        id: deployment
