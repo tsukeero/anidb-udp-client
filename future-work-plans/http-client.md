@@ -126,6 +126,10 @@ Gotchas:
 - `parentid` on tags lets you rebuild the tag tree. Optional elements (`picurl`, `description`, `parentid`, `infobox`)
   are often missing.
 - Descriptions contain inline links like `http://anidb.net/ch28 [Lafiel]`. Consider a helper to strip them or turn them into structured links.
+- HTTP is the only source for the tag tree and spoiler flags. UDP `ANIME` gives only flat name/id/weight lists, and there is
+  no usable UDP tag command. The UDP wiki lists reply codes `ANIMETAG` 237 / `CHARACTERTAG` 238 (and `SONG` 236) but documents
+  no command for them. Probed 2026-10-29: `ANIMETAG` → 598 unknown command; `TAG` exists but every param tried
+  (`tagid`, `tid`, `id`, `tag`, `aid`) → 505 illegal input or access denied.
 - Example response for aid 1 is ~60 KB (recommendations and tag descriptions are large).
 - `resource type` is a numeric site id. The wiki page doesn't map it, so we need to find the mapping elsewhere.
 
@@ -190,6 +194,25 @@ never stored, and document the risk clearly. Implement them last. They support `
 ## Suggested order
 
 1. `AnidbHTTPClient` with `anime` + typed result + error mapping + rate limit + cache.
+   **In progress on `feat/http-client`** (`src/AnidbHTTPClient.ts`, `src/parsers/HTTPAnimeParser.ts`). Decisions so far:
+   - The cache stores the **raw XML**, not the parsed object, and parses it on read. Parser fixes then apply to cached entries
+     without refetching, which matters with the once-a-day limit.
+   - Dates stay as `YYYY-MM-DD` strings so results survive a JSON round trip in custom caches.
+   - `cache: false` uses an in-memory cache with a 24 h lifetime and logs a warning.
+   - After a `Banned` response, the client rejects every later call without sending it.
+   - Only `Banned` → `BANNED` and `Anime not found` → `NO_SUCH_ANIME` are mapped. Other `<error>` texts become
+     `UNKNOWN_API_ERROR`, with the text in `message` and `payload.error`. Collect the real error strings and extend the mapping.
+   - Exported from the main entry point for now (subpath export is still an open question).
+   - Checked live 2026-10-29 with `anime` aid 309 (clientver 1): a 111 KB response, parsed without errors. Every element and
+     attribute in it is handled. The test fixture is still written by hand, with the live findings added.
+   - Live findings: an `externalentity` can hold several `<identifier>`s whose meaning depends on position
+     (type 3 → `1516`, `svewgq`; type 14 → `311`, `v`; type 44 → `85100`, `tv`). Seen resource types: 1, 2, 3, 4, 6, 7, 10, 14, 43, 44.
+     Tag `description` text is large: 149 tags, most with a description.
+   - Second live check, aid 6107 (FMA: Brotherhood, 273 KB). Episodes can have a `recap="true"` attribute and their own
+     `<resources>` (type 28 per episode here, probably streaming ids). Both are now parsed. `epno type` values seen: 1, 2, 3, 4, 6
+     (with prefixes `S`, `C`, `T`, `O`; type 5 is presumably `P`, unconfirmed). Related types seen: `Alternative Setting`, `Side Story`.
+     Recommendation types seen: `Must See`, `Recommended`. A trimmed copy (first tags/characters, one episode per type plus the recap,
+     review text removed) is the fixture `src/parsers/__tests__/fixtures/http-anime-6107.xml`.
 2. `AnidbTitles` (titles dump + search); name support in `anime()`.
 3. `hotanime`, `randomrecommendation`, `randomsimilar`, `main`.
 4. `mylistsummary`, `hints`.
