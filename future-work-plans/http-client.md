@@ -50,7 +50,7 @@ but is a very different transport from UDP.
 `user`/`pass` are the account's **main password**, not the UDP API key, sent in the query string over plain HTTP.
 
 There is no search request. The wiki points elsewhere for search, and the intended name → aid path is the
-daily titles dump (`anime-titles.xml.gz` / `.dat.gz`; not documented on this page, so confirm the URL and rules separately).
+daily titles dump (`anime-titles.xml.gz` / `.dat.gz`, documented on the wiki's API page; see section 3).
 
 ### `anime` response structure
 
@@ -161,10 +161,37 @@ A combined facade can come later if there's demand.
 
 This is the most useful piece to share between clients:
 
-- Download the titles dump at most once a day and store it in the shared cache.
+- ~~Download the titles dump at most once a day and store it in the shared cache.~~ Not possible, see below.
 - `search(name)` returns aids.
 - `AnidbHTTPClient.anime()` can then accept a name the same way the UDP `anime()` does.
 - The UDP client could also check it before sending a request, which saves UDP calls.
+
+**Implemented on `feat/http-client`** (`src/AnidbTitles.ts`), checked 2026-10-29/30:
+
+- **Source** ([wiki API page](https://wiki.anidb.net/API#Anime_Titles)): `http://anidb.net/api/anime-titles.dat.gz` and `.xml.gz`,
+  "YOU DO NOT REQUEST THIS FILE MORE THAN ONCE PER DAY". The wiki doesn't describe the format.
+- **No automatic download:** Cloudflare answers non-browser requests (curl, Node `fetch`) with a 403 "Just a moment..." JS challenge.
+  A browser gets the file. So the user downloads it, and `AnidbTitles.fromFile(path)` / `fromBuffer(buf)` loads it (gzip detected by magic bytes).
+  Nothing is stored in the cache: the file on disk is the cache.
+- **`.dat` format** (from the file's own header):
+  - `# created: Thu Oct 29 03:00:02 2026` (no time zone, parsed as local time and exposed as `created`).
+  - `<aid>|<type>|<language>|<title>`.
+  - Types: 1 = main (one per anime), 2 = synonym, 3 = short, 4 = official (one per language), 5 = kana reading, 6 = title card.
+    They're mapped to `main`/`synonym`/`short`/`official`/`kana`/`card`.
+  - **Titles can contain `|`** (e.g. `8895|1|x-jat|Shin Evangelion Gekijouban:||`), so lines are split on the first three pipes only.
+  - LF line endings, no BOM. 1.4 MB gzipped, 3.3 MB text, 102k titles, 17,092 anime, 70 languages.
+- **API:**
+  - `lookup(name)`: exact match after normalising (case, punctuation, full-width, Latin diacritics).
+    Ties go to the better title type, then the lowest aid.
+  - `search(query, { limit, langs })`: best match per anime. Exact beats prefix, then word-start substring,
+    then all words in any order, then plain substring. Title type adds a small bonus.
+  - `titles(aid)`, `mainTitle(aid)`, `size`, `created`.
+- **`anime(name)`:** `AnidbHTTPClient` takes a `titles` option, and `anime(name)` resolves the name with `lookup`. An unknown name
+  throws `NO_SUCH_ANIME` with `payload.suggestions` (top 5 search results) and sends no request. Fuzzy matches never trigger a request,
+  so a wrong guess can't use up the daily allowance.
+- **Full dump numbers:** load uses about 80 MB of heap, and a search takes 20–33 ms.
+- **Fixture:** a trimmed real dump (`src/__tests__/fixtures/anime-titles.dat`): the header plus all titles of aid 1, 4, 979, 6107, 8895, 2643.
+- **Not done:** UDP client integration, and a staleness warning based on `created`.
 
 ### 4. Client responsibilities
 
@@ -219,7 +246,7 @@ never stored, and document the risk clearly. Implement them last. They support `
 
 ## Open questions
 
-- [ ] Titles dump: exact URL, format and download limits.
+- [x] Titles dump: exact URL, format and download limits (see section 3).
 - [ ] Mapping for `resource type` ids → site names/URL templates.
 - [ ] Image base URL for `picture` / `picurl` / seiyuu `picture` (CDN path).
 - [ ] Does HTTP flood protection share a ban with UDP (same IP or account)? Affects whether the two queues need to coordinate.
