@@ -7,6 +7,7 @@ import { AnidbCache } from './utils/AnidbCache'
 import type { AnidbCacheImplType } from './utils/AnidbCache'
 import { parseAnime, parseXml } from './parsers/HTTPAnimeParser'
 import type { HTTPAnimeResult } from './parsers/HTTPAnimeParser'
+import type { AnidbTitles } from './AnidbTitles'
 
 const BASE_URL = 'http://api.anidb.net:9001/httpapi'
 const PROT_VER = 1
@@ -29,6 +30,7 @@ export class AnidbHTTPClient {
   private requestQueue!: Bottleneck
   private inFlight = new Map<string, Promise<any>>()
   private bannedError: AnidbError | undefined
+  private titles: AnidbTitles | undefined
 
   /**
    *
@@ -54,6 +56,8 @@ export class AnidbHTTPClient {
       logger?: false | AnidbLoggerType;
       /** enable/disable debug logging */
       debug?: true;
+      /** title index, lets {@link AnidbHTTPClient.anime} accept a title instead of an aid */
+      titles?: AnidbTitles;
     }
   ) {
     if (!clientId || !Number.isInteger(clientVer)) {
@@ -66,7 +70,10 @@ export class AnidbHTTPClient {
       cache,
       logger,
       debug,
+      titles,
     } = options || {}
+
+    this.titles = titles
 
     if (debug) {
       forceEnableDebugLog()
@@ -157,19 +164,34 @@ export class AnidbHTTPClient {
   }
 
   /**
-   * get full anime data by aid
-   * @throws {@link AnidbError} `NO_SUCH_ANIME` if the anime does not exist
+   * get full anime data by aid, or by exact title when the client was created with a `titles` index
+   * (see {@link AnidbTitles.lookup}; for fuzzy matching use {@link AnidbTitles.search} and pass the aid)
+   * @throws {@link AnidbError} `NO_SUCH_ANIME` if the anime does not exist; for an unknown title `payload.suggestions` holds the closest {@link AnidbTitles.search} results
    * @group Data Commands
    */
-  anime (aid: number): Promise<HTTPAnimeResult> {
+  async anime (anime: number | string): Promise<HTTPAnimeResult> {
+    const aid = typeof anime === 'string' ? this.resolveTitle(anime) : anime
     const command = 'HTTP_ANIME'
-    return this.dedupe(`${ command }:${ aid }`, async () => {
+    return await this.dedupe(`${ command }:${ aid }`, async () => {
       const xml = await this.cache.get<string>(command, aid, {
         validator: (cached) => typeof cached === 'string' && cached.length > 0,
         onMiss: () => this._callApi('anime', { aid }),
       })
       return parseAnime(parseXml(xml))
     })
+  }
+
+  private resolveTitle (name: string): number {
+    if (!this.titles) {
+      throw new TypeError('AnidbHTTPClient needs the `titles` option to look up anime by title')
+    }
+    const aid = this.titles.lookup(name)
+    if (aid === undefined) {
+      throw new AnidbError(RESPONSE_CODE.NO_SUCH_ANIME, `[HTTP] no anime titled "${ name }"`, {
+        suggestions: this.titles.search(name, { limit: 5 }),
+      })
+    }
+    return aid
   }
 }
 

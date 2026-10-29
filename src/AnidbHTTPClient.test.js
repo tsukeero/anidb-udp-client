@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import { AnidbHTTPClient, toAnidbError } from './AnidbHTTPClient'
+import { AnidbTitles } from './AnidbTitles'
 import { RESPONSE_CODE } from './common/responseCodeMap'
 
 jest.mock('bottleneck', () => jest.fn().mockImplementation(() => ({
@@ -110,6 +111,32 @@ describe('AnidbHTTPClient', () => {
     await expect(client.anime(1)).rejects.toMatchObject({ code: RESPONSE_CODE.BANNED })
     await expect(client.anime(2)).rejects.toMatchObject({ code: RESPONSE_CODE.BANNED })
     expect(fetchMock).toHaveBeenCalledTimes(1)
+  })
+
+  test('anime(title) resolves the aid through the titles index', async () => {
+    fetchMock.mockResolvedValueOnce(response(fixture))
+    const titles = AnidbTitles.fromBuffer('1|1|x-jat|Seikai no Monshou\n1|4|en|Crest of the Stars\n')
+    const client = new AnidbHTTPClient('client', 1, { cache: memoryCache(), logger: false, titles })
+
+    await client.anime('crest of the stars')
+
+    expect(new URL(fetchMock.mock.calls[0][0]).searchParams.get('aid')).toBe('1')
+  })
+
+  test('anime(title) without a match suggests titles and sends no request', async () => {
+    const titles = AnidbTitles.fromBuffer('1|1|x-jat|Seikai no Monshou\n1|4|en|Crest of the Stars\n')
+    const client = new AnidbHTTPClient('client', 1, { cache: memoryCache(), logger: false, titles })
+
+    await expect(client.anime('crest')).rejects.toMatchObject({
+      code: RESPONSE_CODE.NO_SUCH_ANIME,
+      payload: { suggestions: [ expect.objectContaining({ aid: 1, title: 'Crest of the Stars' }) ] },
+    })
+    expect(fetchMock).not.toHaveBeenCalled()
+  })
+
+  test('anime(title) requires a titles index', async () => {
+    const client = new AnidbHTTPClient('client', 1, { cache: memoryCache(), logger: false })
+    await expect(client.anime('crest of the stars')).rejects.toThrow(TypeError)
   })
 
   test('http and network failures become AnidbError', async () => {
