@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- built from the live hotanime/randomsimilar/randomrecommendation responses, in the order of a live main response -->
+<main><hotanime>
+    <anime id="19444" restricted="false">
+        <episodecount>12</episodecount>
+        <startdate>2026-10-02</startdate>
+        <title xml:lang="x-jat" type="main">Kusuriya no Hitorigoto (2026)</title>
+        <ratings>
+            <permanent count="35">9.09</permanent>
+            <temporary count="36">8.16</temporary>
+        </ratings>
+        <picture>328827.jpg</picture>
+    </anime>
+    <anime id="17789" restricted="false">
+        <episodecount>12</episodecount>
+        <startdate>2026-10-01</startdate>
+        <title xml:lang="x-jat" type="main">Tensei Shitara Ken Deshita II</title>
+        <ratings>
+            <permanent count="43">5.83</permanent>
+            <temporary count="43">7.19</temporary>
+        </ratings>
+        <picture>328836.jpg</picture>
+    </anime>
+    <anime id="19445" restricted="false">
+        <episodecount>10</episodecount>
+        <startdate>2026-10-20</startdate>
+        <enddate>2026-10-20</enddate>
+        <title xml:lang="x-jat" type="main">Cyberpunk: Edgerunners II</title>
+        <ratings>
+            <permanent count="97">6.33</permanent>
+            <temporary count="98">7.02</temporary>
+        </ratings>
+        <picture>12272.jpeg</picture>
+    </anime>
+    <anime id="20077" restricted="false">
+        <episodecount>12</episodecount>
+        <startdate>2026-09-27</startdate>
+        <title xml:lang="x-jat" type="main">Tempal: Item no Chikara</title>
+        <ratings>
+            <permanent count="37">5.16</permanent>
+            <temporary count="37">6.54</temporary>
+        </ratings>
+        <picture>329559.jpg</picture>
+    </anime>
+    <anime id="19308" restricted="false">
+        <episodecount>12</episodecount>
+        <startdate>2026-10-04</startdate>
+        <title xml:lang="x-jat" type="main">Seitokai ni mo Ana wa Aru!</title>
+        <ratings>
+            <permanent count="33">4.27</permanent>
+            <temporary count="34">5.97</temporary>
+        </ratings>
+        <picture>329796.jpg</picture>
+    </anime>
+    <anime id="19881" restricted="false">
+        <startdate>2026-10-07</startdate>
+        <title xml:lang="x-jat" type="main">Tsuihou Sareta Cheat Fuyo Majutsushi wa Kimama na Second Life o Ouka Suru. Ore wa Buki dake Janaku,  Arayuru Mono ni "Kyouka Point" o Fuyo Dekirushi, Ore no Ishi de Itsu demo Kouka o Kaijo Dekiru Kedo, Nokotta Hitotachi Daijoubu?</title>
+        <ratings>
+            <permanent count="44">4.54</permanent>
+            <temporary count="44">6.07</temporary>
+        </ratings>
+        <picture>329267.jpg</picture>
+    </anime>
+    <anime id="19865" restricted="false">
+        <episodecount>25</episodecount>
+        <startdate>2026-10-06</startdate>
+        <title xml:lang="x-jat" type="main">Kyouran Reijou Nia Liston: Byoujaku Reijou ni Tensei Shita Kami-goroshi no Bujin no Karei Naru Musouroku</title>
+        <ratings>
+            <permanent count="43">5.07</permanent>
+            <temporary count="43">6.30</temporary>
+        </ratings>
+        <picture>329797.jpg</picture>
+    </anime>
+    <anime id="19777" restricted="false">
+        <startdate>2026-09-26</startdate>
+        <title xml:lang="x-jat" type="main">Yasei no Last Boss ga Arawareta! (2026)</title>
+        <ratings>
+            <permanent count="24">4.51</permanent>
+            <temporary count="24">5.63</temporary>
+        </ratings>
+        <picture>329358.jpg</picture>
+    </anime>
+    <anime id="19142" restricted="false">
+        <startdate>2026-10-04</startdate>
+        <title xml:lang="x-jat" type="main">Mezametara Saikyou Soubi to Uchuusen Mochi Datta no de, Ikkodate Mezashite Youhei to Shite Jiyuu ni Ikitai</title>
+        <ratings>
+            <permanent count="37">4.20</permanent>
+            <temporary count="38">6.09</temporary>
+        </ratings>
+        <picture>329931.jpg</picture>
+    </anime>
+    <anime id="19070" restricted="false">
+        <startdate>2026-09-28</startdate>
+        <title xml:lang="x-jat" type="main">Tensei Kizoku, Kantei Skill de Nariagaru Dai 3 Ki</title>
+        <ratings>
+            <permanent count="19">4.33</permanent>
+            <temporary count="19">6.07</temporary>
+        </ratings>
+        <picture>329558.jpg</picture>
+    </anime>
+</hotanime>
+
+<randomsimilar>
+    <similar>
+        <source aid="13893" restricted="false">
+            <title xml:lang="x-jat" type="main">Carole &amp; Tuesday</title>
+            <picture>258360.jpg</picture>
+        </source>
+        <target aid="4143" restricted="false">
+            <title xml:lang="x-jat" type="main">Nana</title>
+            <picture>321080.jpg</picture>
+        </target>
+    </similar>
+    <similar>
+        <source aid="8922" restricted="false">
+            <title xml:lang="x-jat" type="main">Guskou Budori no Denki (2012)</title>
+            <picture>86752.jpg</picture>
+        </source>
+        <target aid="820" restricted="false">
+            <title xml:lang="x-jat" type="main">Ihatov Gensou: Kenji no Haru</title>
+            <picture>91829.jpg</picture>
+        </target>
+    </similar>
+    <similar>
+        <source aid="15024" restricted="false">
+            <title xml:lang="x-jat" type="main">Kandagawa Jet Girls</title>
+            <picture>238442.jpg</picture>
+        </source>
+        <target aid="11922" restricted="false">
+            <title xml:lang="x-jat" type="main">Keijo!!!!!!!!</title>
+            <picture>323872.jpg</picture>
+        </target>
+    </similar>
+    <similar>
+        <source aid="15342" restricted="false">
+            <title xml:lang="x-jat" type="main">Kuma Kuma Kuma Bear</title>
+            <picture>247886.jpg</picture>
+        </source>
+        <target aid="15400" restricted="false">
+            <title xml:lang="x-jat" type="main">Kami-tachi ni Hirowareta Otoko</title>
+            <picture>262553.jpg</picture>
+        </target>
+    </similar>
+    <similar>
+        <source aid="713" restricted="false">
+            <title xml:lang="x-jat" type="main">Manie-Manie: Meikyuu Monogatari</title>
+            <picture>323866.jpg</picture>
+        </source>
+        <target aid="6037" restricted="false">
+            <title xml:lang="x-jat" type="main">Genius Party Beyond</title>
+            <picture>277596.jpg</picture>
+        </target>
+    </similar>
+    <similar>
+        <source aid="8270" restricted="false">
+            <title xml:lang="x-jat" type="main">Momo e no Tegami</title>
+            <picture>134376.jpg</picture>
+        </source>
+        <target aid="3195" restricted="false">
+            <title xml:lang="x-jat" type="main">Kamichu!</title>
+            <picture>149137.jpg</picture>
+        </target>
+    </similar>
+    <similar>
+        <source aid="1099" restricted="false">
+            <title xml:lang="x-jat" type="main">Sakigake!! Cromartie Koukou</title>
+            <picture>141714.jpg</picture>
+        </source>
+        <target aid="2070" restricted="false">
+            <title xml:lang="x-jat" type="main">Sakigake!! Otoko Juku</title>
+            <picture>36338.jpg</picture>
+        </target>
+    </similar>
+    <similar>
+        <source aid="814" restricted="false">
+            <title xml:lang="x-jat" type="main">Shihaisha no Tasogare</title>
+            <picture>10913.jpg</picture>
+        </source>
+        <target aid="1040" restricted="false">
+            <title xml:lang="x-jat" type="main">Youjuu Toshi</title>
+            <picture>288831.jpg</picture>
+        </target>
+    </similar>
+    <similar>
+        <source aid="2844" restricted="false">
+            <title xml:lang="x-jat" type="main">Shuffle!</title>
+            <picture>151518.jpg</picture>
+        </source>
+        <target aid="5101" restricted="false">
+            <title xml:lang="x-jat" type="main">Clannad</title>
+            <picture>287772.jpg</picture>
+        </target>
+    </similar>
+    <similar>
+        <source aid="9235" restricted="false">
+            <title xml:lang="x-jat" type="main">Tonari no Kaibutsu-kun</title>
+            <picture>94550.jpg</picture>
+        </source>
+        <target aid="9236" restricted="false">
+            <title xml:lang="x-jat" type="main">Sukitte Ii na yo.</title>
+            <picture>91846.jpg</picture>
+        </target>
+    </similar>
+</randomsimilar>
+
+<randomrecommendation>
+    <recommendation>
+        <anime id="2979" restricted="false">
+            <type>OVA</type>
+            <episodecount>1</episodecount>
+            <startdate>1993-04-25</startdate>
+            <enddate>1993-04-25</enddate>
+            <title xml:lang="x-jat" type="main">Desert Rose: Yuki no Mokushiroku</title>
+            <picture>237600.jpg</picture>
+            <ratings>
+                <permanent count="247">531</permanent>
+                <recommendations>3</recommendations>
+            </ratings>
+        </anime>
+    </recommendation>
+    <recommendation>
+        <anime id="3146" restricted="false">
+            <type>Movie</type>
+            <episodecount>1</episodecount>
+            <startdate>2001-07-02</startdate>
+            <enddate>2001-07-02</enddate>
+            <title xml:lang="x-jat" type="main">Final Fantasy: The Spirits Within</title>
+            <picture>36666.jpg</picture>
+            <ratings>
+                <permanent count="4244">418</permanent>
+                <recommendations>12</recommendations>
+            </ratings>
+        </anime>
+    </recommendation>
+    <recommendation>
+        <anime id="13004" restricted="false">
+            <type>TV Series</type>
+            <episodecount>12</episodecount>
+            <startdate>2017-07-11</startdate>
+            <enddate>2017-09-26</enddate>
+            <title xml:lang="x-jat" type="main">Isekai wa Smartphone to Tomo ni.</title>
+            <picture>237333.jpg</picture>
+            <ratings>
+                <permanent count="2900">338</permanent>
+                <recommendations>20</recommendations>
+            </ratings>
+        </anime>
+    </recommendation>
+    <recommendation>
+        <anime id="5532" restricted="false">
+            <type>TV Series</type>
+            <episodecount>12</episodecount>
+            <startdate>2008-04-11</startdate>
+            <enddate>2008-06-27</enddate>
+            <title xml:lang="x-jat" type="main">Junjou Romantica</title>
+            <picture>7039.jpg</picture>
+            <ratings>
+                <permanent count="1283">661</permanent>
+                <recommendations>17</recommendations>
+            </ratings>
+        </anime>
+    </recommendation>
+    <recommendation>
+        <anime id="18940" restricted="false">
+            <type>TV Series</type>
+            <episodecount>12</episodecount>
+            <startdate>2025-04-03</startdate>
+            <enddate>2025-06-19</enddate>
+            <title xml:lang="x-jat" type="main">Kanpekisugite Kawaige ga Nai to Kon`yaku Haki Sareta Seijo wa Ringoku ni Urareru</title>
+            <picture>313535.jpg</picture>
+            <ratings>
+                <permanent count="507">485</permanent>
+                <recommendations>9</recommendations>
+            </ratings>
+        </anime>
+    </recommendation>
+    <recommendation>
+        <anime id="8963" restricted="false">
+            <type>TV Series</type>
+            <episodecount>97</episodecount>
+            <startdate>2012-03-31</startdate>
+            <enddate>2014-03-30</enddate>
+            <title xml:lang="x-jat" type="main">Saint Seiya Omega</title>
+            <picture>93161.jpg</picture>
+            <ratings>
+                <permanent count="487">259</permanent>
+                <recommendations>3</recommendations>
+            </ratings>
+        </anime>
+    </recommendation>
+    <recommendation>
+        <anime id="6193" restricted="false">
+            <type>Movie</type>
+            <episodecount>1</episodecount>
+            <startdate>2005-07-08</startdate>
+            <enddate>2005-07-08</enddate>
+            <title xml:lang="x-jat" type="main">Shisha no Sho</title>
+            <picture>13853.jpg</picture>
+            <ratings>
+                <permanent count="87">609</permanent>
+                <recommendations>1</recommendations>
+            </ratings>
+        </anime>
+    </recommendation>
+    <recommendation>
+        <anime id="3112" restricted="false">
+            <type>OVA</type>
+            <episodecount>1</episodecount>
+            <startdate>2006-03-24</startdate>
+            <enddate>2006-03-24</enddate>
+            <title xml:lang="x-jat" type="main">TANK S.W.A.T. 01</title>
+            <picture>152697.jpg</picture>
+            <ratings>
+                <permanent count="445">242</permanent>
+                <recommendations>3</recommendations>
+            </ratings>
+        </anime>
+    </recommendation>
+    <recommendation>
+        <anime id="680" restricted="false">
+            <type>TV Series</type>
+            <episodecount>7</episodecount>
+            <startdate>2003-03-06</startdate>
+            <enddate>2003-06-21</enddate>
+            <title xml:lang="x-jat" type="main">Tenshi no Shippo Chu!</title>
+            <picture>10885.jpg</picture>
+            <ratings>
+                <permanent count="471">356</permanent>
+                <recommendations>1</recommendations>
+            </ratings>
+        </anime>
+    </recommendation>
+    <recommendation>
+        <anime id="8488" restricted="false">
+            <type>TV Special</type>
+            <episodecount>1</episodecount>
+            <startdate>2000-12-05</startdate>
+            <enddate>2000-12-05</enddate>
+            <title xml:lang="x-jat" type="main">Tezuka Osamu ga Kieta?! 20 Seiki Saigo no Kaijiken</title>
+            <picture>235408.jpg</picture>
+            <ratings>
+                <permanent count="55">568</permanent>
+                <recommendations>1</recommendations>
+            </ratings>
+        </anime>
+    </recommendation>
+</randomrecommendation>
+
+</main>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- live response (2026-10-30) -->
+<hotanime>
+    <anime id="19444" restricted="false">
+        <episodecount>12</episodecount>
+        <startdate>2026-10-02</startdate>
+        <title xml:lang="x-jat" type="main">Kusuriya no Hitorigoto (2026)</title>
+        <ratings>
+            <permanent count="35">9.09</permanent>
+            <temporary count="36">8.16</temporary>
+        </ratings>
+        <picture>328827.jpg</picture>
+    </anime>
+    <anime id="17789" restricted="false">
+        <episodecount>12</episodecount>
+        <startdate>2026-10-01</startdate>
+        <title xml:lang="x-jat" type="main">Tensei Shitara Ken Deshita II</title>
+        <ratings>
+            <permanent count="43">5.83</permanent>
+            <temporary count="43">7.19</temporary>
+        </ratings>
+        <picture>328836.jpg</picture>
+    </anime>
+    <anime id="19445" restricted="false">
+        <episodecount>10</episodecount>
+        <startdate>2026-10-20</startdate>
+        <enddate>2026-10-20</enddate>
+        <title xml:lang="x-jat" type="main">Cyberpunk: Edgerunners II</title>
+        <ratings>
+            <permanent count="97">6.33</permanent>
+            <temporary count="98">7.02</temporary>
+        </ratings>
+        <picture>12272.jpeg</picture>
+    </anime>
+    <anime id="20077" restricted="false">
+        <episodecount>12</episodecount>
+        <startdate>2026-09-27</startdate>
+        <title xml:lang="x-jat" type="main">Tempal: Item no Chikara</title>
+        <ratings>
+            <permanent count="37">5.16</permanent>
+            <temporary count="37">6.54</temporary>
+        </ratings>
+        <picture>329559.jpg</picture>
+    </anime>
+    <anime id="19308" restricted="false">
+        <episodecount>12</episodecount>
+        <startdate>2026-10-04</startdate>
+        <title xml:lang="x-jat" type="main">Seitokai ni mo Ana wa Aru!</title>
+        <ratings>
+            <permanent count="33">4.27</permanent>
+            <temporary count="34">5.97</temporary>
+        </ratings>
+        <picture>329796.jpg</picture>
+    </anime>
+    <anime id="19881" restricted="false">
+        <startdate>2026-10-07</startdate>
+        <title xml:lang="x-jat" type="main">Tsuihou Sareta Cheat Fuyo Majutsushi wa Kimama na Second Life o Ouka Suru. Ore wa Buki dake Janaku,  Arayuru Mono ni "Kyouka Point" o Fuyo Dekirushi, Ore no Ishi de Itsu demo Kouka o Kaijo Dekiru Kedo, Nokotta Hitotachi Daijoubu?</title>
+        <ratings>
+            <permanent count="44">4.54</permanent>
+            <temporary count="44">6.07</temporary>
+        </ratings>
+        <picture>329267.jpg</picture>
+    </anime>
+    <anime id="19865" restricted="false">
+        <episodecount>25</episodecount>
+        <startdate>2026-10-06</startdate>
+        <title xml:lang="x-jat" type="main">Kyouran Reijou Nia Liston: Byoujaku Reijou ni Tensei Shita Kami-goroshi no Bujin no Karei Naru Musouroku</title>
+        <ratings>
+            <permanent count="43">5.07</permanent>
+            <temporary count="43">6.30</temporary>
+        </ratings>
+        <picture>329797.jpg</picture>
+    </anime>
+    <anime id="19777" restricted="false">
+        <startdate>2026-09-26</startdate>
+        <title xml:lang="x-jat" type="main">Yasei no Last Boss ga Arawareta! (2026)</title>
+        <ratings>
+            <permanent count="24">4.51</permanent>
+            <temporary count="24">5.63</temporary>
+        </ratings>
+        <picture>329358.jpg</picture>
+    </anime>
+    <anime id="19142" restricted="false">
+        <startdate>2026-10-04</startdate>
+        <title xml:lang="x-jat" type="main">Mezametara Saikyou Soubi to Uchuusen Mochi Datta no de, Ikkodate Mezashite Youhei to Shite Jiyuu ni Ikitai</title>
+        <ratings>
+            <permanent count="37">4.20</permanent>
+            <temporary count="38">6.09</temporary>
+        </ratings>
+        <picture>329931.jpg</picture>
+    </anime>
+    <anime id="19070" restricted="false">
+        <startdate>2026-09-28</startdate>
+        <title xml:lang="x-jat" type="main">Tensei Kizoku, Kantei Skill de Nariagaru Dai 3 Ki</title>
+        <ratings>
+            <permanent count="19">4.33</permanent>
+            <temporary count="19">6.07</temporary>
+        </ratings>
+        <picture>329558.jpg</picture>
+    </anime>
+</hotanime>

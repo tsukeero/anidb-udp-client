@@ -1,7 +1,12 @@
 export { AnidbUDPClient } from './AnidbUDPClient'
+export { AnidbHTTPClient } from './AnidbHTTPClient'
+export { AnidbTitles } from './AnidbTitles'
 export { SimplePersistentCache } from './utils/SimplePersistentCache'
 export { AnidbError } from './common/AnidbError'
 export { RESPONSE_CODE } from './common/responseCodeMap'
 
 export type { AnidbCacheImplType } from './utils/AnidbCache'
 export type { AnidbLoggerType } from './utils/log'
+export type { HTTPAnimeResult, HTTPRating, HTTPResource, HTTPTitle } from './parsers/HTTPAnimeParser'
+export type { HTTPAnimeSummary, HTTPMainResult, HTTPRecommendedAnime, HTTPSimilarAnimeRef, HTTPSimilarPair } from './parsers/HTTPMainParser'
+export type { AnimeTitle, AnimeTitleMatch, AnimeTitleType } from './AnidbTitles'

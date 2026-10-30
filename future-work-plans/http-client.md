@@ -48,9 +48,10 @@ but is a very different transport from UDP.
 | `hints` | `user`, `pass`, `type=1` (always 1, required), optional `output=xml\|json` | unwatched titles + predicted rating; recalculated daily; may be empty for new or inactive users |
 
 `user`/`pass` are the account's **main password**, not the UDP API key, sent in the query string over plain HTTP.
+**These two requests are deliberately not implemented**, see section 5.
 
 There is no search request. The wiki points elsewhere for search, and the intended name → aid path is the
-daily titles dump (`anime-titles.xml.gz` / `.dat.gz`; not documented on this page, so confirm the URL and rules separately).
+daily titles dump (`anime-titles.xml.gz` / `.dat.gz`, documented on the wiki's API page; see section 3).
 
 ### `anime` response structure
 
@@ -126,6 +127,10 @@ Gotchas:
 - `parentid` on tags lets you rebuild the tag tree. Optional elements (`picurl`, `description`, `parentid`, `infobox`)
   are often missing.
 - Descriptions contain inline links like `http://anidb.net/ch28 [Lafiel]`. Consider a helper to strip them or turn them into structured links.
+- HTTP is the only source for the tag tree and spoiler flags. UDP `ANIME` gives only flat name/id/weight lists, and there is
+  no usable UDP tag command. The UDP wiki lists reply codes `ANIMETAG` 237 / `CHARACTERTAG` 238 (and `SONG` 236) but documents
+  no command for them. Probed 2026-10-29: `ANIMETAG` → 598 unknown command; `TAG` exists but every param tried
+  (`tagid`, `tid`, `id`, `tag`, `aid`) → 505 illegal input or access denied.
 - Example response for aid 1 is ~60 KB (recommendations and tag descriptions are large).
 - `resource type` is a numeric site id. The wiki page doesn't map it, so we need to find the mapping elsewhere.
 
@@ -157,10 +162,37 @@ A combined facade can come later if there's demand.
 
 This is the most useful piece to share between clients:
 
-- Download the titles dump at most once a day and store it in the shared cache.
+- ~~Download the titles dump at most once a day and store it in the shared cache.~~ Not possible, see below.
 - `search(name)` returns aids.
 - `AnidbHTTPClient.anime()` can then accept a name the same way the UDP `anime()` does.
 - The UDP client could also check it before sending a request, which saves UDP calls.
+
+**Implemented on `feat/http-client`** (`src/AnidbTitles.ts`), checked 2026-10-29/30:
+
+- **Source** ([wiki API page](https://wiki.anidb.net/API#Anime_Titles)): `http://anidb.net/api/anime-titles.dat.gz` and `.xml.gz`,
+  "YOU DO NOT REQUEST THIS FILE MORE THAN ONCE PER DAY". The wiki doesn't describe the format.
+- **No automatic download:** Cloudflare answers non-browser requests (curl, Node `fetch`) with a 403 "Just a moment..." JS challenge.
+  A browser gets the file. So the user downloads it, and `AnidbTitles.fromFile(path)` / `fromBuffer(buf)` loads it (gzip detected by magic bytes).
+  Nothing is stored in the cache: the file on disk is the cache.
+- **`.dat` format** (from the file's own header):
+  - `# created: Thu Oct 29 03:00:02 2026` (no time zone, parsed as local time and exposed as `created`).
+  - `<aid>|<type>|<language>|<title>`.
+  - Types: 1 = main (one per anime), 2 = synonym, 3 = short, 4 = official (one per language), 5 = kana reading, 6 = title card.
+    They're mapped to `main`/`synonym`/`short`/`official`/`kana`/`card`.
+  - **Titles can contain `|`** (e.g. `8895|1|x-jat|Shin Evangelion Gekijouban:||`), so lines are split on the first three pipes only.
+  - LF line endings, no BOM. 1.4 MB gzipped, 3.3 MB text, 102k titles, 17,092 anime, 70 languages.
+- **API:**
+  - `lookup(name)`: exact match after normalising (case, punctuation, full-width, Latin diacritics).
+    Ties go to the better title type, then the lowest aid.
+  - `search(query, { limit, langs })`: best match per anime. Exact beats prefix, then word-start substring,
+    then all words in any order, then plain substring. Title type adds a small bonus.
+  - `titles(aid)`, `mainTitle(aid)`, `size`, `created`.
+- **`anime(name)`:** `AnidbHTTPClient` takes a `titles` option, and `anime(name)` resolves the name with `lookup`. An unknown name
+  throws `NO_SUCH_ANIME` with `payload.suggestions` (top 5 search results) and sends no request. Fuzzy matches never trigger a request,
+  so a wrong guess can't use up the daily allowance.
+- **Full dump numbers:** load uses about 80 MB of heap, and a search takes 20–33 ms.
+- **Fixture:** a trimmed real dump (`src/__tests__/fixtures/anime-titles.dat`): the header plus all titles of aid 1, 4, 979, 6107, 8895, 2643.
+- **Not done:** UDP client integration, and a staleness warning based on `created`.
 
 ### 4. Client responsibilities
 
@@ -170,16 +202,36 @@ This is the most useful piece to share between clients:
   - `anime`: the existing 7-day default.
   - `hotanime`/`main`: about 1 day.
   - `randomrecommendation`/`randomsimilar`: still limited to once a day, so cache or throttle them.
-  - The current `AnidbCacheImplType.set` has no TTL parameter, so this would need an API addition (optional `ttl`?).
+  - ~~The current `AnidbCacheImplType.set` has no TTL parameter, so this would need an API addition (optional `ttl`?).~~
+    Solved without an API change: the daily lists store `{ fetched, xml }` and the validator rejects entries older than 24 h (step 3).
 - **No duplicate requests:** if the same request is already in flight, return the existing promise.
 - **Clean output:** convert the XML into plain typed objects. Repeated elements are always arrays, numbers, booleans and dates are parsed,
   and attributes are flattened into properties. Users never see the raw XML structure.
 - **Errors:** turn the `<error>` body into `AnidbError`, the same error type the UDP client throws.
 
-### 5. User-data requests (`mylistsummary`, `hints`)
+### 5. User-data requests (`mylistsummary`, `hints`): not implemented
 
-These send the main account password in the query string over plain HTTP. Offer them only with credentials passed per call,
-never stored, and document the risk clearly. Implement them last. They support `output=json`, so they could skip XML parsing.
+**Decision (2026-10-30): `AnidbHTTPClient` will not support `mylistsummary` or `hints`.**
+
+Why:
+
+- **Unencrypted password:** both requests need `user` and `pass`, and `pass` is the account's **main password**, not a separate API key.
+  It goes in the URL query string.
+- **No HTTPS:** the API only runs over plain HTTP. Checked 2026-10-30 with a TLS handshake only, no API request sent:
+  - `api.anidb.net:9001` (the documented port) doesn't answer a TLS ClientHello. It times out, as a plain-HTTP listener does.
+  - `api.anidb.net:443` answers TLS, but its certificate doesn't include `api.anidb.net`. Its altnames are
+    `anidb.net`, `www.anidb.net`, `cdn*.anidb.net`, `export.anidb.net`, `apidump.anidb.net`, … So it's the general web front end,
+    not an HTTPS version of the API, and using it would mean switching off certificate checks.
+  - The wiki documents only `http://api.anidb.net:9001/httpapi`.
+- **Exposure:** every call would expose the main password to anyone on the network path (shared Wi-Fi, ISP, proxies). The full URL,
+  password included, also tends to end up in proxy, server and application logs. A library shouldn't make that easy, even behind an opt-in.
+- **Worst case:** whoever reads the password gets full control of the account, not just read access to the mylist.
+- **Safer alternative:** the UDP client already covers mylist data over a session. It logs in once and can encrypt the
+  session with the UDP API key (`connect(user, password, udp_api_key)`). `MYLISTSTATS` and `MYLIST` cover most of what
+  `mylistsummary` returns. `hints` (predicted ratings for unwatched anime) has no UDP equivalent, and that loss is accepted.
+
+Revisit only if AniDB serves the HTTP API over HTTPS with a valid certificate for its host. Then implement both with credentials
+passed per call, never stored, and never logged. They support `output=json`, so they would skip XML parsing.
 
 ### 6. Costs / trade-offs
 
@@ -190,18 +242,57 @@ never stored, and document the risk clearly. Implement them last. They support `
 ## Suggested order
 
 1. `AnidbHTTPClient` with `anime` + typed result + error mapping + rate limit + cache.
+   **In progress on `feat/http-client`** (`src/AnidbHTTPClient.ts`, `src/parsers/HTTPAnimeParser.ts`). Decisions so far:
+   - The cache stores the **raw XML**, not the parsed object, and parses it on read. Parser fixes then apply to cached entries
+     without refetching, which matters with the once-a-day limit.
+   - Dates stay as `YYYY-MM-DD` strings so results survive a JSON round trip in custom caches.
+   - `cache: false` uses an in-memory cache with a 24 h lifetime and logs a warning.
+   - After a `Banned` response, the client rejects every later call without sending it.
+   - Only `Banned` → `BANNED` and `Anime not found` → `NO_SUCH_ANIME` are mapped. Other `<error>` texts become
+     `UNKNOWN_API_ERROR`, with the text in `message` and `payload.error`. Collect the real error strings and extend the mapping.
+   - Exported from the main entry point for now (subpath export is still an open question).
+   - Checked live 2026-10-29 with `anime` aid 309 (clientver 1): a 111 KB response, parsed without errors. Every element and
+     attribute in it is handled. The test fixture is still written by hand, with the live findings added.
+   - Live findings: an `externalentity` can hold several `<identifier>`s whose meaning depends on position
+     (type 3 → `1516`, `svewgq`; type 14 → `311`, `v`; type 44 → `85100`, `tv`). Seen resource types: 1, 2, 3, 4, 6, 7, 10, 14, 43, 44.
+     Tag `description` text is large: 149 tags, most with a description.
+   - Second live check, aid 6107 (FMA: Brotherhood, 273 KB). Episodes can have a `recap="true"` attribute and their own
+     `<resources>` (type 28 per episode here, probably streaming ids). Both are now parsed. `epno type` values seen: 1, 2, 3, 4, 6
+     (with prefixes `S`, `C`, `T`, `O`; type 5 is presumably `P`, unconfirmed). Related types seen: `Alternative Setting`, `Side Story`.
+     Recommendation types seen: `Must See`, `Recommended`. A trimmed copy (first tags/characters, one episode per type plus the recap,
+     review text removed) is the fixture `src/parsers/__tests__/fixtures/http-anime-6107.xml`.
 2. `AnidbTitles` (titles dump + search); name support in `anime()`.
+   **Done on `feat/http-client`**, details in section 3.
 3. `hotanime`, `randomrecommendation`, `randomsimilar`, `main`.
-4. `mylistsummary`, `hints`.
+   **Done on `feat/http-client`** as `hotAnime()`, `randomRecommendation()`, `randomSimilar()`, `main()` (`src/parsers/HTTPMainParser.ts`).
+   Live samples of all four taken 2026-10-30:
+   - **`hotanime`** (4 KB): `<hotanime>` with 10 short `<anime id restricted>` entries containing `episodecount`, `startdate`,
+     `enddate`, a single main `<title>`, `<ratings>` (`permanent`, `temporary`) and `picture`. Some elements are often missing:
+     no `<type>` at all, `episodecount` missing in 4 of 10. The list matches the one inside `main`.
+   - **`randomrecommendation`** (6 KB): `<randomrecommendation>` with 10 `<recommendation><anime …>` entries (they also have `<type>`).
+     **Ratings are in hundredths** (`<permanent count="4244">418</permanent>`). Checked against `anime` for aid 3146: 4.18, count 4244.
+     The parser divides by 100. `<ratings>` also contains `<recommendations>12</recommendations>`, which is **not** the number of
+     recommendation reviews (aid 3146 has 2). Its meaning is unknown, so it's exposed as is.
+   - **`randomsimilar`** (4 KB): `<randomsimilar>` with 10 `<similar>` pairs of `<source aid restricted>` / `<target aid restricted>`
+     (note `aid=`, not `id=`), each with a main `<title>` and `<picture>`.
+   - **`main`** (14 KB): `<main>` wrapping `<hotanime>`, `<randomsimilar>`, `<randomrecommendation>`, in that order, with the same structures.
+     The live sample had 4 restricted entries, so the `main` fixture is built from the three standalone samples instead.
+   - Summary entries use `titles: HTTPTitle[]` like the full `anime` result, even though they hold a single main title.
+   - **Daily cache:** each list is cached as `{ fetched, xml }` under `HTTP_<REQUEST>:daily` and reused for 24 h, whatever the cache's own TTL.
+     So the random lists are random once per day, which is the only safe behaviour given the ban rule.
+   - Not done: serving `hotAnime()` etc. from a cached `main` response to save requests.
+4. ~~`mylistsummary`, `hints`.~~ **Not implemented:** they would send the main account password unencrypted (section 5).
 
 ## Open questions
 
-- [ ] Titles dump: exact URL, format and download limits.
+- [x] Titles dump: exact URL, format and download limits (see section 3).
 - [ ] Mapping for `resource type` ids → site names/URL templates.
 - [ ] Image base URL for `picture` / `picurl` / seiyuu `picture` (CDN path).
 - [ ] Does HTTP flood protection share a ban with UDP (same IP or account)? Affects whether the two queues need to coordinate.
-- [ ] Add a TTL to `AnidbCacheImplType.set` (breaking for custom implementations?), or handle expiry inside the stored value?
+- [x] Add a TTL to `AnidbCacheImplType.set` (breaking for custom implementations?), or handle expiry inside the stored value?
+      Expiry is stored in the value (step 3).
 - [ ] Full list of `relatedanime` types, `recommendation` types and `epno type` values (1 = regular; others?).
-- [ ] Shape of the `randomrecommendation` / `randomsimilar` / `hotanime` / `mylistsummary` / `hints` responses. Only short examples were noted;
-      get full samples before writing parsers.
+- [x] Shape of the `randomrecommendation` / `randomsimilar` / `hotanime` / `main` responses (see step 3).
+      `mylistsummary` / `hints` are dropped (section 5).
+- [ ] Meaning of `<ratings><recommendations>` in `randomrecommendation`.
 - [ ] Subpath export vs. main export.

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- hand-written from the structure on https://wiki.anidb.net/HTTP_API_Definition, not a captured response -->
+<anime id="1" restricted="false">
+  <type>TV Series</type>
+  <episodecount>13</episodecount>
+  <startdate>1999-01-03</startdate>
+  <enddate>1999-03-28</enddate>
+  <titles>
+    <title xml:lang="x-jat" type="main">Seikai no Monshou</title>
+    <title xml:lang="en" type="official">Crest of the Stars</title>
+    <title xml:lang="ja" type="official">星界の紋章</title>
+    <title xml:lang="x-jat" type="short">SnM</title>
+  </titles>
+  <relatedanime>
+    <anime id="4" type="Sequel">Seikai no Senki</anime>
+  </relatedanime>
+  <similaranime>
+    <anime id="584" approval="75" total="89">Ginga Eiyuu Densetsu</anime>
+    <anime id="2745" approval="20" total="34">Starship Operators</anime>
+  </similaranime>
+  <recommendations total="1">
+    <recommendation type="Recommended" uid="567190">Good &amp; solid space opera.</recommendation>
+  </recommendations>
+  <url>http://www.sunrise-inc.co.jp/seikai/</url>
+  <creators>
+    <name id="4303" type="Music">Hattori Katsuhisa</name>
+  </creators>
+  <description>Based on the sci-fi novel series by http://anidb.net/cr2 [Morioka Hiroyuki]. Featuring http://anidb.net/ch28 [Lafiel].</description>
+  <ratings>
+    <permanent count="4430">8.16</permanent>
+    <temporary count="4460">8.23</temporary>
+    <review count="12">8.70</review>
+  </ratings>
+  <picture>440.jpg</picture>
+  <resources>
+    <resource type="1">
+      <externalentity><identifier>14</identifier></externalentity>
+    </resource>
+    <resource type="4">
+      <externalentity><url>http://www.sunrise-inc.co.jp/seikai/</url></externalentity>
+    </resource>
+    <resource type="44">
+      <externalentity><identifier>85100</identifier><identifier>tv</identifier></externalentity>
+    </resource>
+  </resources>
+  <tags>
+    <tag id="36" parentid="2607" infobox="true" weight="300" localspoiler="false" globalspoiler="false" verified="true" update="2018-01-21">
+      <name>military</name>
+      <description>Armed forces.</description>
+      <picurl>212184.jpg</picurl>
+    </tag>
+    <tag id="2607" weight="0" localspoiler="true" spoiler="false" globalspoiler="false" verified="false" update="2016-11-08">
+      <name>setting</name>
+    </tag>
+  </tags>
+  <characters>
+    <character id="28" type="main character in" update="2012-07-25">
+      <rating votes="1196">9.15</rating>
+      <name>Abriel Nei Debrusc Borl Paryun Lafiel</name>
+      <gender>female</gender>
+      <charactertype id="1">Character</charactertype>
+      <description>Princess.</description>
+      <picture>14304.jpg</picture>
+      <seiyuu id="12" picture="184301.jpg">Kawasumi Ayako</seiyuu>
+    </character>
+    <character id="29" type="secondary cast in" update="2010-01-01">
+      <name>Linn Jinto</name>
+    </character>
+  </characters>
+  <episodes>
+    <episode id="1" update="2011-07-01">
+      <epno type="1">1</epno>
+      <length>25</length>
+      <airdate>1999-01-03</airdate>
+      <rating votes="28">3.31</rating>
+      <title xml:lang="en">Invasion</title>
+      <title xml:lang="ja">侵略</title>
+    </episode>
+    <episode id="2" update="2011-07-01">
+      <epno type="2">S1</epno>
+      <length>25</length>
+      <title xml:lang="en">Special</title>
+    </episode>
+  </episodes>
+</anime>
