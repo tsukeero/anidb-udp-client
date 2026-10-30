@@ -139,6 +139,59 @@ describe('AnidbHTTPClient', () => {
     await expect(client.anime('crest of the stars')).rejects.toThrow(TypeError)
   })
 
+  describe('daily lists', () => {
+    const hotanime = fs.readFileSync(path.join(__dirname, 'parsers', '__tests__', 'fixtures', 'http-hotanime.xml'), 'utf8')
+
+    afterEach(() => {
+      jest.useRealTimers()
+    })
+
+    test.each([
+      [ 'hotAnime', 'hotanime', 'HTTP_HOTANIME:daily' ],
+      [ 'randomRecommendation', 'randomrecommendation', 'HTTP_RANDOMRECOMMENDATION:daily' ],
+      [ 'randomSimilar', 'randomsimilar', 'HTTP_RANDOMSIMILAR:daily' ],
+      [ 'main', 'main', 'HTTP_MAIN:daily' ],
+    ])('%s() sends request=%s and caches under %s', async (method, request, key) => {
+      const xml = fs.readFileSync(path.join(__dirname, 'parsers', '__tests__', 'fixtures', `http-${ request }.xml`), 'utf8')
+      fetchMock.mockResolvedValueOnce(response(xml))
+      const cache = memoryCache()
+      const client = new AnidbHTTPClient('client', 1, { cache, logger: false })
+
+      const first = await client[method]()
+      const second = await client[method]()
+
+      expect(fetchMock).toHaveBeenCalledTimes(1)
+      expect(Object.fromEntries(new URL(fetchMock.mock.calls[0][0]).searchParams)).toEqual({ client: 'client', clientver: '1', protover: '1', request })
+      expect(cache.data.get(key)).toEqual({ fetched: expect.any(Number), xml })
+      expect(second).toEqual(first)
+    })
+
+    test('refetches once the cached list is a day old', async () => {
+      jest.useFakeTimers({ now: new Date('2026-10-30T10:00:00Z'), doNotFake: [ 'nextTick', 'setImmediate', 'queueMicrotask' ] })
+      fetchMock.mockResolvedValue(response(hotanime))
+      const client = new AnidbHTTPClient('client', 1, { cache: memoryCache(), logger: false })
+
+      await client.hotAnime()
+      jest.setSystemTime(new Date('2026-10-31T09:59:00Z'))
+      await client.hotAnime()
+      expect(fetchMock).toHaveBeenCalledTimes(1)
+
+      jest.setSystemTime(new Date('2026-10-31T10:00:01Z'))
+      await client.hotAnime()
+      expect(fetchMock).toHaveBeenCalledTimes(2)
+    })
+
+    test('ignores cache entries in an unexpected shape', async () => {
+      fetchMock.mockResolvedValueOnce(response(hotanime))
+      const cache = memoryCache()
+      cache.data.set('HTTP_HOTANIME:daily', hotanime)
+      const client = new AnidbHTTPClient('client', 1, { cache, logger: false })
+
+      await client.hotAnime()
+      expect(fetchMock).toHaveBeenCalledTimes(1)
+    })
+  })
+
   test('http and network failures become AnidbError', async () => {
     fetchMock.mockResolvedValueOnce(response('', { ok: false, status: 503, statusText: 'Service Unavailable' }))
     const client = new AnidbHTTPClient('client', 1, { cache: memoryCache(), logger: false })

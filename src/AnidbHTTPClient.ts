@@ -8,6 +8,8 @@ import type { AnidbCacheImplType } from './utils/AnidbCache'
 import { parseAnime, parseXml } from './parsers/HTTPAnimeParser'
 import type { HTTPAnimeResult } from './parsers/HTTPAnimeParser'
 import type { AnidbTitles } from './AnidbTitles'
+import { parseHotAnime, parseMain, parseRandomRecommendation, parseRandomSimilar } from './parsers/HTTPMainParser'
+import type { HTTPAnimeSummary, HTTPMainResult, HTTPRecommendedAnime, HTTPSimilarPair } from './parsers/HTTPMainParser'
 
 const BASE_URL = 'http://api.anidb.net:9001/httpapi'
 const PROT_VER = 1
@@ -16,12 +18,19 @@ const REQ_INTERVAL = 2000
 const REQ_TIMEOUT = 30000
 // used when cache is disabled: anidb bans clients requesting the same data more than once a day
 const MIN_CACHE_TTL = 86400
+const DAY_MS = MIN_CACHE_TTL * 1000
+
+type DailyEntry = { fetched: number, xml: string }
 
 /**
  * Client for the AniDB [HTTP API](https://wiki.anidb.net/HTTP_API_Definition).
  *
  * It needs its own client registration, separate from the UDP one.
  * Responses are cached (the raw XML is stored, so parser fixes apply to cached entries too) and requests are throttled.
+ *
+ * The user-data requests `mylistsummary` and `hints` are intentionally not supported: they need the account's main password
+ * in the URL, and the HTTP API is only served over plain HTTP, so the password would travel unencrypted.
+ * Use {@link AnidbUDPClient} for mylist data instead; its session can be encrypted with your UDP API key.
  */
 export class AnidbHTTPClient {
   private cache!: AnidbCache
@@ -178,6 +187,50 @@ export class AnidbHTTPClient {
         onMiss: () => this._callApi('anime', { aid }),
       })
       return parseAnime(parseXml(xml))
+    })
+  }
+
+  /**
+   * anime currently on the AniDB front page (refreshed by anidb every few hours, cached here for a day)
+   * @group Data Commands
+   */
+  hotAnime (): Promise<HTTPAnimeSummary[]> {
+    return this.daily('hotanime', parseHotAnime)
+  }
+
+  /**
+   * random recommended anime (cached for a day: anidb bans repeating a request within a day, so this is "random" once per day)
+   * @group Data Commands
+   */
+  randomRecommendation (): Promise<HTTPRecommendedAnime[]> {
+    return this.daily('randomrecommendation', parseRandomRecommendation)
+  }
+
+  /**
+   * random pairs of an anime and a similar anime (cached for a day, see {@link AnidbHTTPClient.randomRecommendation})
+   * @group Data Commands
+   */
+  randomSimilar (): Promise<HTTPSimilarPair[]> {
+    return this.daily('randomsimilar', parseRandomSimilar)
+  }
+
+  /**
+   * {@link AnidbHTTPClient.hotAnime}, {@link AnidbHTTPClient.randomRecommendation} and {@link AnidbHTTPClient.randomSimilar} in one request (cached for a day)
+   * @group Data Commands
+   */
+  main (): Promise<HTTPMainResult> {
+    return this.daily('main', parseMain)
+  }
+
+  /** request without parameters whose result is cached with its fetch time and reused for a day, whatever the cache's own TTL */
+  private daily<T> (request: string, parse: (doc: ReturnType<typeof parseXml>) => T): Promise<T> {
+    const command = `HTTP_${ request.toUpperCase() }`
+    return this.dedupe(command, async () => {
+      const entry = await this.cache.get<DailyEntry>(command, 'daily', {
+        validator: (cached) => !!cached && typeof cached.xml === 'string' && Date.now() - cached.fetched < DAY_MS,
+        onMiss: async () => ({ fetched: Date.now(), xml: await this._callApi(request) }),
+      })
+      return parse(parseXml(entry.xml))
     })
   }
 

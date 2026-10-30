@@ -9,9 +9,9 @@ const TITLE_TYPES = {
   '4': 'official',
   '5': 'kana',
   '6': 'card',
-} as const
+} as const satisfies Record<string, AnimeTitleType>
 
-export type AnimeTitleType = typeof TITLE_TYPES[keyof typeof TITLE_TYPES]
+export type AnimeTitleType = 'main' | 'synonym' | 'short' | 'official' | 'kana' | 'card'
 
 export type AnimeTitle = {
   aid: number

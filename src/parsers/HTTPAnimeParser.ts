@@ -1,8 +1,10 @@
-import { XMLParser } from 'fast-xml-parser'
+import { attr, bool, compact, list, num, rating, text, title } from './HTTPXml'
+import type { HTTPRating, HTTPTitle, XmlNode } from './HTTPXml'
+
+export { parseXml } from './HTTPXml'
+export type { HTTPRating, HTTPTitle } from './HTTPXml'
 
 // dates are kept as the `YYYY-MM-DD` strings anidb sends, so results survive a JSON round trip (custom caches)
-export type HTTPTitle = { title: string, lang: string, type?: string }
-export type HTTPRating = { value: number, count: number }
 /** link to an external site; `type` is a numeric site id, identifiers are positional (e.g. `[ '85100', 'tv' ]`) */
 export type HTTPResource = { type: number, entities: { identifiers: string[], urls: string[] }[] }
 
@@ -67,57 +69,6 @@ export type HTTPAnimeResult = {
   }[]
 }
 
-type XmlNode = Record<string, any>
-
-const xmlParser = new XMLParser({
-  ignoreAttributes: false,
-  attributeNamePrefix: '@_',
-  textNodeName: '#text',
-  alwaysCreateTextNode: true,
-  parseTagValue: false,
-  parseAttributeValue: false,
-})
-
-export function parseXml (xml: string): XmlNode {
-  return xmlParser.parse(xml)
-}
-
-const list = (node: unknown): XmlNode[] => node === undefined || node === null || node === '' ? [] : Array.isArray(node) ? node : [ node as XmlNode ]
-
-const text = (node: unknown): string | undefined => {
-  if (node === undefined || node === null) {
-    return undefined
-  }
-  if (typeof node === 'object') {
-    const value = (node as XmlNode)['#text']
-    return value === undefined ? undefined : String(value)
-  }
-  return String(node)
-}
-
-const num = (value: unknown): number | undefined => {
-  if (value === undefined || value === null || value === '') {
-    return undefined
-  }
-  const n = Number(value)
-  return Number.isNaN(n) ? undefined : n
-}
-
-const bool = (value: unknown): boolean => value === 'true' || value === '1'
-
-const attr = (node: unknown, name: string): string | undefined => node && typeof node === 'object' ? (node as XmlNode)[`@_${ name }`] : undefined
-
-const rating = (node: unknown): HTTPRating | undefined => {
-  const value = num(text(node))
-  return value === undefined ? undefined : { value, count: num(attr(node, 'count') ?? attr(node, 'votes')) ?? 0 }
-}
-
-const title = (node: XmlNode): HTTPTitle => ({
-  title: text(node) ?? '',
-  lang: attr(node, 'xml:lang') ?? '',
-  ...attr(node, 'type') ? { type: attr(node, 'type') } : {},
-})
-
 const resources = (node: XmlNode | undefined): HTTPResource[] => list(node?.resource).map((r) => ({
   type: Number(attr(r, 'type')),
   entities: list(r.externalentity).map((e) => ({
@@ -125,9 +76,6 @@ const resources = (node: XmlNode | undefined): HTTPResource[] => list(node?.reso
     urls: list(e.url).map((u) => text(u) ?? ''),
   })),
 }))
-
-/** drop keys whose value is `undefined`, so results are stable for snapshots / JSON */
-const compact = <T extends Record<string, any>>(obj: T): T => Object.fromEntries(Object.entries(obj).filter(([ , v ]) => v !== undefined)) as T
 
 export function parseAnime (doc: XmlNode): HTTPAnimeResult {
   const anime = doc.anime

@@ -7,5 +7,6 @@ export { RESPONSE_CODE } from './common/responseCodeMap'
 
 export type { AnidbCacheImplType } from './utils/AnidbCache'
 export type { AnidbLoggerType } from './utils/log'
-export type { HTTPAnimeResult } from './parsers/HTTPAnimeParser'
+export type { HTTPAnimeResult, HTTPRating, HTTPResource, HTTPTitle } from './parsers/HTTPAnimeParser'
+export type { HTTPAnimeSummary, HTTPMainResult, HTTPRecommendedAnime, HTTPSimilarAnimeRef, HTTPSimilarPair } from './parsers/HTTPMainParser'
 export type { AnimeTitle, AnimeTitleMatch, AnimeTitleType } from './AnidbTitles'
