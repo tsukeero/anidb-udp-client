@@ -48,6 +48,7 @@ but is a very different transport from UDP.
 | `hints` | `user`, `pass`, `type=1` (always 1, required), optional `output=xml\|json` | unwatched titles + predicted rating; recalculated daily; may be empty for new or inactive users |
 
 `user`/`pass` are the account's **main password**, not the UDP API key, sent in the query string over plain HTTP.
+**These two requests are deliberately not implemented**, see section 5.
 
 There is no search request. The wiki points elsewhere for search, and the intended name → aid path is the
 daily titles dump (`anime-titles.xml.gz` / `.dat.gz`, documented on the wiki's API page; see section 3).
@@ -201,16 +202,36 @@ This is the most useful piece to share between clients:
   - `anime`: the existing 7-day default.
   - `hotanime`/`main`: about 1 day.
   - `randomrecommendation`/`randomsimilar`: still limited to once a day, so cache or throttle them.
-  - The current `AnidbCacheImplType.set` has no TTL parameter, so this would need an API addition (optional `ttl`?).
+  - ~~The current `AnidbCacheImplType.set` has no TTL parameter, so this would need an API addition (optional `ttl`?).~~
+    Solved without an API change: the daily lists store `{ fetched, xml }` and the validator rejects entries older than 24 h (step 3).
 - **No duplicate requests:** if the same request is already in flight, return the existing promise.
 - **Clean output:** convert the XML into plain typed objects. Repeated elements are always arrays, numbers, booleans and dates are parsed,
   and attributes are flattened into properties. Users never see the raw XML structure.
 - **Errors:** turn the `<error>` body into `AnidbError`, the same error type the UDP client throws.
 
-### 5. User-data requests (`mylistsummary`, `hints`)
+### 5. User-data requests (`mylistsummary`, `hints`): not implemented
 
-These send the main account password in the query string over plain HTTP. Offer them only with credentials passed per call,
-never stored, and document the risk clearly. Implement them last. They support `output=json`, so they could skip XML parsing.
+**Decision (2026-10-30): `AnidbHTTPClient` will not support `mylistsummary` or `hints`.**
+
+Why:
+
+- **Unencrypted password:** both requests need `user` and `pass`, and `pass` is the account's **main password**, not a separate API key.
+  It goes in the URL query string.
+- **No HTTPS:** the API only runs over plain HTTP. Checked 2026-10-30 with a TLS handshake only, no API request sent:
+  - `api.anidb.net:9001` (the documented port) doesn't answer a TLS ClientHello. It times out, as a plain-HTTP listener does.
+  - `api.anidb.net:443` answers TLS, but its certificate doesn't include `api.anidb.net`. Its altnames are
+    `anidb.net`, `www.anidb.net`, `cdn*.anidb.net`, `export.anidb.net`, `apidump.anidb.net`, … So it's the general web front end,
+    not an HTTPS version of the API, and using it would mean switching off certificate checks.
+  - The wiki documents only `http://api.anidb.net:9001/httpapi`.
+- **Exposure:** every call would expose the main password to anyone on the network path (shared Wi-Fi, ISP, proxies). The full URL,
+  password included, also tends to end up in proxy, server and application logs. A library shouldn't make that easy, even behind an opt-in.
+- **Worst case:** whoever reads the password gets full control of the account, not just read access to the mylist.
+- **Safer alternative:** the UDP client already covers mylist data over a session. It logs in once and can encrypt the
+  session with the UDP API key (`connect(user, password, udp_api_key)`). `MYLISTSTATS` and `MYLIST` cover most of what
+  `mylistsummary` returns. `hints` (predicted ratings for unwatched anime) has no UDP equivalent, and that loss is accepted.
+
+Revisit only if AniDB serves the HTTP API over HTTPS with a valid certificate for its host. Then implement both with credentials
+passed per call, never stored, and never logged. They support `output=json`, so they would skip XML parsing.
 
 ### 6. Costs / trade-offs
 
@@ -241,8 +262,26 @@ never stored, and document the risk clearly. Implement them last. They support `
      Recommendation types seen: `Must See`, `Recommended`. A trimmed copy (first tags/characters, one episode per type plus the recap,
      review text removed) is the fixture `src/parsers/__tests__/fixtures/http-anime-6107.xml`.
 2. `AnidbTitles` (titles dump + search); name support in `anime()`.
+   **Done on `feat/http-client`**, details in section 3.
 3. `hotanime`, `randomrecommendation`, `randomsimilar`, `main`.
-4. `mylistsummary`, `hints`.
+   **Done on `feat/http-client`** as `hotAnime()`, `randomRecommendation()`, `randomSimilar()`, `main()` (`src/parsers/HTTPMainParser.ts`).
+   Live samples of all four taken 2026-10-30:
+   - **`hotanime`** (4 KB): `<hotanime>` with 10 short `<anime id restricted>` entries containing `episodecount`, `startdate`,
+     `enddate`, a single main `<title>`, `<ratings>` (`permanent`, `temporary`) and `picture`. Some elements are often missing:
+     no `<type>` at all, `episodecount` missing in 4 of 10. The list matches the one inside `main`.
+   - **`randomrecommendation`** (6 KB): `<randomrecommendation>` with 10 `<recommendation><anime …>` entries (they also have `<type>`).
+     **Ratings are in hundredths** (`<permanent count="4244">418</permanent>`). Checked against `anime` for aid 3146: 4.18, count 4244.
+     The parser divides by 100. `<ratings>` also contains `<recommendations>12</recommendations>`, which is **not** the number of
+     recommendation reviews (aid 3146 has 2). Its meaning is unknown, so it's exposed as is.
+   - **`randomsimilar`** (4 KB): `<randomsimilar>` with 10 `<similar>` pairs of `<source aid restricted>` / `<target aid restricted>`
+     (note `aid=`, not `id=`), each with a main `<title>` and `<picture>`.
+   - **`main`** (14 KB): `<main>` wrapping `<hotanime>`, `<randomsimilar>`, `<randomrecommendation>`, in that order, with the same structures.
+     The live sample had 4 restricted entries, so the `main` fixture is built from the three standalone samples instead.
+   - Summary entries use `titles: HTTPTitle[]` like the full `anime` result, even though they hold a single main title.
+   - **Daily cache:** each list is cached as `{ fetched, xml }` under `HTTP_<REQUEST>:daily` and reused for 24 h, whatever the cache's own TTL.
+     So the random lists are random once per day, which is the only safe behaviour given the ban rule.
+   - Not done: serving `hotAnime()` etc. from a cached `main` response to save requests.
+4. ~~`mylistsummary`, `hints`.~~ **Not implemented:** they would send the main account password unencrypted (section 5).
 
 ## Open questions
 
@@ -250,8 +289,10 @@ never stored, and document the risk clearly. Implement them last. They support `
 - [ ] Mapping for `resource type` ids → site names/URL templates.
 - [ ] Image base URL for `picture` / `picurl` / seiyuu `picture` (CDN path).
 - [ ] Does HTTP flood protection share a ban with UDP (same IP or account)? Affects whether the two queues need to coordinate.
-- [ ] Add a TTL to `AnidbCacheImplType.set` (breaking for custom implementations?), or handle expiry inside the stored value?
+- [x] Add a TTL to `AnidbCacheImplType.set` (breaking for custom implementations?), or handle expiry inside the stored value?
+      Expiry is stored in the value (step 3).
 - [ ] Full list of `relatedanime` types, `recommendation` types and `epno type` values (1 = regular; others?).
-- [ ] Shape of the `randomrecommendation` / `randomsimilar` / `hotanime` / `mylistsummary` / `hints` responses. Only short examples were noted;
-      get full samples before writing parsers.
+- [x] Shape of the `randomrecommendation` / `randomsimilar` / `hotanime` / `main` responses (see step 3).
+      `mylistsummary` / `hints` are dropped (section 5).
+- [ ] Meaning of `<ratings><recommendations>` in `randomrecommendation`.
 - [ ] Subpath export vs. main export.
