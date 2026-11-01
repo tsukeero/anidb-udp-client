@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.2](https://github.com/tsukeero/anidb-udp-client/compare/v2.0.1...v2.0.2) (2026-11-01)
+
+
+### Bug Fixes
+
+* add decodeFileState helper for FILE state bitfield ([bf299a7](https://github.com/tsukeero/anidb-udp-client/commit/bf299a70b9a5debe155ef93b68ebe3ce1e9f839b))
+* give FAILED_TO_INITIALIZE its own error code ([17e5fbb](https://github.com/tsukeero/anidb-udp-client/commit/17e5fbbf7a84c60f412352a603f47406ddadffd3))
+
 ## [2.0.1](https://github.com/tsukeero/anidb-udp-client/compare/v2.0.0...v2.0.1) (2026-10-28)
 
 
