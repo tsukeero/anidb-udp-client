@@ -20,8 +20,7 @@ const amaskDef = {
   other_episodes: [ 0, 4, String ],
   // todo parse
   is_deprecated: [ 0, 2, NumBoolean ],
-  state: [ 0, 1, String ],
-  // todo parse!
+  state: [ 0, 1, String ], // raw bitfield, decode with decodeFileState()
 
   /*
   7	128	int8 size
