@@ -126,6 +126,10 @@ Gotchas:
 - `parentid` on tags lets you rebuild the tag tree. Optional elements (`picurl`, `description`, `parentid`, `infobox`)
   are often missing.
 - Descriptions contain inline links like `http://anidb.net/ch28 [Lafiel]`. Consider a helper to strip them or turn them into structured links.
+- HTTP is the only source for the tag tree and spoiler flags. UDP `ANIME` gives only flat name/id/weight lists, and there is
+  no usable UDP tag command. The UDP wiki lists reply codes `ANIMETAG` 237 / `CHARACTERTAG` 238 (and `SONG` 236) but documents
+  no command for them. Probed 2026-10-29: `ANIMETAG` → 598 unknown command; `TAG` exists but every param tried
+  (`tagid`, `tid`, `id`, `tag`, `aid`) → 505 illegal input or access denied.
 - Example response for aid 1 is ~60 KB (recommendations and tag descriptions are large).
 - `resource type` is a numeric site id. The wiki page doesn't map it, so we need to find the mapping elsewhere.
 
