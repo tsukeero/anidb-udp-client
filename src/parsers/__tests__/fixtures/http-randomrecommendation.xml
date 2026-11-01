@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- live response (2026-10-30) -->
+<randomrecommendation>
+    <recommendation>
+        <anime id="2979" restricted="false">
+            <type>OVA</type>
+            <episodecount>1</episodecount>
+            <startdate>1993-04-25</startdate>
+            <enddate>1993-04-25</enddate>
+            <title xml:lang="x-jat" type="main">Desert Rose: Yuki no Mokushiroku</title>
+            <picture>237600.jpg</picture>
+            <ratings>
+                <permanent count="247">531</permanent>
+                <recommendations>3</recommendations>
+            </ratings>
+        </anime>
+    </recommendation>
+    <recommendation>
+        <anime id="3146" restricted="false">
+            <type>Movie</type>
+            <episodecount>1</episodecount>
+            <startdate>2001-07-02</startdate>
+            <enddate>2001-07-02</enddate>
+            <title xml:lang="x-jat" type="main">Final Fantasy: The Spirits Within</title>
+            <picture>36666.jpg</picture>
+            <ratings>
+                <permanent count="4244">418</permanent>
+                <recommendations>12</recommendations>
+            </ratings>
+        </anime>
+    </recommendation>
+    <recommendation>
+        <anime id="13004" restricted="false">
+            <type>TV Series</type>
+            <episodecount>12</episodecount>
+            <startdate>2017-07-11</startdate>
+            <enddate>2017-09-26</enddate>
+            <title xml:lang="x-jat" type="main">Isekai wa Smartphone to Tomo ni.</title>
+            <picture>237333.jpg</picture>
+            <ratings>
+                <permanent count="2900">338</permanent>
+                <recommendations>20</recommendations>
+            </ratings>
+        </anime>
+    </recommendation>
+    <recommendation>
+        <anime id="5532" restricted="false">
+            <type>TV Series</type>
+            <episodecount>12</episodecount>
+            <startdate>2008-04-11</startdate>
+            <enddate>2008-06-27</enddate>
+            <title xml:lang="x-jat" type="main">Junjou Romantica</title>
+            <picture>7039.jpg</picture>
+            <ratings>
+                <permanent count="1283">661</permanent>
+                <recommendations>17</recommendations>
+            </ratings>
+        </anime>
+    </recommendation>
+    <recommendation>
+        <anime id="18940" restricted="false">
+            <type>TV Series</type>
+            <episodecount>12</episodecount>
+            <startdate>2025-04-03</startdate>
+            <enddate>2025-06-19</enddate>
+            <title xml:lang="x-jat" type="main">Kanpekisugite Kawaige ga Nai to Kon`yaku Haki Sareta Seijo wa Ringoku ni Urareru</title>
+            <picture>313535.jpg</picture>
+            <ratings>
+                <permanent count="507">485</permanent>
+                <recommendations>9</recommendations>
+            </ratings>
+        </anime>
+    </recommendation>
+    <recommendation>
+        <anime id="8963" restricted="false">
+            <type>TV Series</type>
+            <episodecount>97</episodecount>
+            <startdate>2012-03-31</startdate>
+            <enddate>2014-03-30</enddate>
+            <title xml:lang="x-jat" type="main">Saint Seiya Omega</title>
+            <picture>93161.jpg</picture>
+            <ratings>
+                <permanent count="487">259</permanent>
+                <recommendations>3</recommendations>
+            </ratings>
+        </anime>
+    </recommendation>
+    <recommendation>
+        <anime id="6193" restricted="false">
+            <type>Movie</type>
+            <episodecount>1</episodecount>
+            <startdate>2005-07-08</startdate>
+            <enddate>2005-07-08</enddate>
+            <title xml:lang="x-jat" type="main">Shisha no Sho</title>
+            <picture>13853.jpg</picture>
+            <ratings>
+                <permanent count="87">609</permanent>
+                <recommendations>1</recommendations>
+            </ratings>
+        </anime>
+    </recommendation>
+    <recommendation>
+        <anime id="3112" restricted="false">
+            <type>OVA</type>
+            <episodecount>1</episodecount>
+            <startdate>2006-03-24</startdate>
+            <enddate>2006-03-24</enddate>
+            <title xml:lang="x-jat" type="main">TANK S.W.A.T. 01</title>
+            <picture>152697.jpg</picture>
+            <ratings>
+                <permanent count="445">242</permanent>
+                <recommendations>3</recommendations>
+            </ratings>
+        </anime>
+    </recommendation>
+    <recommendation>
+        <anime id="680" restricted="false">
+            <type>TV Series</type>
+            <episodecount>7</episodecount>
+            <startdate>2003-03-06</startdate>
+            <enddate>2003-06-21</enddate>
+            <title xml:lang="x-jat" type="main">Tenshi no Shippo Chu!</title>
+            <picture>10885.jpg</picture>
+            <ratings>
+                <permanent count="471">356</permanent>
+                <recommendations>1</recommendations>
+            </ratings>
+        </anime>
+    </recommendation>
+    <recommendation>
+        <anime id="8488" restricted="false">
+            <type>TV Special</type>
+            <episodecount>1</episodecount>
+            <startdate>2000-12-05</startdate>
+            <enddate>2000-12-05</enddate>
+            <title xml:lang="x-jat" type="main">Tezuka Osamu ga Kieta?! 20 Seiki Saigo no Kaijiken</title>
+            <picture>235408.jpg</picture>
+            <ratings>
+                <permanent count="55">568</permanent>
+                <recommendations>1</recommendations>
+            </ratings>
+        </anime>
+    </recommendation>
+</randomrecommendation>

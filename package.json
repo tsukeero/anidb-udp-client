@@ -51,6 +51,7 @@
   "license": "MIT",
   "dependencies": {
     "bottleneck": "^2.19.5",
+    "fast-xml-parser": "^5.11.2",
     "node-cache": "^5.1.2"
   },
   "devDependencies": {

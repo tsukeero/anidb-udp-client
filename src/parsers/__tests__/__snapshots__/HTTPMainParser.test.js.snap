@@ -1,0 +1,743 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`HTTPMainParser hotanime 1`] = `
+[
+  {
+    "aid": 19444,
+    "episode_count": 12,
+    "picture": "328827.jpg",
+    "ratings": {
+      "mean": {
+        "count": 36,
+        "value": 8.16,
+      },
+      "permanent": {
+        "count": 35,
+        "value": 9.09,
+      },
+    },
+    "restricted": false,
+    "start_date": "2026-10-02",
+    "titles": [
+      {
+        "lang": "x-jat",
+        "title": "Kusuriya no Hitorigoto (2026)",
+        "type": "main",
+      },
+    ],
+  },
+  {
+    "aid": 17789,
+    "episode_count": 12,
+    "picture": "328836.jpg",
+    "ratings": {
+      "mean": {
+        "count": 43,
+        "value": 7.19,
+      },
+      "permanent": {
+        "count": 43,
+        "value": 5.83,
+      },
+    },
+    "restricted": false,
+    "start_date": "2026-10-01",
+    "titles": [
+      {
+        "lang": "x-jat",
+        "title": "Tensei Shitara Ken Deshita II",
+        "type": "main",
+      },
+    ],
+  },
+  {
+    "aid": 19445,
+    "end_date": "2026-10-20",
+    "episode_count": 10,
+    "picture": "12272.jpeg",
+    "ratings": {
+      "mean": {
+        "count": 98,
+        "value": 7.02,
+      },
+      "permanent": {
+        "count": 97,
+        "value": 6.33,
+      },
+    },
+    "restricted": false,
+    "start_date": "2026-10-20",
+    "titles": [
+      {
+        "lang": "x-jat",
+        "title": "Cyberpunk: Edgerunners II",
+        "type": "main",
+      },
+    ],
+  },
+  {
+    "aid": 20077,
+    "episode_count": 12,
+    "picture": "329559.jpg",
+    "ratings": {
+      "mean": {
+        "count": 37,
+        "value": 6.54,
+      },
+      "permanent": {
+        "count": 37,
+        "value": 5.16,
+      },
+    },
+    "restricted": false,
+    "start_date": "2026-09-27",
+    "titles": [
+      {
+        "lang": "x-jat",
+        "title": "Tempal: Item no Chikara",
+        "type": "main",
+      },
+    ],
+  },
+  {
+    "aid": 19308,
+    "episode_count": 12,
+    "picture": "329796.jpg",
+    "ratings": {
+      "mean": {
+        "count": 34,
+        "value": 5.97,
+      },
+      "permanent": {
+        "count": 33,
+        "value": 4.27,
+      },
+    },
+    "restricted": false,
+    "start_date": "2026-10-04",
+    "titles": [
+      {
+        "lang": "x-jat",
+        "title": "Seitokai ni mo Ana wa Aru!",
+        "type": "main",
+      },
+    ],
+  },
+  {
+    "aid": 19881,
+    "picture": "329267.jpg",
+    "ratings": {
+      "mean": {
+        "count": 44,
+        "value": 6.07,
+      },
+      "permanent": {
+        "count": 44,
+        "value": 4.54,
+      },
+    },
+    "restricted": false,
+    "start_date": "2026-10-07",
+    "titles": [
+      {
+        "lang": "x-jat",
+        "title": "Tsuihou Sareta Cheat Fuyo Majutsushi wa Kimama na Second Life o Ouka Suru. Ore wa Buki dake Janaku,  Arayuru Mono ni "Kyouka Point" o Fuyo Dekirushi, Ore no Ishi de Itsu demo Kouka o Kaijo Dekiru Kedo, Nokotta Hitotachi Daijoubu?",
+        "type": "main",
+      },
+    ],
+  },
+  {
+    "aid": 19865,
+    "episode_count": 25,
+    "picture": "329797.jpg",
+    "ratings": {
+      "mean": {
+        "count": 43,
+        "value": 6.3,
+      },
+      "permanent": {
+        "count": 43,
+        "value": 5.07,
+      },
+    },
+    "restricted": false,
+    "start_date": "2026-10-06",
+    "titles": [
+      {
+        "lang": "x-jat",
+        "title": "Kyouran Reijou Nia Liston: Byoujaku Reijou ni Tensei Shita Kami-goroshi no Bujin no Karei Naru Musouroku",
+        "type": "main",
+      },
+    ],
+  },
+  {
+    "aid": 19777,
+    "picture": "329358.jpg",
+    "ratings": {
+      "mean": {
+        "count": 24,
+        "value": 5.63,
+      },
+      "permanent": {
+        "count": 24,
+        "value": 4.51,
+      },
+    },
+    "restricted": false,
+    "start_date": "2026-09-26",
+    "titles": [
+      {
+        "lang": "x-jat",
+        "title": "Yasei no Last Boss ga Arawareta! (2026)",
+        "type": "main",
+      },
+    ],
+  },
+  {
+    "aid": 19142,
+    "picture": "329931.jpg",
+    "ratings": {
+      "mean": {
+        "count": 38,
+        "value": 6.09,
+      },
+      "permanent": {
+        "count": 37,
+        "value": 4.2,
+      },
+    },
+    "restricted": false,
+    "start_date": "2026-10-04",
+    "titles": [
+      {
+        "lang": "x-jat",
+        "title": "Mezametara Saikyou Soubi to Uchuusen Mochi Datta no de, Ikkodate Mezashite Youhei to Shite Jiyuu ni Ikitai",
+        "type": "main",
+      },
+    ],
+  },
+  {
+    "aid": 19070,
+    "picture": "329558.jpg",
+    "ratings": {
+      "mean": {
+        "count": 19,
+        "value": 6.07,
+      },
+      "permanent": {
+        "count": 19,
+        "value": 4.33,
+      },
+    },
+    "restricted": false,
+    "start_date": "2026-09-28",
+    "titles": [
+      {
+        "lang": "x-jat",
+        "title": "Tensei Kizoku, Kantei Skill de Nariagaru Dai 3 Ki",
+        "type": "main",
+      },
+    ],
+  },
+]
+`;
+
+exports[`HTTPMainParser randomrecommendation scales ratings from hundredths 1`] = `
+[
+  {
+    "aid": 2979,
+    "end_date": "1993-04-25",
+    "episode_count": 1,
+    "picture": "237600.jpg",
+    "ratings": {
+      "permanent": {
+        "count": 247,
+        "value": 5.31,
+      },
+    },
+    "recommendations": 3,
+    "restricted": false,
+    "start_date": "1993-04-25",
+    "titles": [
+      {
+        "lang": "x-jat",
+        "title": "Desert Rose: Yuki no Mokushiroku",
+        "type": "main",
+      },
+    ],
+    "type": "OVA",
+  },
+  {
+    "aid": 3146,
+    "end_date": "2001-07-02",
+    "episode_count": 1,
+    "picture": "36666.jpg",
+    "ratings": {
+      "permanent": {
+        "count": 4244,
+        "value": 4.18,
+      },
+    },
+    "recommendations": 12,
+    "restricted": false,
+    "start_date": "2001-07-02",
+    "titles": [
+      {
+        "lang": "x-jat",
+        "title": "Final Fantasy: The Spirits Within",
+        "type": "main",
+      },
+    ],
+    "type": "Movie",
+  },
+  {
+    "aid": 13004,
+    "end_date": "2017-09-26",
+    "episode_count": 12,
+    "picture": "237333.jpg",
+    "ratings": {
+      "permanent": {
+        "count": 2900,
+        "value": 3.38,
+      },
+    },
+    "recommendations": 20,
+    "restricted": false,
+    "start_date": "2017-07-11",
+    "titles": [
+      {
+        "lang": "x-jat",
+        "title": "Isekai wa Smartphone to Tomo ni.",
+        "type": "main",
+      },
+    ],
+    "type": "TV Series",
+  },
+  {
+    "aid": 5532,
+    "end_date": "2008-06-27",
+    "episode_count": 12,
+    "picture": "7039.jpg",
+    "ratings": {
+      "permanent": {
+        "count": 1283,
+        "value": 6.61,
+      },
+    },
+    "recommendations": 17,
+    "restricted": false,
+    "start_date": "2008-04-11",
+    "titles": [
+      {
+        "lang": "x-jat",
+        "title": "Junjou Romantica",
+        "type": "main",
+      },
+    ],
+    "type": "TV Series",
+  },
+  {
+    "aid": 18940,
+    "end_date": "2025-06-19",
+    "episode_count": 12,
+    "picture": "313535.jpg",
+    "ratings": {
+      "permanent": {
+        "count": 507,
+        "value": 4.85,
+      },
+    },
+    "recommendations": 9,
+    "restricted": false,
+    "start_date": "2025-04-03",
+    "titles": [
+      {
+        "lang": "x-jat",
+        "title": "Kanpekisugite Kawaige ga Nai to Kon\`yaku Haki Sareta Seijo wa Ringoku ni Urareru",
+        "type": "main",
+      },
+    ],
+    "type": "TV Series",
+  },
+  {
+    "aid": 8963,
+    "end_date": "2014-03-30",
+    "episode_count": 97,
+    "picture": "93161.jpg",
+    "ratings": {
+      "permanent": {
+        "count": 487,
+        "value": 2.59,
+      },
+    },
+    "recommendations": 3,
+    "restricted": false,
+    "start_date": "2012-03-31",
+    "titles": [
+      {
+        "lang": "x-jat",
+        "title": "Saint Seiya Omega",
+        "type": "main",
+      },
+    ],
+    "type": "TV Series",
+  },
+  {
+    "aid": 6193,
+    "end_date": "2005-07-08",
+    "episode_count": 1,
+    "picture": "13853.jpg",
+    "ratings": {
+      "permanent": {
+        "count": 87,
+        "value": 6.09,
+      },
+    },
+    "recommendations": 1,
+    "restricted": false,
+    "start_date": "2005-07-08",
+    "titles": [
+      {
+        "lang": "x-jat",
+        "title": "Shisha no Sho",
+        "type": "main",
+      },
+    ],
+    "type": "Movie",
+  },
+  {
+    "aid": 3112,
+    "end_date": "2006-03-24",
+    "episode_count": 1,
+    "picture": "152697.jpg",
+    "ratings": {
+      "permanent": {
+        "count": 445,
+        "value": 2.42,
+      },
+    },
+    "recommendations": 3,
+    "restricted": false,
+    "start_date": "2006-03-24",
+    "titles": [
+      {
+        "lang": "x-jat",
+        "title": "TANK S.W.A.T. 01",
+        "type": "main",
+      },
+    ],
+    "type": "OVA",
+  },
+  {
+    "aid": 680,
+    "end_date": "2003-06-21",
+    "episode_count": 7,
+    "picture": "10885.jpg",
+    "ratings": {
+      "permanent": {
+        "count": 471,
+        "value": 3.56,
+      },
+    },
+    "recommendations": 1,
+    "restricted": false,
+    "start_date": "2003-03-06",
+    "titles": [
+      {
+        "lang": "x-jat",
+        "title": "Tenshi no Shippo Chu!",
+        "type": "main",
+      },
+    ],
+    "type": "TV Series",
+  },
+  {
+    "aid": 8488,
+    "end_date": "2000-12-05",
+    "episode_count": 1,
+    "picture": "235408.jpg",
+    "ratings": {
+      "permanent": {
+        "count": 55,
+        "value": 5.68,
+      },
+    },
+    "recommendations": 1,
+    "restricted": false,
+    "start_date": "2000-12-05",
+    "titles": [
+      {
+        "lang": "x-jat",
+        "title": "Tezuka Osamu ga Kieta?! 20 Seiki Saigo no Kaijiken",
+        "type": "main",
+      },
+    ],
+    "type": "TV Special",
+  },
+]
+`;
+
+exports[`HTTPMainParser randomsimilar 1`] = `
+[
+  {
+    "source": {
+      "aid": 13893,
+      "picture": "258360.jpg",
+      "restricted": false,
+      "titles": [
+        {
+          "lang": "x-jat",
+          "title": "Carole & Tuesday",
+          "type": "main",
+        },
+      ],
+    },
+    "target": {
+      "aid": 4143,
+      "picture": "321080.jpg",
+      "restricted": false,
+      "titles": [
+        {
+          "lang": "x-jat",
+          "title": "Nana",
+          "type": "main",
+        },
+      ],
+    },
+  },
+  {
+    "source": {
+      "aid": 8922,
+      "picture": "86752.jpg",
+      "restricted": false,
+      "titles": [
+        {
+          "lang": "x-jat",
+          "title": "Guskou Budori no Denki (2012)",
+          "type": "main",
+        },
+      ],
+    },
+    "target": {
+      "aid": 820,
+      "picture": "91829.jpg",
+      "restricted": false,
+      "titles": [
+        {
+          "lang": "x-jat",
+          "title": "Ihatov Gensou: Kenji no Haru",
+          "type": "main",
+        },
+      ],
+    },
+  },
+  {
+    "source": {
+      "aid": 15024,
+      "picture": "238442.jpg",
+      "restricted": false,
+      "titles": [
+        {
+          "lang": "x-jat",
+          "title": "Kandagawa Jet Girls",
+          "type": "main",
+        },
+      ],
+    },
+    "target": {
+      "aid": 11922,
+      "picture": "323872.jpg",
+      "restricted": false,
+      "titles": [
+        {
+          "lang": "x-jat",
+          "title": "Keijo!!!!!!!!",
+          "type": "main",
+        },
+      ],
+    },
+  },
+  {
+    "source": {
+      "aid": 15342,
+      "picture": "247886.jpg",
+      "restricted": false,
+      "titles": [
+        {
+          "lang": "x-jat",
+          "title": "Kuma Kuma Kuma Bear",
+          "type": "main",
+        },
+      ],
+    },
+    "target": {
+      "aid": 15400,
+      "picture": "262553.jpg",
+      "restricted": false,
+      "titles": [
+        {
+          "lang": "x-jat",
+          "title": "Kami-tachi ni Hirowareta Otoko",
+          "type": "main",
+        },
+      ],
+    },
+  },
+  {
+    "source": {
+      "aid": 713,
+      "picture": "323866.jpg",
+      "restricted": false,
+      "titles": [
+        {
+          "lang": "x-jat",
+          "title": "Manie-Manie: Meikyuu Monogatari",
+          "type": "main",
+        },
+      ],
+    },
+    "target": {
+      "aid": 6037,
+      "picture": "277596.jpg",
+      "restricted": false,
+      "titles": [
+        {
+          "lang": "x-jat",
+          "title": "Genius Party Beyond",
+          "type": "main",
+        },
+      ],
+    },
+  },
+  {
+    "source": {
+      "aid": 8270,
+      "picture": "134376.jpg",
+      "restricted": false,
+      "titles": [
+        {
+          "lang": "x-jat",
+          "title": "Momo e no Tegami",
+          "type": "main",
+        },
+      ],
+    },
+    "target": {
+      "aid": 3195,
+      "picture": "149137.jpg",
+      "restricted": false,
+      "titles": [
+        {
+          "lang": "x-jat",
+          "title": "Kamichu!",
+          "type": "main",
+        },
+      ],
+    },
+  },
+  {
+    "source": {
+      "aid": 1099,
+      "picture": "141714.jpg",
+      "restricted": false,
+      "titles": [
+        {
+          "lang": "x-jat",
+          "title": "Sakigake!! Cromartie Koukou",
+          "type": "main",
+        },
+      ],
+    },
+    "target": {
+      "aid": 2070,
+      "picture": "36338.jpg",
+      "restricted": false,
+      "titles": [
+        {
+          "lang": "x-jat",
+          "title": "Sakigake!! Otoko Juku",
+          "type": "main",
+        },
+      ],
+    },
+  },
+  {
+    "source": {
+      "aid": 814,
+      "picture": "10913.jpg",
+      "restricted": false,
+      "titles": [
+        {
+          "lang": "x-jat",
+          "title": "Shihaisha no Tasogare",
+          "type": "main",
+        },
+      ],
+    },
+    "target": {
+      "aid": 1040,
+      "picture": "288831.jpg",
+      "restricted": false,
+      "titles": [
+        {
+          "lang": "x-jat",
+          "title": "Youjuu Toshi",
+          "type": "main",
+        },
+      ],
+    },
+  },
+  {
+    "source": {
+      "aid": 2844,
+      "picture": "151518.jpg",
+      "restricted": false,
+      "titles": [
+        {
+          "lang": "x-jat",
+          "title": "Shuffle!",
+          "type": "main",
+        },
+      ],
+    },
+    "target": {
+      "aid": 5101,
+      "picture": "287772.jpg",
+      "restricted": false,
+      "titles": [
+        {
+          "lang": "x-jat",
+          "title": "Clannad",
+          "type": "main",
+        },
+      ],
+    },
+  },
+  {
+    "source": {
+      "aid": 9235,
+      "picture": "94550.jpg",
+      "restricted": false,
+      "titles": [
+        {
+          "lang": "x-jat",
+          "title": "Tonari no Kaibutsu-kun",
+          "type": "main",
+        },
+      ],
+    },
+    "target": {
+      "aid": 9236,
+      "picture": "91846.jpg",
+      "restricted": false,
+      "titles": [
+        {
+          "lang": "x-jat",
+          "title": "Sukitte Ii na yo.",
+          "type": "main",
+        },
+      ],
+    },
+  },
+]
+`;

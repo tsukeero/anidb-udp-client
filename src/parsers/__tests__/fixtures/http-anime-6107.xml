@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- live response for aid 6107 (2026-10-29), trimmed: first tags/characters, one episode per epno type + a recap, review text removed -->
+<anime id="6107" restricted="false">
+    <type>TV Series</type>
+    <episodecount>64</episodecount>
+    <startdate>2009-04-05</startdate>
+    <enddate>2010-07-04</enddate>
+    <titles>
+        <title xml:lang="x-jat" type="main">Hagane no Renkinjutsushi (2009)</title>
+        <title xml:lang="en" type="synonym">Full Metal Alchemist: Brotherhood</title>
+        <title xml:lang="en" type="synonym">Fullmetal Alchemist Brotherhood</title>
+        <title xml:lang="en" type="synonym">Full Metal Alchemist 2</title>
+        <title xml:lang="en" type="synonym">Fullmetal Alchemist 2</title>
+        <title xml:lang="en" type="synonym">Fullmetal Alchemist (2009)</title>
+        <title xml:lang="ko" type="synonym">강철의 연금술사 리메이크</title>
+        <title xml:lang="pl" type="synonym">Stalowy Alchemik</title>
+        <title xml:lang="sv" type="synonym">Stålalkemisten</title>
+        <title xml:lang="ar" type="synonym">(2009) الخيميائي المعدني الكامل</title>
+        <title xml:lang="ar" type="synonym">الخيميائي المعدني الكامل: الأخوة</title>
+        <title xml:lang="fi" type="synonym">Fullmetal Alchemist: Teräsalkemisti</title>
+        <title xml:lang="he" type="synonym">אלכימאי המתכת 2009</title>
+        <title xml:lang="lt" type="synonym">Metalinis Alchemikas 2</title>
+        <title xml:lang="tr" type="synonym">Metal Simyacı: Kardeşlik</title>
+        <title xml:lang="bg" type="synonym">Стоманеният алхимик: Братство</title>
+        <title xml:lang="bg" type="synonym">Металният алхимик 2</title>
+        <title xml:lang="bg" type="synonym">Стоманеният алхимик (2009 г.)</title>
+        <title xml:lang="bg" type="synonym">Металният алхимик: Братство</title>
+        <title xml:lang="bg" type="synonym">Стоманеният алхимик 2</title>
+        <title xml:lang="uk" type="synonym">Суцільнометалевий алхімік: Братерство</title>
+        <title xml:lang="zh-Hant" type="synonym">鋼之鍊金術師 BROTHERHOOD</title>
+        <title xml:lang="zh-Hans" type="synonym">钢之炼金术师 2009</title>
+        <title xml:lang="en" type="short">FMA (2009)</title>
+        <title xml:lang="en" type="short">FMA: B</title>
+        <title xml:lang="en" type="short">FMA2</title>
+        <title xml:lang="en" type="short">FMAB</title>
+        <title xml:lang="en" type="short">FMA:B</title>
+        <title xml:lang="x-jat" type="short">HagaRen (2009)</title>
+        <title xml:lang="x-jat" type="short">hagaren2</title>
+        <title xml:lang="x-jat" type="short">HagaRen Brotherhood</title>
+        <title xml:lang="ja" type="official">鋼の錬金術師 (2009)</title>
+        <title xml:lang="en" type="official">Fullmetal Alchemist: Brotherhood</title>
+        <title xml:lang="de" type="official">Fullmetal Alchemist Brotherhood</title>
+        <title xml:lang="fr" type="official">Fullmetal Alchemist: Brotherhood</title>
+        <title xml:lang="it" type="official">Fullmetal Alchemist: Brotherhood</title>
+        <title xml:lang="es" type="official">Fullmetal Alchemist: Brotherhood</title>
+        <title xml:lang="ru" type="official">Стальной алхимик: братство</title>
+        <title xml:lang="pl" type="official">Stalowy Alchemik: Misja Braci</title>
+        <title xml:lang="pt" type="official">Fullmetal Alchemist Brotherhood</title>
+        <title xml:lang="pt-BR" type="official">Fullmetal Alchemist: Brotherhood</title>
+        <title xml:lang="cs" type="official">Fullmetal Alchemist - Bratrství</title>
+        <title xml:lang="he" type="official">אלכימאי המתכת: אחווה</title>
+        <title xml:lang="hu" type="official">Fullmetal Alchemist: Testvériség</title>
+        <title xml:lang="ro" type="official">Full Metal Alchemist: Fraternitate</title>
+        <title xml:lang="bg" type="official">Железният алхимик: Братство</title>
+        <title xml:lang="uk" type="official">Сталевий алхімік. Братерство</title>
+        <title xml:lang="zh-Hant" type="official">鋼之鍊金術師FA</title>
+        <title xml:lang="zh-Hans" type="official">钢之炼金术师 FULLMETAL ALCHEMIST</title>
+        <title xml:lang="es-419" type="official">Fullmetal Alchemist: Brotherhood</title>
+        <title xml:lang="fa" type="official">کیمیاگر تمام فلزی : داستان برادری</title>
+        <title xml:lang="mn" type="official">Цулметаллан Алхимич: Ахан дүүсийн барилдлага</title>
+        <title xml:lang="ja" type="kanareading">はがねのれんきんじゅつし (2009)</title>
+        <title xml:lang="ja" type="titlecard">鋼の錬金術師 FULLMETAL ALCHEMIST (2009)</title>
+        <title xml:lang="x-jat" type="titlecard">Hagane no Renkinjutsushi Fullmetal Alchemist (2009)</title>
+    </titles>
+    <relatedanime>
+        <anime id="979" type="Alternative Setting">Hagane no Renkinjutsushi</anime>
+        <anime id="8090" type="Side Story">Hagane no Renkinjutsushi: Milos no Seinaru Hoshi</anime>
+    </relatedanime>
+    <similaranime>
+        <anime id="8160" approval="7" total="30">Fate/Zero</anime>
+        <anime id="4516" approval="7" total="25">Busou Renkin</anime>
+        <anime id="12681" approval="6" total="41">Made in Abyss</anime>
+        <anime id="173" approval="5" total="23">Hunter x Hunter: Original Video Animation</anime>
+        <anime id="13946" approval="3" total="9">Dororo (2019)</anime>
+        <anime id="14051" approval="2" total="28">Yakusoku no Neverland</anime>
+        <anime id="17065" approval="2" total="5">Rurouni Kenshin: Meiji Kenkaku Romantan (2023)</anime>
+        <anime id="16033" approval="1" total="1">Summer Time Render</anime>
+    </similaranime>
+    <recommendations total="145">
+        <recommendation type="Recommended" uid="246307">[review text removed for the fixture]</recommendation>
+        <recommendation type="Recommended" uid="47691">[review text removed for the fixture]</recommendation>
+    </recommendations>
+    <url>http://www.hagaren.jp/fa/</url>
+    <creators>
+        <name id="755" type="Animation Work">Bones</name>
+        <name id="1450" type="Direction">Irie Yasuhiro</name>
+        <name id="2284" type="Character Design">Kanno Hiroki</name>
+        <name id="2711" type="Series Composition">Oonogi Hiroshi</name>
+        <name id="2726" type="Producer">Maruyama Hiroo</name>
+        <name id="2725" type="Producer">Yonai Noritomo</name>
+        <name id="2724" type="Producer">Kurashige Nobuyuki</name>
+        <name id="2723" type="Producer">Ooyama Ryou</name>
+        <name id="2712" type="Music">Senju Akira</name>
+        <name id="1007" type="Original Work">Arakawa Hiromu</name>
+    </creators>
+    <description>Two brothers lose http://anidb.net/ch7784 [their mother] to an incurable disease. With the power of alchemy, they use taboo knowledge to resurrect her. The process fails, and as a toll for using this type of alchemy, the older brother, http://anidb.net/ch5885 [Edward Elric], loses his left leg while the younger brother, http://anidb.net/ch5908 [Alphonse Elric], loses his entire body. To save his brother, Edward sacrifices his right arm and is able to affix his brother`s soul to a suit of armor. With the help of http://anidb.net/ch10164 [a family friend], Edward receives metal limbs - automail - to replace his lost ones. With that, Edward vows to search for the Philosopher`s Stone to return the brothers to their original bodies, even if it means becoming a State Alchemist, one who uses their alchemy for the military.
+Source: ANN</description>
+    <ratings>
+        <permanent count="14027">9.55</permanent>
+        <temporary count="14329">8.95</temporary>
+        <review count="12">8.99</review>
+    </ratings>
+    <picture>221536.jpg</picture>
+    <resources>
+        <resource type="1">
+            <externalentity>
+                <identifier>14079</identifier>
+            </externalentity>
+            <externalentity>
+                <identifier>10216</identifier>
+            </externalentity>
+        </resource>
+        <resource type="2">
+            <externalentity>
+                <identifier>5114</identifier>
+            </externalentity>
+            <externalentity>
+                <identifier>7902</identifier>
+            </externalentity>
+            <externalentity>
+                <identifier>6421</identifier>
+            </externalentity>
+        </resource>
+        <resource type="3">
+            <externalentity>
+                <identifier>4421</identifier>
+                <identifier>xyyigc</identifier>
+            </externalentity>
+        </resource>
+        <resource type="4">
+            <externalentity>
+                <url>http://www.hagaren.jp/fa/</url>
+            </externalentity>
+            <externalentity>
+                <url>http://www.bones.co.jp/fullmetal-alchemist</url>
+            </externalentity>
+        </resource>
+        <resource type="6">
+            <externalentity>
+                <identifier>Fullmetal_Alchemist:_Brotherhood</identifier>
+            </externalentity>
+        </resource>
+        <resource type="7">
+            <externalentity>
+                <identifier>鋼の錬金術師_FULLMETAL_ALCHEMIST</identifier>
+            </externalentity>
+        </resource>
+        <resource type="8">
+            <externalentity>
+                <identifier>1575</identifier>
+            </externalentity>
+        </resource>
+        <resource type="9">
+            <externalentity>
+                <identifier>369668</identifier>
+            </externalentity>
+            <externalentity>
+                <identifier>333401</identifier>
+            </externalentity>
+        </resource>
+        <resource type="10">
+            <externalentity>
+                <identifier>10804</identifier>
+            </externalentity>
+        </resource>
+        <resource type="20">
+            <externalentity>
+                <identifier>鋼之鍊金術師_FULLMETAL_ALCHEMIST</identifier>
+            </externalentity>
+        </resource>
+        <resource type="23">
+            <externalentity>
+                <identifier>hagaren_anime</identifier>
+            </externalentity>
+        </resource>
+        <resource type="28">
+            <externalentity>
+                <identifier>GRGGPG93R</identifier>
+            </externalentity>
+        </resource>
+        <resource type="31">
+            <externalentity>
+                <identifier>20012</identifier>
+            </externalentity>
+            <externalentity>
+                <identifier>11494</identifier>
+            </externalentity>
+            <externalentity>
+                <identifier>11129</identifier>
+            </externalentity>
+        </resource>
+        <resource type="32">
+            <externalentity>
+                <identifier>B0172XW87A</identifier>
+            </externalentity>
+        </resource>
+        <resource type="41">
+            <externalentity>
+                <identifier>70204981</identifier>
+            </externalentity>
+        </resource>
+        <resource type="44">
+            <externalentity>
+                <identifier>31911</identifier>
+                <identifier>tv</identifier>
+            </externalentity>
+        </resource>
+        <resource type="45">
+            <externalentity>
+                <identifier>fullmetal-alchemist-brotherhood/</identifier>
+            </externalentity>
+        </resource>
+    </resources>
+    <tags>
+        <tag id="30" weight="0" localspoiler="false" globalspoiler="false" verified="true" update="2014-09-10">
+            <name>maintenance tags</name>
+            <description>These tags are used for maintenance.</description>
+        </tag>
+        <tag id="36" parentid="2607" infobox="true" weight="600" localspoiler="false" globalspoiler="false" verified="true" update="2018-01-21">
+            <name>military</name>
+            <description>The military, also known as the armed forces, are forces authorized and legally entitled to use deadly force so as to support the interests of the state and its citizens. The task of the military is usually defined as defence of the state and its citizens and the prosecution of war against foreign powers. The military may also have additional functions within a society, including construction, emergency services, social ceremonies, and guarding critical areas.
+Source: Wikipedia</description>
+            <picurl>212184.jpg</picurl>
+        </tag>
+        <tag id="922" parentid="2606" infobox="true" weight="0" localspoiler="false" globalspoiler="false" verified="true" update="2015-02-04">
+            <name>shounen</name>
+            <description>In the context of manga and associated media, shounen, literally meaning "youth" and often also specifically "boy", refers to a male audience roughly between the ages of 10 and 18.
+Source: Wikipedia</description>
+        </tag>
+        <tag id="1396" parentid="2607" weight="0" localspoiler="false" globalspoiler="false" verified="true" update="2014-10-01">
+            <name>immortality</name>
+            <description>Immortality is the ability to live in a physical or spiritual form for an infinite or inconceivably vast length of time. Humans, whose life span is limited and who die of age, disease and external trauma, have long sought ways to extend their lives; the Epic of Gilgamesh, considered one of the first great literary works created by mankind, is primarily the quest of a hero seeking to become immortal. The advances of science, in particular medicine and engineering, and especially in the last few centuries, have helped people extend their life span and may yet continue finding ways to do so.
+In fiction, immortals are not quite as uncommon as in real life, and the possible implications of endless or very long lives are often explored. Such implications include, but are not limited to: repeatedly accompanying the deaths of those dear to them; having to hide their condition from the mortals surrounding them; becoming disillusioned with their lives and being unable to kill themselves; and even staying forever trapped in the body of a specific physical age, that body most often being that of a child. As such, while many may wish for immortality, it may be little more than a curse for the few who have it.</description>
+        </tag>
+        <tag id="1633" parentid="6149" weight="0" localspoiler="false" globalspoiler="false" verified="true" update="2012-02-23">
+            <name>xenophobia</name>
+            <description>An intense dislike and/or fear of people from other countries.</description>
+        </tag>
+    </tags>
+    <characters>
+        <character id="5885" type="main character in" update="2021-03-05">
+            <rating votes="949">8.43</rating>
+            <name>Edward Elric</name>
+            <gender>male</gender>
+            <charactertype id="1">Character</charactertype>
+            <description>Edward, the "Fullmetal Alchemist", is the youngest State Alchemist in history of the country and the main character of the series. He and his younger brother, Alphonse Elric, scour the world in search of the Philosopher`s Stone in the hopes of restoring their bodies.</description>
+            <picture>24292.jpg</picture>
+            <seiyuu id="566" picture="11151.jpeg">Paku Romi</seiyuu>
+        </character>
+        <character id="5908" type="main character in" update="2009-05-02">
+            <rating votes="542">6.14</rating>
+            <name>Alphonse Elric</name>
+            <gender>male</gender>
+            <charactertype id="1">Character</charactertype>
+            <description>He is a human child who lost his body during an alchemic experiment to bring his deceased mother back to life, and had his soul "attached" to a suit of armor by his brother, Edward Elric.
+Al`s blood seal lies just below the base of the neck at the back of the suit, on the inside. It is drawn with Ed`s blood. According to Edward, he needs to be careful whenever he reconstructs Alphonse`s body because he must keep the blood seal intact during the transmutation. If the blood seal is removed, Al`s soul will be lost.</description>
+            <picture>24291.jpg</picture>
+            <seiyuu id="3" picture="10965.jpeg">Kugimiya Rie</seiyuu>
+        </character>
+        <character id="5909" type="secondary cast in" update="2010-04-07">
+            <rating votes="204">2.88</rating>
+            <name>Gluttony</name>
+            <gender>male</gender>
+            <charactertype id="1">Character</charactertype>
+            <description>One of the first homunculi introduced in the series, typically appears in the company of http://anidb.net/ch6591 [Lust]. He is a large, simple-minded homunculus whose thoughts rarely stray far from eating. He has powerful jaws and acidic saliva, and can and will eat almost anything. He particularly likes eating people, and the only way he can find enjoyment in a battle is if he can eat his opponent afterwards.</description>
+            <picture>24242.jpg</picture>
+            <seiyuu id="2605" picture="22592.jpg">Shiratori Tetsu</seiyuu>
+        </character>
+    </characters>
+    <episodes>
+        <episode id="95629" update="2009-02-24">
+            <epno type="4">T1</epno>
+            <length>1</length>
+            <title xml:lang="en">Promo 1</title>
+        </episode>
+        <episode id="98426" update="2018-11-10">
+            <epno type="2">S1</epno>
+            <length>25</length>
+            <airdate>2009-04-03</airdate>
+            <rating votes="2">2.60</rating>
+            <title xml:lang="ja">「鋼の錬金術師」徹底解明!!</title>
+            <title xml:lang="en">"Hagane no Renkinjutsushi" Complete Clarification!!</title>
+            <title xml:lang="x-jat">"Hagane no Renkinjutsushi" Tettei Kaimei!!</title>
+        </episode>
+        <episode id="98463" update="2016-11-21">
+            <epno type="1">1</epno>
+            <length>25</length>
+            <airdate>2009-04-05</airdate>
+            <rating votes="68">4.89</rating>
+            <title xml:lang="ja">鋼の錬金術師</title>
+            <title xml:lang="en">Fullmetal Alchemist</title>
+            <title xml:lang="de">Fullmetal Alchemist</title>
+            <title xml:lang="fr">L`alchimiste fullmetal</title>
+            <title xml:lang="it">L`Alchimista d`acciaio</title>
+            <title xml:lang="pl">Stalowy Alchemik</title>
+            <title xml:lang="pt-BR">O Alquimista de Aço</title>
+            <title xml:lang="x-jat">Hagane no Renkinjutsushi</title>
+            <summary>The Elric brothers adjust to military life and take part in a manhunt for the dangerous Isaac the Freezer, a former State Alchemist bent on bringing Fuhrer Bradley down.
+Source: crunchyroll</summary>
+            <resources>
+                <resource type="28">
+                    <externalentity>
+                        <identifier>GYQ4M4216</identifier>
+                    </externalentity>
+                </resource>
+            </resources>
+        </episode>
+        <episode id="99826" update="2010-04-28">
+            <epno type="3">C1</epno>
+            <length>2</length>
+            <airdate>2009-04-05</airdate>
+            <rating votes="7">8.99</rating>
+            <title xml:lang="en">Opening 1</title>
+        </episode>
+        <episode id="109069" recap="true" update="2016-11-21">
+            <epno type="1">27</epno>
+            <length>25</length>
+            <airdate>2009-10-11</airdate>
+            <rating votes="36">2.17</rating>
+            <title xml:lang="ja">狭間の宴</title>
+            <title xml:lang="en">Interlude Party</title>
+            <title xml:lang="de">Fest im Zwischenraum</title>
+            <title xml:lang="fr">Le banquet d`interlude</title>
+            <title xml:lang="it">La festa della soglia</title>
+            <title xml:lang="pl">Zabawa w Wąwozie</title>
+            <title xml:lang="pt-BR">Festa no Vale</title>
+            <title xml:lang="x-jat">Hazama no Utage</title>
+            <summary>Visions of the past play out by a warming fire as Hohenheim reflects on the unavoidable follies of man: the pain that comes with a loving family; the hidden truths of alchemy; and the roots and results of war.
+Source: crunchyroll</summary>
+            <resources>
+                <resource type="28">
+                    <externalentity>
+                        <identifier>GRX040D36</identifier>
+                    </externalentity>
+                </resource>
+            </resources>
+        </episode>
+        <episode id="112209" update="2009-12-21">
+            <epno type="6">O1</epno>
+            <length>1</length>
+            <airdate>2009-04-05</airdate>
+            <title xml:lang="en">Introduction</title>
+        </episode>
+    </episodes>
+</anime>
