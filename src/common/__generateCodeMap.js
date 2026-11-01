@@ -155,7 +155,7 @@ VERSION                                  = 998
 UNKNOWN_API_ERROR                        = 670
 CONNECTION_TIMEOUT                       = 671
 NOT_CONNECTED                            = 672
-FAILED_TO_INITIALIZE                     = 672
+FAILED_TO_INITIALIZE                     = 673
 `
 const regex = /^([A-Z_]+)\s+=\s+([0-9]+)$/gm
 let m
