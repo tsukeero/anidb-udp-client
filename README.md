@@ -96,6 +96,31 @@ await cache.connect()
 const anidb_client = new AnidbUDPClient('my-anime-client', { cache } )
 ```
 
+### HTTP API client
+`AnidbHTTPClient` uses the AniDB [HTTP API](https://wiki.anidb.net/HTTP_API_Definition). It returns richer anime data than UDP: all titles, tags with spoiler flags, characters with voice actors, episodes, related and similar anime. It needs `fast-xml-parser` (see [Installation](#installation)) and its own client registration, separate from your UDP client.
+
+```js
+import { AnidbHTTPClient, AnidbTitles } from 'anidb-udp-client'
+
+const titles = await AnidbTitles.fromFile('./anime-titles.dat.gz')
+const http = new AnidbHTTPClient('my-http-client', 1, { titles })
+
+const anime = await http.anime(6107)
+const byTitle = await http.anime('Fullmetal Alchemist: Brotherhood')
+```
+
+| Method | Returns |
+|---|---|
+| `anime(aid \| title)` | full anime data; a title needs the `titles` option |
+| `hotAnime()` | anime on the AniDB front page |
+| `randomRecommendation()` | random recommended anime |
+| `randomSimilar()` | random pairs of an anime and a similar one |
+| `main()` | the three lists above in one request |
+
+- Requests are throttled to one every 2 seconds and cached. AniDB bans clients that repeat a request within a day, so the lists are cached for a day and `cache: false` still keeps an in-memory cache for a day.
+- `AnidbTitles` loads the [anime titles dump](https://wiki.anidb.net/API#Anime_Titles), which you download yourself, at most once a day. It offers `lookup(name)`, `search(query)`, `titles(aid)` and `mainTitle(aid)`.
+- Mylist and hints requests aren't supported, because they would send your password over plain HTTP. Use the UDP client for mylist data.
+
 ## Upgrading from 1.x
 
 - Node.js 22 or newer is required.
