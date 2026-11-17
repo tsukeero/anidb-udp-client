@@ -32,6 +32,16 @@ console.log(`${anime.english_name}: rating ${anime.rating}`)
 await anidb_client.disconnect()
 
 ```
+### Decoding file state (CRC, version, censorship)
+The `state` field of `file()`, `file_by_hash()` and `file_by_episode()` is a raw bitfield. Decode it with `decodeFileState()`:
+```js
+import { decodeFileState } from 'anidb-udp-client'
+
+const file = await anidb_client.file_by_hash(ed2k, size, [ 'state' ])
+const { crc_ok, version, censored, uncensored } = decodeFileState(file.state)
+```
+If neither `censored` nor `uncensored` is set, AniDB has no censorship information for the file.
+
 ### Custom cache path
 ```js
 import { AnidbUDPClient, SimplePersistentCache} from 'anidb-udp-client'
