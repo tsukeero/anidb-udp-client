@@ -1,4 +1,6 @@
-import { XMLParser } from 'fast-xml-parser'
+import type { XMLParser } from 'fast-xml-parser'
+import { AnidbError } from '../common/AnidbError'
+import { RESPONSE_CODE } from '../common/responseCodeMap'
 
 // shared helpers for the HTTP API parsers: every value arrives as a string (or `{ '#text', '@_attr' }` object)
 
@@ -7,17 +9,44 @@ export type HTTPRating = { value: number, count: number }
 
 export type XmlNode = Record<string, any>
 
-const xmlParser = new XMLParser({
-  ignoreAttributes: false,
-  attributeNamePrefix: '@_',
-  textNodeName: '#text',
-  alwaysCreateTextNode: true,
-  parseTagValue: false,
-  parseAttributeValue: false,
-})
+const XML_PARSER_PACKAGE = 'fast-xml-parser'
+let xmlParser: XMLParser | undefined
+
+/**
+ * `fast-xml-parser` is an optional peer dependency, only needed by {@link AnidbHTTPClient}.
+ * It is loaded on first use so that importing the package works without it.
+ * @throws {@link AnidbError} `FAILED_TO_INITIALIZE` if it is not installed
+ */
+export function ensureXmlParser (): void {
+  if (xmlParser) {
+    return
+  }
+  let mod: typeof import('fast-xml-parser')
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    mod = require('fast-xml-parser')
+  } catch (e: any) {
+    if (e?.code === 'MODULE_NOT_FOUND') {
+      throw new AnidbError(
+        RESPONSE_CODE.FAILED_TO_INITIALIZE,
+        `[HTTP] AnidbHTTPClient needs the optional peer dependency "${ XML_PARSER_PACKAGE }": npm install ${ XML_PARSER_PACKAGE }`
+      )
+    }
+    throw e
+  }
+  xmlParser = new mod.XMLParser({
+    ignoreAttributes: false,
+    attributeNamePrefix: '@_',
+    textNodeName: '#text',
+    alwaysCreateTextNode: true,
+    parseTagValue: false,
+    parseAttributeValue: false,
+  })
+}
 
 export function parseXml (xml: string): XmlNode {
-  return xmlParser.parse(xml)
+  ensureXmlParser()
+  return (xmlParser as XMLParser).parse(xml)
 }
 
 export const list = (node: unknown): XmlNode[] => node === undefined || node === null || node === '' ? [] : Array.isArray(node) ? node : [ node as XmlNode ]

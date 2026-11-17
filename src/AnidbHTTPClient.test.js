@@ -35,6 +35,29 @@ describe('AnidbHTTPClient', () => {
     jest.restoreAllMocks()
   })
 
+  test('throws FAILED_TO_INITIALIZE when the optional fast-xml-parser is missing', () => {
+    jest.isolateModules(() => {
+      jest.doMock('fast-xml-parser', () => {
+        const err = new Error("Cannot find module 'fast-xml-parser'")
+        err.code = 'MODULE_NOT_FOUND'
+        throw err
+      })
+      // importing the client must not need the parser, only constructing it
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      const { AnidbHTTPClient: IsolatedClient } = require('./AnidbHTTPClient')
+      let error
+      try {
+        new IsolatedClient('client', 1, { cache: false, logger: false })
+      } catch (e) {
+        error = e
+      }
+      expect(error).toMatchObject({ name: 'AnidbError', code: RESPONSE_CODE.FAILED_TO_INITIALIZE })
+      expect(error.message).toMatch(/npm install fast-xml-parser/)
+      expect(fetchMock).not.toHaveBeenCalled()
+    })
+    jest.dontMock('fast-xml-parser')
+  })
+
   test('requires client id and integer version', () => {
     expect(() => new AnidbHTTPClient()).toThrow(TypeError)
     expect(() => new AnidbHTTPClient('client', '1')).toThrow(TypeError)

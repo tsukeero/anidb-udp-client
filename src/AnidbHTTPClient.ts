@@ -5,7 +5,8 @@ import { AnidbError } from './common/AnidbError'
 import { RESPONSE_CODE } from './common/responseCodeMap'
 import { AnidbCache } from './utils/AnidbCache'
 import type { AnidbCacheImplType } from './utils/AnidbCache'
-import { parseAnime, parseXml } from './parsers/HTTPAnimeParser'
+import { parseAnime } from './parsers/HTTPAnimeParser'
+import { ensureXmlParser, parseXml } from './parsers/HTTPXml'
 import type { HTTPAnimeResult } from './parsers/HTTPAnimeParser'
 import type { AnidbTitles } from './AnidbTitles'
 import { parseHotAnime, parseMain, parseRandomRecommendation, parseRandomSimilar } from './parsers/HTTPMainParser'
@@ -31,6 +32,9 @@ type DailyEntry = { fetched: number, xml: string }
  * The user-data requests `mylistsummary` and `hints` are intentionally not supported: they need the account's main password
  * in the URL, and the HTTP API is only served over plain HTTP, so the password would travel unencrypted.
  * Use {@link AnidbUDPClient} for mylist data instead; its session can be encrypted with your UDP API key.
+ *
+ * Requires the optional peer dependency `fast-xml-parser` (`npm install fast-xml-parser`);
+ * the constructor throws {@link AnidbError} `FAILED_TO_INITIALIZE` without it.
  */
 export class AnidbHTTPClient {
   private cache!: AnidbCache
@@ -50,6 +54,7 @@ export class AnidbHTTPClient {
    * ```
    * @param clientId client id registered for the HTTP API (lower case), add your own here: https://anidb.net/software/add
    * @param clientVer registered version of that client
+   * @throws {@link AnidbError} `FAILED_TO_INITIALIZE` if `fast-xml-parser` is not installed
    */
   constructor (
     clientId: string,
@@ -72,6 +77,8 @@ export class AnidbHTTPClient {
     if (!clientId || !Number.isInteger(clientVer)) {
       throw new TypeError('AnidbHTTPClient requires a client id and an integer client version')
     }
+    // fail before any request is spent if the optional xml parser is missing
+    ensureXmlParser()
     this.clientId = clientId.toLowerCase()
     this.clientVer = clientVer
 

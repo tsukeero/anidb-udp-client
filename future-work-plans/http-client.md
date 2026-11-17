@@ -236,7 +236,8 @@ passed per call, never stored, and never logged. They support `output=json`, so 
 ### 6. Costs / trade-offs
 
 - **New runtime dependency:** an XML parser (likely `fast-xml-parser`). JSON output only exists for the user requests, so `anime` still needs XML.
-  If that bothers UDP-only users, expose the client via a subpath export (`anidb-udp-client/http`).
+  **Decided (2026-11-18):** `fast-xml-parser` is an optional peer dependency. It's loaded on first use, so UDP-only users don't install it,
+  and the `AnidbHTTPClient` constructor throws `FAILED_TO_INITIALIZE` when it's missing. No subpath export is needed.
 - **Package name:** it says "udp" but would also contain an HTTP client. Probably fine; mention it in the README instead of renaming.
 
 ## Suggested order
@@ -250,7 +251,7 @@ passed per call, never stored, and never logged. They support `output=json`, so 
    - After a `Banned` response, the client rejects every later call without sending it.
    - Only `Banned` → `BANNED` and `Anime not found` → `NO_SUCH_ANIME` are mapped. Other `<error>` texts become
      `UNKNOWN_API_ERROR`, with the text in `message` and `payload.error`. Collect the real error strings and extend the mapping.
-   - Exported from the main entry point for now (subpath export is still an open question).
+   - Exported from the main entry point; `fast-xml-parser` is an optional peer dependency (section 6).
    - Checked live 2026-10-29 with `anime` aid 309 (clientver 1): a 111 KB response, parsed without errors. Every element and
      attribute in it is handled. The test fixture is still written by hand, with the live findings added.
    - Live findings: an `externalentity` can hold several `<identifier>`s whose meaning depends on position
@@ -295,4 +296,4 @@ passed per call, never stored, and never logged. They support `output=json`, so 
 - [x] Shape of the `randomrecommendation` / `randomsimilar` / `hotanime` / `main` responses (see step 3).
       `mylistsummary` / `hints` are dropped (section 5).
 - [ ] Meaning of `<ratings><recommendations>` in `randomrecommendation`.
-- [ ] Subpath export vs. main export.
+- [x] Subpath export vs. main export. Main export, with `fast-xml-parser` as an optional peer dependency (section 6).

@@ -14,6 +14,12 @@ NPM: `npm install anidb-udp-client`
 
 Yarn: `yarn add anidb-udp-client`
 
+The HTTP API client (`AnidbHTTPClient`) also needs the optional peer dependency `fast-xml-parser`:
+
+`npm install anidb-udp-client fast-xml-parser`
+
+Without it, everything else works as usual, and creating an `AnidbHTTPClient` throws an `AnidbError` with the code `FAILED_TO_INITIALIZE`.
+
 ## Usage
 
 ### Basic example
