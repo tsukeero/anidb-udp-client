@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- live response (2026-10-30) -->
+<randomsimilar>
+    <similar>
+        <source aid="13893" restricted="false">
+            <title xml:lang="x-jat" type="main">Carole &amp; Tuesday</title>
+            <picture>258360.jpg</picture>
+        </source>
+        <target aid="4143" restricted="false">
+            <title xml:lang="x-jat" type="main">Nana</title>
+            <picture>321080.jpg</picture>
+        </target>
+    </similar>
+    <similar>
+        <source aid="8922" restricted="false">
+            <title xml:lang="x-jat" type="main">Guskou Budori no Denki (2012)</title>
+            <picture>86752.jpg</picture>
+        </source>
+        <target aid="820" restricted="false">
+            <title xml:lang="x-jat" type="main">Ihatov Gensou: Kenji no Haru</title>
+            <picture>91829.jpg</picture>
+        </target>
+    </similar>
+    <similar>
+        <source aid="15024" restricted="false">
+            <title xml:lang="x-jat" type="main">Kandagawa Jet Girls</title>
+            <picture>238442.jpg</picture>
+        </source>
+        <target aid="11922" restricted="false">
+            <title xml:lang="x-jat" type="main">Keijo!!!!!!!!</title>
+            <picture>323872.jpg</picture>
+        </target>
+    </similar>
+    <similar>
+        <source aid="15342" restricted="false">
+            <title xml:lang="x-jat" type="main">Kuma Kuma Kuma Bear</title>
+            <picture>247886.jpg</picture>
+        </source>
+        <target aid="15400" restricted="false">
+            <title xml:lang="x-jat" type="main">Kami-tachi ni Hirowareta Otoko</title>
+            <picture>262553.jpg</picture>
+        </target>
+    </similar>
+    <similar>
+        <source aid="713" restricted="false">
+            <title xml:lang="x-jat" type="main">Manie-Manie: Meikyuu Monogatari</title>
+            <picture>323866.jpg</picture>
+        </source>
+        <target aid="6037" restricted="false">
+            <title xml:lang="x-jat" type="main">Genius Party Beyond</title>
+            <picture>277596.jpg</picture>
+        </target>
+    </similar>
+    <similar>
+        <source aid="8270" restricted="false">
+            <title xml:lang="x-jat" type="main">Momo e no Tegami</title>
+            <picture>134376.jpg</picture>
+        </source>
+        <target aid="3195" restricted="false">
+            <title xml:lang="x-jat" type="main">Kamichu!</title>
+            <picture>149137.jpg</picture>
+        </target>
+    </similar>
+    <similar>
+        <source aid="1099" restricted="false">
+            <title xml:lang="x-jat" type="main">Sakigake!! Cromartie Koukou</title>
+            <picture>141714.jpg</picture>
+        </source>
+        <target aid="2070" restricted="false">
+            <title xml:lang="x-jat" type="main">Sakigake!! Otoko Juku</title>
+            <picture>36338.jpg</picture>
+        </target>
+    </similar>
+    <similar>
+        <source aid="814" restricted="false">
+            <title xml:lang="x-jat" type="main">Shihaisha no Tasogare</title>
+            <picture>10913.jpg</picture>
+        </source>
+        <target aid="1040" restricted="false">
+            <title xml:lang="x-jat" type="main">Youjuu Toshi</title>
+            <picture>288831.jpg</picture>
+        </target>
+    </similar>
+    <similar>
+        <source aid="2844" restricted="false">
+            <title xml:lang="x-jat" type="main">Shuffle!</title>
+            <picture>151518.jpg</picture>
+        </source>
+        <target aid="5101" restricted="false">
+            <title xml:lang="x-jat" type="main">Clannad</title>
+            <picture>287772.jpg</picture>
+        </target>
+    </similar>
+    <similar>
+        <source aid="9235" restricted="false">
+            <title xml:lang="x-jat" type="main">Tonari no Kaibutsu-kun</title>
+            <picture>94550.jpg</picture>
+        </source>
+        <target aid="9236" restricted="false">
+            <title xml:lang="x-jat" type="main">Sukitte Ii na yo.</title>
+            <picture>91846.jpg</picture>
+        </target>
+    </similar>
+</randomsimilar>

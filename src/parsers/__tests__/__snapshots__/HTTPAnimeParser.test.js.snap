@@ -1,0 +1,1247 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`HTTPAnimeParser parses a (trimmed) live response 1`] = `
+{
+  "aid": 6107,
+  "characters": [
+    {
+      "character_type": {
+        "id": 1,
+        "name": "Character",
+      },
+      "description": "Edward, the "Fullmetal Alchemist", is the youngest State Alchemist in history of the country and the main character of the series. He and his younger brother, Alphonse Elric, scour the world in search of the Philosopher\`s Stone in the hopes of restoring their bodies.",
+      "gender": "male",
+      "id": 5885,
+      "name": "Edward Elric",
+      "picture": "24292.jpg",
+      "rating": {
+        "count": 949,
+        "value": 8.43,
+      },
+      "seiyuu": [
+        {
+          "id": 566,
+          "name": "Paku Romi",
+          "picture": "11151.jpeg",
+        },
+      ],
+      "type": "main character in",
+      "update": "2021-03-05",
+    },
+    {
+      "character_type": {
+        "id": 1,
+        "name": "Character",
+      },
+      "description": "He is a human child who lost his body during an alchemic experiment to bring his deceased mother back to life, and had his soul "attached" to a suit of armor by his brother, Edward Elric.
+Al\`s blood seal lies just below the base of the neck at the back of the suit, on the inside. It is drawn with Ed\`s blood. According to Edward, he needs to be careful whenever he reconstructs Alphonse\`s body because he must keep the blood seal intact during the transmutation. If the blood seal is removed, Al\`s soul will be lost.",
+      "gender": "male",
+      "id": 5908,
+      "name": "Alphonse Elric",
+      "picture": "24291.jpg",
+      "rating": {
+        "count": 542,
+        "value": 6.14,
+      },
+      "seiyuu": [
+        {
+          "id": 3,
+          "name": "Kugimiya Rie",
+          "picture": "10965.jpeg",
+        },
+      ],
+      "type": "main character in",
+      "update": "2009-05-02",
+    },
+    {
+      "character_type": {
+        "id": 1,
+        "name": "Character",
+      },
+      "description": "One of the first homunculi introduced in the series, typically appears in the company of http://anidb.net/ch6591 [Lust]. He is a large, simple-minded homunculus whose thoughts rarely stray far from eating. He has powerful jaws and acidic saliva, and can and will eat almost anything. He particularly likes eating people, and the only way he can find enjoyment in a battle is if he can eat his opponent afterwards.",
+      "gender": "male",
+      "id": 5909,
+      "name": "Gluttony",
+      "picture": "24242.jpg",
+      "rating": {
+        "count": 204,
+        "value": 2.88,
+      },
+      "seiyuu": [
+        {
+          "id": 2605,
+          "name": "Shiratori Tetsu",
+          "picture": "22592.jpg",
+        },
+      ],
+      "type": "secondary cast in",
+      "update": "2010-04-07",
+    },
+  ],
+  "creators": [
+    {
+      "id": 755,
+      "name": "Bones",
+      "type": "Animation Work",
+    },
+    {
+      "id": 1450,
+      "name": "Irie Yasuhiro",
+      "type": "Direction",
+    },
+    {
+      "id": 2284,
+      "name": "Kanno Hiroki",
+      "type": "Character Design",
+    },
+    {
+      "id": 2711,
+      "name": "Oonogi Hiroshi",
+      "type": "Series Composition",
+    },
+    {
+      "id": 2726,
+      "name": "Maruyama Hiroo",
+      "type": "Producer",
+    },
+    {
+      "id": 2725,
+      "name": "Yonai Noritomo",
+      "type": "Producer",
+    },
+    {
+      "id": 2724,
+      "name": "Kurashige Nobuyuki",
+      "type": "Producer",
+    },
+    {
+      "id": 2723,
+      "name": "Ooyama Ryou",
+      "type": "Producer",
+    },
+    {
+      "id": 2712,
+      "name": "Senju Akira",
+      "type": "Music",
+    },
+    {
+      "id": 1007,
+      "name": "Arakawa Hiromu",
+      "type": "Original Work",
+    },
+  ],
+  "description": "Two brothers lose http://anidb.net/ch7784 [their mother] to an incurable disease. With the power of alchemy, they use taboo knowledge to resurrect her. The process fails, and as a toll for using this type of alchemy, the older brother, http://anidb.net/ch5885 [Edward Elric], loses his left leg while the younger brother, http://anidb.net/ch5908 [Alphonse Elric], loses his entire body. To save his brother, Edward sacrifices his right arm and is able to affix his brother\`s soul to a suit of armor. With the help of http://anidb.net/ch10164 [a family friend], Edward receives metal limbs - automail - to replace his lost ones. With that, Edward vows to search for the Philosopher\`s Stone to return the brothers to their original bodies, even if it means becoming a State Alchemist, one who uses their alchemy for the military.
+Source: ANN",
+  "end_date": "2010-07-04",
+  "episode_count": 64,
+  "episodes": [
+    {
+      "epno": {
+        "type": 4,
+        "value": "T1",
+      },
+      "id": 95629,
+      "length": 1,
+      "recap": false,
+      "resources": [],
+      "titles": [
+        {
+          "lang": "en",
+          "title": "Promo 1",
+        },
+      ],
+      "update": "2009-02-24",
+    },
+    {
+      "air_date": "2009-04-03",
+      "epno": {
+        "type": 2,
+        "value": "S1",
+      },
+      "id": 98426,
+      "length": 25,
+      "rating": {
+        "count": 2,
+        "value": 2.6,
+      },
+      "recap": false,
+      "resources": [],
+      "titles": [
+        {
+          "lang": "ja",
+          "title": "「鋼の錬金術師」徹底解明!!",
+        },
+        {
+          "lang": "en",
+          "title": ""Hagane no Renkinjutsushi" Complete Clarification!!",
+        },
+        {
+          "lang": "x-jat",
+          "title": ""Hagane no Renkinjutsushi" Tettei Kaimei!!",
+        },
+      ],
+      "update": "2018-11-10",
+    },
+    {
+      "air_date": "2009-04-05",
+      "epno": {
+        "type": 1,
+        "value": "1",
+      },
+      "id": 98463,
+      "length": 25,
+      "rating": {
+        "count": 68,
+        "value": 4.89,
+      },
+      "recap": false,
+      "resources": [
+        {
+          "entities": [
+            {
+              "identifiers": [
+                "GYQ4M4216",
+              ],
+              "urls": [],
+            },
+          ],
+          "type": 28,
+        },
+      ],
+      "summary": "The Elric brothers adjust to military life and take part in a manhunt for the dangerous Isaac the Freezer, a former State Alchemist bent on bringing Fuhrer Bradley down.
+Source: crunchyroll",
+      "titles": [
+        {
+          "lang": "ja",
+          "title": "鋼の錬金術師",
+        },
+        {
+          "lang": "en",
+          "title": "Fullmetal Alchemist",
+        },
+        {
+          "lang": "de",
+          "title": "Fullmetal Alchemist",
+        },
+        {
+          "lang": "fr",
+          "title": "L\`alchimiste fullmetal",
+        },
+        {
+          "lang": "it",
+          "title": "L\`Alchimista d\`acciaio",
+        },
+        {
+          "lang": "pl",
+          "title": "Stalowy Alchemik",
+        },
+        {
+          "lang": "pt-BR",
+          "title": "O Alquimista de Aço",
+        },
+        {
+          "lang": "x-jat",
+          "title": "Hagane no Renkinjutsushi",
+        },
+      ],
+      "update": "2016-11-21",
+    },
+    {
+      "air_date": "2009-04-05",
+      "epno": {
+        "type": 3,
+        "value": "C1",
+      },
+      "id": 99826,
+      "length": 2,
+      "rating": {
+        "count": 7,
+        "value": 8.99,
+      },
+      "recap": false,
+      "resources": [],
+      "titles": [
+        {
+          "lang": "en",
+          "title": "Opening 1",
+        },
+      ],
+      "update": "2010-04-28",
+    },
+    {
+      "air_date": "2009-10-11",
+      "epno": {
+        "type": 1,
+        "value": "27",
+      },
+      "id": 109069,
+      "length": 25,
+      "rating": {
+        "count": 36,
+        "value": 2.17,
+      },
+      "recap": true,
+      "resources": [
+        {
+          "entities": [
+            {
+              "identifiers": [
+                "GRX040D36",
+              ],
+              "urls": [],
+            },
+          ],
+          "type": 28,
+        },
+      ],
+      "summary": "Visions of the past play out by a warming fire as Hohenheim reflects on the unavoidable follies of man: the pain that comes with a loving family; the hidden truths of alchemy; and the roots and results of war.
+Source: crunchyroll",
+      "titles": [
+        {
+          "lang": "ja",
+          "title": "狭間の宴",
+        },
+        {
+          "lang": "en",
+          "title": "Interlude Party",
+        },
+        {
+          "lang": "de",
+          "title": "Fest im Zwischenraum",
+        },
+        {
+          "lang": "fr",
+          "title": "Le banquet d\`interlude",
+        },
+        {
+          "lang": "it",
+          "title": "La festa della soglia",
+        },
+        {
+          "lang": "pl",
+          "title": "Zabawa w Wąwozie",
+        },
+        {
+          "lang": "pt-BR",
+          "title": "Festa no Vale",
+        },
+        {
+          "lang": "x-jat",
+          "title": "Hazama no Utage",
+        },
+      ],
+      "update": "2016-11-21",
+    },
+    {
+      "air_date": "2009-04-05",
+      "epno": {
+        "type": 6,
+        "value": "O1",
+      },
+      "id": 112209,
+      "length": 1,
+      "recap": false,
+      "resources": [],
+      "titles": [
+        {
+          "lang": "en",
+          "title": "Introduction",
+        },
+      ],
+      "update": "2009-12-21",
+    },
+  ],
+  "picture": "221536.jpg",
+  "ratings": {
+    "mean": {
+      "count": 14329,
+      "value": 8.95,
+    },
+    "permanent": {
+      "count": 14027,
+      "value": 9.55,
+    },
+    "review": {
+      "count": 12,
+      "value": 8.99,
+    },
+  },
+  "recommendations": [
+    {
+      "text": "[review text removed for the fixture]",
+      "type": "Recommended",
+      "uid": 246307,
+    },
+    {
+      "text": "[review text removed for the fixture]",
+      "type": "Recommended",
+      "uid": 47691,
+    },
+  ],
+  "related_anime": [
+    {
+      "aid": 979,
+      "title": "Hagane no Renkinjutsushi",
+      "type": "Alternative Setting",
+    },
+    {
+      "aid": 8090,
+      "title": "Hagane no Renkinjutsushi: Milos no Seinaru Hoshi",
+      "type": "Side Story",
+    },
+  ],
+  "resources": [
+    {
+      "entities": [
+        {
+          "identifiers": [
+            "14079",
+          ],
+          "urls": [],
+        },
+        {
+          "identifiers": [
+            "10216",
+          ],
+          "urls": [],
+        },
+      ],
+      "type": 1,
+    },
+    {
+      "entities": [
+        {
+          "identifiers": [
+            "5114",
+          ],
+          "urls": [],
+        },
+        {
+          "identifiers": [
+            "7902",
+          ],
+          "urls": [],
+        },
+        {
+          "identifiers": [
+            "6421",
+          ],
+          "urls": [],
+        },
+      ],
+      "type": 2,
+    },
+    {
+      "entities": [
+        {
+          "identifiers": [
+            "4421",
+            "xyyigc",
+          ],
+          "urls": [],
+        },
+      ],
+      "type": 3,
+    },
+    {
+      "entities": [
+        {
+          "identifiers": [],
+          "urls": [
+            "http://www.hagaren.jp/fa/",
+          ],
+        },
+        {
+          "identifiers": [],
+          "urls": [
+            "http://www.bones.co.jp/fullmetal-alchemist",
+          ],
+        },
+      ],
+      "type": 4,
+    },
+    {
+      "entities": [
+        {
+          "identifiers": [
+            "Fullmetal_Alchemist:_Brotherhood",
+          ],
+          "urls": [],
+        },
+      ],
+      "type": 6,
+    },
+    {
+      "entities": [
+        {
+          "identifiers": [
+            "鋼の錬金術師_FULLMETAL_ALCHEMIST",
+          ],
+          "urls": [],
+        },
+      ],
+      "type": 7,
+    },
+    {
+      "entities": [
+        {
+          "identifiers": [
+            "1575",
+          ],
+          "urls": [],
+        },
+      ],
+      "type": 8,
+    },
+    {
+      "entities": [
+        {
+          "identifiers": [
+            "369668",
+          ],
+          "urls": [],
+        },
+        {
+          "identifiers": [
+            "333401",
+          ],
+          "urls": [],
+        },
+      ],
+      "type": 9,
+    },
+    {
+      "entities": [
+        {
+          "identifiers": [
+            "10804",
+          ],
+          "urls": [],
+        },
+      ],
+      "type": 10,
+    },
+    {
+      "entities": [
+        {
+          "identifiers": [
+            "鋼之鍊金術師_FULLMETAL_ALCHEMIST",
+          ],
+          "urls": [],
+        },
+      ],
+      "type": 20,
+    },
+    {
+      "entities": [
+        {
+          "identifiers": [
+            "hagaren_anime",
+          ],
+          "urls": [],
+        },
+      ],
+      "type": 23,
+    },
+    {
+      "entities": [
+        {
+          "identifiers": [
+            "GRGGPG93R",
+          ],
+          "urls": [],
+        },
+      ],
+      "type": 28,
+    },
+    {
+      "entities": [
+        {
+          "identifiers": [
+            "20012",
+          ],
+          "urls": [],
+        },
+        {
+          "identifiers": [
+            "11494",
+          ],
+          "urls": [],
+        },
+        {
+          "identifiers": [
+            "11129",
+          ],
+          "urls": [],
+        },
+      ],
+      "type": 31,
+    },
+    {
+      "entities": [
+        {
+          "identifiers": [
+            "B0172XW87A",
+          ],
+          "urls": [],
+        },
+      ],
+      "type": 32,
+    },
+    {
+      "entities": [
+        {
+          "identifiers": [
+            "70204981",
+          ],
+          "urls": [],
+        },
+      ],
+      "type": 41,
+    },
+    {
+      "entities": [
+        {
+          "identifiers": [
+            "31911",
+            "tv",
+          ],
+          "urls": [],
+        },
+      ],
+      "type": 44,
+    },
+    {
+      "entities": [
+        {
+          "identifiers": [
+            "fullmetal-alchemist-brotherhood/",
+          ],
+          "urls": [],
+        },
+      ],
+      "type": 45,
+    },
+  ],
+  "restricted": false,
+  "similar_anime": [
+    {
+      "aid": 8160,
+      "approval": 7,
+      "title": "Fate/Zero",
+      "total": 30,
+    },
+    {
+      "aid": 4516,
+      "approval": 7,
+      "title": "Busou Renkin",
+      "total": 25,
+    },
+    {
+      "aid": 12681,
+      "approval": 6,
+      "title": "Made in Abyss",
+      "total": 41,
+    },
+    {
+      "aid": 173,
+      "approval": 5,
+      "title": "Hunter x Hunter: Original Video Animation",
+      "total": 23,
+    },
+    {
+      "aid": 13946,
+      "approval": 3,
+      "title": "Dororo (2019)",
+      "total": 9,
+    },
+    {
+      "aid": 14051,
+      "approval": 2,
+      "title": "Yakusoku no Neverland",
+      "total": 28,
+    },
+    {
+      "aid": 17065,
+      "approval": 2,
+      "title": "Rurouni Kenshin: Meiji Kenkaku Romantan (2023)",
+      "total": 5,
+    },
+    {
+      "aid": 16033,
+      "approval": 1,
+      "title": "Summer Time Render",
+      "total": 1,
+    },
+  ],
+  "start_date": "2009-04-05",
+  "tags": [
+    {
+      "description": "These tags are used for maintenance.",
+      "global_spoiler": false,
+      "id": 30,
+      "infobox": false,
+      "local_spoiler": false,
+      "name": "maintenance tags",
+      "update": "2014-09-10",
+      "verified": true,
+      "weight": 0,
+    },
+    {
+      "description": "The military, also known as the armed forces, are forces authorized and legally entitled to use deadly force so as to support the interests of the state and its citizens. The task of the military is usually defined as defence of the state and its citizens and the prosecution of war against foreign powers. The military may also have additional functions within a society, including construction, emergency services, social ceremonies, and guarding critical areas.
+Source: Wikipedia",
+      "global_spoiler": false,
+      "id": 36,
+      "infobox": true,
+      "local_spoiler": false,
+      "name": "military",
+      "parent_id": 2607,
+      "picture": "212184.jpg",
+      "update": "2018-01-21",
+      "verified": true,
+      "weight": 600,
+    },
+    {
+      "description": "In the context of manga and associated media, shounen, literally meaning "youth" and often also specifically "boy", refers to a male audience roughly between the ages of 10 and 18.
+Source: Wikipedia",
+      "global_spoiler": false,
+      "id": 922,
+      "infobox": true,
+      "local_spoiler": false,
+      "name": "shounen",
+      "parent_id": 2606,
+      "update": "2015-02-04",
+      "verified": true,
+      "weight": 0,
+    },
+    {
+      "description": "Immortality is the ability to live in a physical or spiritual form for an infinite or inconceivably vast length of time. Humans, whose life span is limited and who die of age, disease and external trauma, have long sought ways to extend their lives; the Epic of Gilgamesh, considered one of the first great literary works created by mankind, is primarily the quest of a hero seeking to become immortal. The advances of science, in particular medicine and engineering, and especially in the last few centuries, have helped people extend their life span and may yet continue finding ways to do so.
+In fiction, immortals are not quite as uncommon as in real life, and the possible implications of endless or very long lives are often explored. Such implications include, but are not limited to: repeatedly accompanying the deaths of those dear to them; having to hide their condition from the mortals surrounding them; becoming disillusioned with their lives and being unable to kill themselves; and even staying forever trapped in the body of a specific physical age, that body most often being that of a child. As such, while many may wish for immortality, it may be little more than a curse for the few who have it.",
+      "global_spoiler": false,
+      "id": 1396,
+      "infobox": false,
+      "local_spoiler": false,
+      "name": "immortality",
+      "parent_id": 2607,
+      "update": "2014-10-01",
+      "verified": true,
+      "weight": 0,
+    },
+    {
+      "description": "An intense dislike and/or fear of people from other countries.",
+      "global_spoiler": false,
+      "id": 1633,
+      "infobox": false,
+      "local_spoiler": false,
+      "name": "xenophobia",
+      "parent_id": 6149,
+      "update": "2012-02-23",
+      "verified": true,
+      "weight": 0,
+    },
+  ],
+  "titles": [
+    {
+      "lang": "x-jat",
+      "title": "Hagane no Renkinjutsushi (2009)",
+      "type": "main",
+    },
+    {
+      "lang": "en",
+      "title": "Full Metal Alchemist: Brotherhood",
+      "type": "synonym",
+    },
+    {
+      "lang": "en",
+      "title": "Fullmetal Alchemist Brotherhood",
+      "type": "synonym",
+    },
+    {
+      "lang": "en",
+      "title": "Full Metal Alchemist 2",
+      "type": "synonym",
+    },
+    {
+      "lang": "en",
+      "title": "Fullmetal Alchemist 2",
+      "type": "synonym",
+    },
+    {
+      "lang": "en",
+      "title": "Fullmetal Alchemist (2009)",
+      "type": "synonym",
+    },
+    {
+      "lang": "ko",
+      "title": "강철의 연금술사 리메이크",
+      "type": "synonym",
+    },
+    {
+      "lang": "pl",
+      "title": "Stalowy Alchemik",
+      "type": "synonym",
+    },
+    {
+      "lang": "sv",
+      "title": "Stålalkemisten",
+      "type": "synonym",
+    },
+    {
+      "lang": "ar",
+      "title": "(2009) الخيميائي المعدني الكامل",
+      "type": "synonym",
+    },
+    {
+      "lang": "ar",
+      "title": "الخيميائي المعدني الكامل: الأخوة",
+      "type": "synonym",
+    },
+    {
+      "lang": "fi",
+      "title": "Fullmetal Alchemist: Teräsalkemisti",
+      "type": "synonym",
+    },
+    {
+      "lang": "he",
+      "title": "אלכימאי המתכת 2009",
+      "type": "synonym",
+    },
+    {
+      "lang": "lt",
+      "title": "Metalinis Alchemikas 2",
+      "type": "synonym",
+    },
+    {
+      "lang": "tr",
+      "title": "Metal Simyacı: Kardeşlik",
+      "type": "synonym",
+    },
+    {
+      "lang": "bg",
+      "title": "Стоманеният алхимик: Братство",
+      "type": "synonym",
+    },
+    {
+      "lang": "bg",
+      "title": "Металният алхимик 2",
+      "type": "synonym",
+    },
+    {
+      "lang": "bg",
+      "title": "Стоманеният алхимик (2009 г.)",
+      "type": "synonym",
+    },
+    {
+      "lang": "bg",
+      "title": "Металният алхимик: Братство",
+      "type": "synonym",
+    },
+    {
+      "lang": "bg",
+      "title": "Стоманеният алхимик 2",
+      "type": "synonym",
+    },
+    {
+      "lang": "uk",
+      "title": "Суцільнометалевий алхімік: Братерство",
+      "type": "synonym",
+    },
+    {
+      "lang": "zh-Hant",
+      "title": "鋼之鍊金術師 BROTHERHOOD",
+      "type": "synonym",
+    },
+    {
+      "lang": "zh-Hans",
+      "title": "钢之炼金术师 2009",
+      "type": "synonym",
+    },
+    {
+      "lang": "en",
+      "title": "FMA (2009)",
+      "type": "short",
+    },
+    {
+      "lang": "en",
+      "title": "FMA: B",
+      "type": "short",
+    },
+    {
+      "lang": "en",
+      "title": "FMA2",
+      "type": "short",
+    },
+    {
+      "lang": "en",
+      "title": "FMAB",
+      "type": "short",
+    },
+    {
+      "lang": "en",
+      "title": "FMA:B",
+      "type": "short",
+    },
+    {
+      "lang": "x-jat",
+      "title": "HagaRen (2009)",
+      "type": "short",
+    },
+    {
+      "lang": "x-jat",
+      "title": "hagaren2",
+      "type": "short",
+    },
+    {
+      "lang": "x-jat",
+      "title": "HagaRen Brotherhood",
+      "type": "short",
+    },
+    {
+      "lang": "ja",
+      "title": "鋼の錬金術師 (2009)",
+      "type": "official",
+    },
+    {
+      "lang": "en",
+      "title": "Fullmetal Alchemist: Brotherhood",
+      "type": "official",
+    },
+    {
+      "lang": "de",
+      "title": "Fullmetal Alchemist Brotherhood",
+      "type": "official",
+    },
+    {
+      "lang": "fr",
+      "title": "Fullmetal Alchemist: Brotherhood",
+      "type": "official",
+    },
+    {
+      "lang": "it",
+      "title": "Fullmetal Alchemist: Brotherhood",
+      "type": "official",
+    },
+    {
+      "lang": "es",
+      "title": "Fullmetal Alchemist: Brotherhood",
+      "type": "official",
+    },
+    {
+      "lang": "ru",
+      "title": "Стальной алхимик: братство",
+      "type": "official",
+    },
+    {
+      "lang": "pl",
+      "title": "Stalowy Alchemik: Misja Braci",
+      "type": "official",
+    },
+    {
+      "lang": "pt",
+      "title": "Fullmetal Alchemist Brotherhood",
+      "type": "official",
+    },
+    {
+      "lang": "pt-BR",
+      "title": "Fullmetal Alchemist: Brotherhood",
+      "type": "official",
+    },
+    {
+      "lang": "cs",
+      "title": "Fullmetal Alchemist - Bratrství",
+      "type": "official",
+    },
+    {
+      "lang": "he",
+      "title": "אלכימאי המתכת: אחווה",
+      "type": "official",
+    },
+    {
+      "lang": "hu",
+      "title": "Fullmetal Alchemist: Testvériség",
+      "type": "official",
+    },
+    {
+      "lang": "ro",
+      "title": "Full Metal Alchemist: Fraternitate",
+      "type": "official",
+    },
+    {
+      "lang": "bg",
+      "title": "Железният алхимик: Братство",
+      "type": "official",
+    },
+    {
+      "lang": "uk",
+      "title": "Сталевий алхімік. Братерство",
+      "type": "official",
+    },
+    {
+      "lang": "zh-Hant",
+      "title": "鋼之鍊金術師FA",
+      "type": "official",
+    },
+    {
+      "lang": "zh-Hans",
+      "title": "钢之炼金术师 FULLMETAL ALCHEMIST",
+      "type": "official",
+    },
+    {
+      "lang": "es-419",
+      "title": "Fullmetal Alchemist: Brotherhood",
+      "type": "official",
+    },
+    {
+      "lang": "fa",
+      "title": "کیمیاگر تمام فلزی : داستان برادری",
+      "type": "official",
+    },
+    {
+      "lang": "mn",
+      "title": "Цулметаллан Алхимич: Ахан дүүсийн барилдлага",
+      "type": "official",
+    },
+    {
+      "lang": "ja",
+      "title": "はがねのれんきんじゅつし (2009)",
+      "type": "kanareading",
+    },
+    {
+      "lang": "ja",
+      "title": "鋼の錬金術師 FULLMETAL ALCHEMIST (2009)",
+      "type": "titlecard",
+    },
+    {
+      "lang": "x-jat",
+      "title": "Hagane no Renkinjutsushi Fullmetal Alchemist (2009)",
+      "type": "titlecard",
+    },
+  ],
+  "type": "TV Series",
+  "url": "http://www.hagaren.jp/fa/",
+}
+`;
+
+exports[`HTTPAnimeParser parses full anime xml 1`] = `
+{
+  "aid": 1,
+  "characters": [
+    {
+      "character_type": {
+        "id": 1,
+        "name": "Character",
+      },
+      "description": "Princess.",
+      "gender": "female",
+      "id": 28,
+      "name": "Abriel Nei Debrusc Borl Paryun Lafiel",
+      "picture": "14304.jpg",
+      "rating": {
+        "count": 1196,
+        "value": 9.15,
+      },
+      "seiyuu": [
+        {
+          "id": 12,
+          "name": "Kawasumi Ayako",
+          "picture": "184301.jpg",
+        },
+      ],
+      "type": "main character in",
+      "update": "2012-07-25",
+    },
+    {
+      "id": 29,
+      "name": "Linn Jinto",
+      "seiyuu": [],
+      "type": "secondary cast in",
+      "update": "2010-01-01",
+    },
+  ],
+  "creators": [
+    {
+      "id": 4303,
+      "name": "Hattori Katsuhisa",
+      "type": "Music",
+    },
+  ],
+  "description": "Based on the sci-fi novel series by http://anidb.net/cr2 [Morioka Hiroyuki]. Featuring http://anidb.net/ch28 [Lafiel].",
+  "end_date": "1999-03-28",
+  "episode_count": 13,
+  "episodes": [
+    {
+      "air_date": "1999-01-03",
+      "epno": {
+        "type": 1,
+        "value": "1",
+      },
+      "id": 1,
+      "length": 25,
+      "rating": {
+        "count": 28,
+        "value": 3.31,
+      },
+      "recap": false,
+      "resources": [],
+      "titles": [
+        {
+          "lang": "en",
+          "title": "Invasion",
+        },
+        {
+          "lang": "ja",
+          "title": "侵略",
+        },
+      ],
+      "update": "2011-07-01",
+    },
+    {
+      "epno": {
+        "type": 2,
+        "value": "S1",
+      },
+      "id": 2,
+      "length": 25,
+      "recap": false,
+      "resources": [],
+      "titles": [
+        {
+          "lang": "en",
+          "title": "Special",
+        },
+      ],
+      "update": "2011-07-01",
+    },
+  ],
+  "picture": "440.jpg",
+  "ratings": {
+    "mean": {
+      "count": 4460,
+      "value": 8.23,
+    },
+    "permanent": {
+      "count": 4430,
+      "value": 8.16,
+    },
+    "review": {
+      "count": 12,
+      "value": 8.7,
+    },
+  },
+  "recommendations": [
+    {
+      "text": "Good & solid space opera.",
+      "type": "Recommended",
+      "uid": 567190,
+    },
+  ],
+  "related_anime": [
+    {
+      "aid": 4,
+      "title": "Seikai no Senki",
+      "type": "Sequel",
+    },
+  ],
+  "resources": [
+    {
+      "entities": [
+        {
+          "identifiers": [
+            "14",
+          ],
+          "urls": [],
+        },
+      ],
+      "type": 1,
+    },
+    {
+      "entities": [
+        {
+          "identifiers": [],
+          "urls": [
+            "http://www.sunrise-inc.co.jp/seikai/",
+          ],
+        },
+      ],
+      "type": 4,
+    },
+    {
+      "entities": [
+        {
+          "identifiers": [
+            "85100",
+            "tv",
+          ],
+          "urls": [],
+        },
+      ],
+      "type": 44,
+    },
+  ],
+  "restricted": false,
+  "similar_anime": [
+    {
+      "aid": 584,
+      "approval": 75,
+      "title": "Ginga Eiyuu Densetsu",
+      "total": 89,
+    },
+    {
+      "aid": 2745,
+      "approval": 20,
+      "title": "Starship Operators",
+      "total": 34,
+    },
+  ],
+  "start_date": "1999-01-03",
+  "tags": [
+    {
+      "description": "Armed forces.",
+      "global_spoiler": false,
+      "id": 36,
+      "infobox": true,
+      "local_spoiler": false,
+      "name": "military",
+      "parent_id": 2607,
+      "picture": "212184.jpg",
+      "update": "2018-01-21",
+      "verified": true,
+      "weight": 300,
+    },
+    {
+      "global_spoiler": false,
+      "id": 2607,
+      "infobox": false,
+      "local_spoiler": true,
+      "name": "setting",
+      "update": "2016-11-08",
+      "verified": false,
+      "weight": 0,
+    },
+  ],
+  "titles": [
+    {
+      "lang": "x-jat",
+      "title": "Seikai no Monshou",
+      "type": "main",
+    },
+    {
+      "lang": "en",
+      "title": "Crest of the Stars",
+      "type": "official",
+    },
+    {
+      "lang": "ja",
+      "title": "星界の紋章",
+      "type": "official",
+    },
+    {
+      "lang": "x-jat",
+      "title": "SnM",
+      "type": "short",
+    },
+  ],
+  "type": "TV Series",
+  "url": "http://www.sunrise-inc.co.jp/seikai/",
+}
+`;
