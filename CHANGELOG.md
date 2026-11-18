@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/tsukeero/anidb-udp-client/compare/v2.0.2...v2.1.0) (2026-11-18)
+
+
+### Features
+
+* add AniDB HTTP API client ([#35](https://github.com/tsukeero/anidb-udp-client/issues/35)) ([ea130a6](https://github.com/tsukeero/anidb-udp-client/commit/ea130a6c89ded7b0bf8251387de10b9bcc37f5e9))
+
 ## [2.0.2](https://github.com/tsukeero/anidb-udp-client/compare/v2.0.1...v2.0.2) (2026-11-01)
 
 
